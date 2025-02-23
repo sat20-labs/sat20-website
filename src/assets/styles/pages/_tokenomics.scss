@@ -1,0 +1,368 @@
+// Tokenomics page styles
+.tokenomics-page {
+  min-height: 100vh;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+  color: var(--text-primary);
+  background: var(--bg-gradient-dark);
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-section {
+    padding: 0 0 4rem;
+    text-align: center;
+
+    .gradient-title {
+      font-size: 3.5rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--neon) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      color: var(--text-secondary);
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
+  .main-content {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    padding: 0;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .participation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .grid-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-5px);
+      background: var(--card-hover);
+      border-color: var(--card-hover-border);
+      box-shadow: 0 10px 30px var(--shadow-color);
+
+      h2 {
+        color: var(--text-primary);
+      }
+
+      &::before {
+        opacity: 1;
+      }
+
+      &::after {
+        left: 100%;
+      }
+    }
+
+    /* 发光边框效果 */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 20px;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--primary), var(--neon));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    /* 微光扫过效果 */
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: 0.5s;
+    }
+
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .features {
+      margin-bottom: 2rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      color: var(--text-secondary);
+
+      .feature-icon {
+        color: var(--primary);
+        margin-right: 0.5rem;
+      }
+    }
+
+    .learn-more {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      font-weight: 500;
+      transition: all 0.3s ease;
+
+      .arrow-icon {
+        margin-left: 0.5rem;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        color: var(--primary-light);
+        .arrow-icon {
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+
+  .sidebar {
+    .sidebar-section {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover {
+        transform: translateY(-5px);
+        background: var(--card-hover);
+        border-color: var(--card-hover-border);
+        box-shadow: 0 10px 30px var(--shadow-color);
+
+        &::before {
+          opacity: 1;
+        }
+      }
+
+      /* 发光边框效果 */
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 20px;
+        padding: 2px;
+        background: linear-gradient(135deg, var(--primary), var(--neon));
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 0.75rem;
+
+          a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: var(--primary);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .newsletter-section {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-5px);
+      background: var(--card-hover);
+      border-color: var(--card-hover-border);
+      box-shadow: 0 10px 30px var(--shadow-color);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    /* 发光边框效果 */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 20px;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--primary), var(--neon));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      input {
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--card-border);
+        background: var(--bg-input);
+        color: var(--text-primary);
+        transition: all 0.3s ease;
+
+        &:focus {
+          border-color: var(--primary);
+          outline: none;
+          box-shadow: 0 0 0 2px var(--primary-transparent);
+        }
+
+        &::placeholder {
+          color: var(--text-secondary);
+        }
+      }
+
+      button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        background: var(--primary);
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: var(--primary-dark);
+          transform: translateY(-2px);
+        }
+
+        &:disabled {
+          background: var(--color-disabled);
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 4rem 0;
+
+    .hero-section {
+      padding: 0 0 2rem;
+
+      .gradient-title {
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+      }
+    }
+
+    .grid-card {
+      padding: 1.5rem;
+
+      h2 {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

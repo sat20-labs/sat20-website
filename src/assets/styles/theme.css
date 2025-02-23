@@ -1,0 +1,150 @@
+:root {
+  /* 主色调 */
+  --space-black: #0F0F12;
+  --tech-blue: #2A6FFF;
+  --neon-green: #00FFC4;
+  --gradient-purple-start: #7B61FF;
+  --gradient-purple-end: #2A6FFF;
+  
+  /* 辅助色 */
+  --gradient-purple-start: #7B61FF;
+  --gradient-purple-end: #2A6FFF;
+  
+  /* 背景色 */
+  --bg-primary: var(--space-black);
+  --bg-secondary: #1A1A1F;
+  --bg-card: rgba(15, 15, 18, 0.8);
+  --bg-gradient: linear-gradient(135deg, var(--gradient-purple-start), var(--gradient-purple-end));
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --code-bg: rgba(0, 0, 0, 0.2);
+  --code-block-bg: rgba(0, 0, 0, 0.3);
+  
+  /* 文本颜色 */
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-accent: var(--neon-green);
+  --text-muted: rgba(255, 255, 255, 0.5);
+  
+  /* 边框颜色 */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-glow: 0 0 15px rgba(42, 111, 255, 0.3);
+  
+  /* 渐变 */
+  --gradient-primary: linear-gradient(135deg, var(--gradient-purple-start), var(--gradient-purple-end));
+  --gradient-card: linear-gradient(180deg, rgba(42, 111, 255, 0.1), rgba(0, 255, 196, 0.05));
+  
+  /* 阴影 */
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.2);
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --card-hover-shadow: 0 10px 20px rgba(42, 111, 255, 0.2);
+  
+  /* 动画时间 */
+  --transition-fast: 0.2s;
+  --transition-normal: 0.3s;
+  --transition-slow: 0.5s;
+  
+  /* 状态颜色 */
+  --primary-color: #4a90e2;
+  --warning-bg: rgba(255, 152, 0, 0.2);
+  --warning-text: #ff9800;
+  --success-bg: rgba(76, 175, 80, 0.2);
+  --success-text: #4caf50;
+}
+
+/* 全局基础样式 */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 卡片基础样式 */
+.card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.card:hover {
+  transform: var(--card-hover-transform);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* 渐变文本 */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 按钮基础样式 */
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(123, 97, 255, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--tech-blue);
+  color: var(--tech-blue);
+}
+
+.btn-outline:hover {
+  background: rgba(42, 111, 255, 0.1);
+}
+
+/* 图标基础样式 */
+.icon {
+  stroke-width: 1.5px;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* 动画效果 */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 粒子背景基础样式 */
+.particles-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.6;
+}

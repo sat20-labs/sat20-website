@@ -1,0 +1,11 @@
+{
+  "plugins": ["node"],
+  "extends": [
+    "plugin:vue/vue3-recommended",
+    "eslint:recommended"
+  ],
+  "rules": {
+    "vue/no-deprecated-slot-attribute": "warn",
+    "node/no-unsupported-features/es-syntax": "off"
+  }
+}

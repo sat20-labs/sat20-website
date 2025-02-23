@@ -1,0 +1,32 @@
+@import './base.css';
+@import './components/card.css';
+
+:root {
+  --primary-color: #0100EC;
+  --accent-color: #FB36F4;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  
+  /* 深色模式 */
+  --dark-bg: #0a0a0a;
+  --dark-text: #ffffff;
+  --dark-border: rgba(255, 255, 255, 0.1);
+  
+  /* 浅色模式 */
+  --light-bg: #ffffff;
+  --light-text: #0a0a0a;
+  --light-border: rgba(0, 0, 0, 0.1);
+}
+
+/* 深色模式 */
+.dark-theme {
+  --bg-color: var(--dark-bg);
+  --text-color: var(--dark-text);
+  --border-color: var(--dark-border);
+}
+
+/* 浅色模式 */
+.light-theme {
+  --bg-color: var(--light-bg);
+  --text-color: var(--light-text);
+  --border-color: var(--light-border);
+}

@@ -1,0 +1,716 @@
+// Technology page styles
+.technology-page {
+  padding: 6rem 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, var(--primary), var(--neon));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-section {
+    text-align: center;
+    margin-bottom: 6rem;
+    position: relative;
+    padding: 2rem;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(135deg, var(--primary), var(--neon));
+      border-radius: 2px;
+      opacity: 0.5;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--neon));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    .hero-description {
+      color: var(--text-secondary);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+  }
+
+  // 架构概览样式
+  .architecture-overview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 0;
+    flex-wrap: nowrap;
+    
+    .layer-card {
+      flex: 1;
+      padding: 2rem;
+      border-radius: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      min-width: 250px;
+      max-width: 300px;
+      
+      &:hover {
+        transform: translateY(-5px);
+        background: var(--card-hover);
+        border-color: var(--card-hover-border);
+        box-shadow: 0 10px 30px var(--shadow-color);
+
+        &::before {
+          opacity: 1;
+        }
+
+        &::after {
+          left: 100%;
+        }
+      }
+
+      /* 发光边框效果 */
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 20px;
+        padding: 2px;
+        background: linear-gradient(135deg, var(--primary), var(--neon));
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      /* 微光扫过效果 */
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: 0.5s;
+      }
+      
+      .layer-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+      
+      .layer-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+        text-align: center;
+      }
+      
+      .layer-desc {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        text-align: center;
+      }
+    }
+    
+    .arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 2rem;
+      flex: 0 0 auto;
+    }
+  }
+
+  .tech-comparison {
+    margin: 3rem 0;
+    overflow-x: auto;
+    background: var(--card-bg);
+    border-radius: 20px;
+    border: 1px solid var(--card-border);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px var(--shadow-color);
+    }
+
+    /* 发光边框效果 */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 20px;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--primary), var(--neon));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th, td {
+        padding: 1.5rem;
+        text-align: left;
+        border-bottom: 1px solid var(--card-border);
+        transition: all 0.3s ease;
+      }
+
+      th {
+        background: var(--card-hover);
+        color: var(--text-primary);
+        font-weight: 600;
+        font-size: 1.1rem;
+        position: relative;
+        overflow: hidden;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: linear-gradient(90deg, var(--primary), var(--neon));
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: transform 0.3s ease;
+        }
+        
+        &:hover::after {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
+      }
+
+      tr {
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: var(--card-hover);
+          
+          td {
+            color: var(--text-primary);
+          }
+        }
+      }
+
+      td {
+        color: var(--text-secondary);
+      }
+    }
+  }
+
+  .innovation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+
+    .innovation-card {
+      padding: 2rem;
+      border-radius: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover {
+        transform: translateY(-5px);
+        background: var(--card-hover);
+        border-color: var(--card-hover-border);
+        box-shadow: 0 10px 30px var(--shadow-color);
+
+        &::before {
+          opacity: 1;
+        }
+
+        &::after {
+          left: 100%;
+        }
+      }
+
+      /* 发光边框效果 */
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 20px;
+        padding: 2px;
+        background: linear-gradient(135deg, var(--primary), var(--neon));
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      /* 微光扫过效果 */
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: 0.5s;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-primary);
+        background: linear-gradient(135deg, var(--primary), var(--neon));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          color: var(--text-secondary);
+          margin-bottom: 1rem;
+          display: flex;
+          align-items: center;
+          line-height: 1.6;
+
+          &::before {
+            content: '•';
+            color: var(--primary);
+            margin-right: 1rem;
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .pillar-card {
+      padding: 2rem;
+      border-radius: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover {
+        transform: translateY(-5px);
+        background: var(--card-hover);
+        border-color: var(--card-hover-border);
+        box-shadow: 0 10px 30px var(--shadow-color);
+
+        .pillar-number {
+          transform: scale(1.1);
+        }
+
+        &::before {
+          opacity: 1;
+        }
+
+        &::after {
+          left: 100%;
+        }
+      }
+
+      /* 发光边框效果 */
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 20px;
+        padding: 2px;
+        background: linear-gradient(135deg, var(--primary), var(--neon));
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      /* 微光扫过效果 */
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: 0.5s;
+      }
+
+      .pillar-header {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+
+        .pillar-number {
+          font-size: 2.5rem;
+          background: linear-gradient(135deg, var(--primary), var(--neon));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight: 700;
+          transition: transform 0.3s ease;
+        }
+
+        .pillar-title {
+          font-size: 1.5rem;
+          color: var(--text-primary);
+          margin: 0;
+        }
+      }
+
+      .pillar-body {
+        .innovation-tag {
+          display: inline-block;
+          background: var(--card-hover);
+          color: var(--primary);
+          padding: 0.75rem 1.5rem;
+          border-radius: 20px;
+          margin-bottom: 1.5rem;
+          font-size: 0.9rem;
+          font-weight: 500;
+          border: 1px solid var(--card-hover-border);
+        }
+
+        .feature-list {
+          list-style: none;
+          padding: 0;
+
+          .feature-item {
+            display: flex;
+            align-items: center;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+
+            .feature-icon {
+              color: var(--primary);
+              margin-right: 1rem;
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .timeline {
+    position: relative;
+    padding: 2rem 0;
+    margin: 3rem auto;
+    max-width: 1000px;
+    
+    // 中间渐变时间线
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: calc(100% - 100px);
+      background: linear-gradient(135deg, var(--primary), var(--neon));
+      opacity: 1;
+      z-index: 0;
+      box-shadow: 0 0 20px var(--shadow-color);
+    }
+
+    .timeline-phase {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 4rem;
+      position: relative;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      // 时间点
+      &::before {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background: var(--primary);
+        border-radius: 50%;
+        left: 50%;
+        top: 5px;
+        transform: translateX(-50%);
+        box-shadow: 0 0 15px var(--shadow-color);
+        z-index: 1;
+        transition: all 0.3s ease;
+      }
+
+      &:hover {
+        &::before {
+          transform: translateX(-50%) scale(1.5);
+          box-shadow: 0 0 30px var(--shadow-color);
+          background: var(--neon);
+        }
+
+        .phase-content {
+          transform: translateY(-5px);
+          background: var(--card-hover);
+          border-color: var(--card-hover-border);
+          box-shadow: 0 10px 30px var(--shadow-color);
+        }
+      }
+
+      &.reverse-layout {
+        flex-direction: row-reverse;
+
+        .phase-content {
+          text-align: right;
+          margin-left: 0;
+          margin-right: 4rem;
+        }
+      }
+
+      .phase-content {
+        flex: 0 0 calc(50% - 2rem);
+        margin-left: 4rem;
+        padding: 2rem;
+        background: var(--card-bg);
+        border-radius: 20px;
+        border: 1px solid var(--card-border);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+          transform: translateY(-5px);
+          background: var(--card-hover);
+          border-color: var(--card-hover-border);
+          box-shadow: 0 10px 30px var(--shadow-color);
+
+          &::before {
+            opacity: 1;
+          }
+
+          &::after {
+            left: 100%;
+          }
+
+          & + .timeline-phase::before {
+            transform: translateX(-50%) scale(1.5);
+            box-shadow: 0 0 30px var(--shadow-color);
+            background: var(--neon);
+          }
+        }
+
+        /* 发光边框效果 */
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: 20px;
+          padding: 2px;
+          background: linear-gradient(135deg, var(--primary), var(--neon));
+          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        /* 微光扫过效果 */
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent
+          );
+          transition: 0.5s;
+        }
+
+        .phase-time {
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin-bottom: 1rem;
+          background: linear-gradient(135deg, var(--primary), var(--neon));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .phase-title {
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+          color: var(--text-primary);
+          font-weight: 600;
+        }
+
+        .phase-description {
+          color: var(--text-secondary);
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+}
+
+// 响应式样式
+@media (max-width: 1024px) {
+  .technology-page {
+    padding: 4rem 0;
+
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .architecture-overview {
+      flex-direction: column;
+      gap: 1.5rem;
+
+      .layer-card {
+        min-width: 100%;
+        max-width: none;
+      }
+
+      .arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    .tech-comparison {
+      margin: 2rem 0;
+      
+      table {
+        th, td {
+          padding: 1rem;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .technology-page {
+    padding: 3rem 0;
+
+    .container {
+      padding: 0 1rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+  }
+}

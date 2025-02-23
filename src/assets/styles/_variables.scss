@@ -1,0 +1,47 @@
+// 设计变量
+:root {
+  // Colors
+  --primary-gradient: linear-gradient(135deg, #0100EC 0%, #FB36F4 100%);
+  --gradient-purple-start: #0100EC;
+  --gradient-purple-end: #FB36F4;
+  --accent-color: #FB36F4;
+  
+  // Backgrounds
+  --bg-dark: #0C0D0F;
+  --bg-card: rgba(1, 0, 236, 0.05);
+  --bg-card-hover: rgba(251, 54, 244, 0.1);
+  
+  // Borders
+  --border-color: rgba(1, 0, 236, 0.2);
+  --border-hover: rgba(251, 54, 244, 0.3);
+  
+  // Text colors
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  
+  // Icon colors
+  --icon-primary: #FB36F4;
+  --icon-bg: rgba(251, 54, 244, 0.1);
+  
+  // Card effects
+  --card-glow: 0 4px 20px rgba(251, 54, 244, 0.15);
+  --card-gradient: linear-gradient(135deg, rgba(1, 0, 236, 0.1), rgba(251, 54, 244, 0.1));
+  
+  // Spacing
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  // Border radius
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+$primary-color: var(--gradient-purple-start);
+$secondary-color: var(--accent-color);
+$font-family: 'Helvetica Neue', sans-serif;
+$base-padding: var(--spacing-md);

@@ -1,0 +1,15 @@
+// Pages styles index
+@import './home';
+@import './technology';
+@import './tokenomics';
+@import './developers';
+@import './investor';
+@import './satonet';
+@import './roadmap';
+@import './documentation';
+@import './user';
+
+// Import all page-specific styles
+@import 'technology';
+@import 'tokenomics';
+@import 'developers';

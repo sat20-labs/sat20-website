@@ -1,0 +1,56 @@
+{
+    "name": "SAT20Labs",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "engines": {
+        "node": ">=20.0.0"
+    },
+    "scripts": {
+        "dev": "run-s predev vite-dev",
+        "dev:debug": "vite --debug --mode debug",
+        "vite-dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "predev": "node --check vite.config.js"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.7.2",
+        "@fortawesome/free-solid-svg-icons": "^6.7.2",
+        "@fortawesome/vue-fontawesome": "^3.0.8",
+        "@tsparticles/slim": "^3.8.1",
+        "@tsparticles/vue3": "^3.0.1",
+        "@types/dompurify": "^3.2.0",
+        "@types/marked": "^6.0.0",
+        "dompurify": "^3.2.4",
+        "highlight.js": "^11.11.1",
+        "markdown-it-anchor": "^9.2.0",
+        "markdown-it-attrs": "^4.3.1",
+        "marked": "^15.0.7",
+        "mermaid": "^11.4.1",
+        "rollup-plugin-visualizer": "^5.14.0",
+        "shiki": "^3.0.0",
+        "tsparticles-engine": "^2.12.0",
+        "tsparticles-preset-links": "^2.7.0",
+        "vue": "^3.5.13",
+        "vue-i18n": "^9.14.2",
+        "vue-router": "^4.5.0",
+        "vue3-particles": "2.12.0"
+    },
+    "devDependencies": {
+        "@typescript-eslint/parser": "^8.24.1",
+        "@vitejs/plugin-vue": "^4.6.2",
+        "autoprefixer": "^10.4.20",
+        "cross-env": "^7.0.3",
+        "eslint": "^9.20.1",
+        "eslint-plugin-json": "^4.0.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-vue": "^9.32.0",
+        "npm-run-all": "^4.1.5",
+        "postcss": "^8.5.3",
+        "sass": "1.62.0",
+        "tailwindcss": "^4.0.8",
+        "vite": "^4.5.9",
+        "vite-plugin-md": "^0.20.6"
+    }
+}

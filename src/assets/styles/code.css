@@ -1,0 +1,37 @@
+/* 代码块容器 */
+.shiki {
+    background: var(--code-bg) !important;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  
+  /* 语言标签 */
+  .shiki::after {
+    content: attr(data-language);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 0 8px 0 8px;
+    font-size: 0.85em;
+    color: #88C0D0;
+  }
+  
+  /* 行号 */
+  .shiki .line {
+    display: flex;
+    counter-increment: line;
+  }
+  
+  .shiki .line::before {
+    content: counter(line);
+    min-width: 2.5em;
+    padding-right: 1em;
+    text-align: right;
+    color: #4C566A;
+    user-select: none;
+  }

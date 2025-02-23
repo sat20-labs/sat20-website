@@ -1,0 +1,97 @@
+/* 深色主题变量 */
+[data-theme="dark"] {
+  --primary: #2A6FFF;
+  --primary-rgb: 42, 111, 255;
+  --neon: #00FFC4;
+  --neon-rgb: 0, 255, 196;
+  --bg: #0c0d0f;
+  --bg-primary: #0c0d0f;
+  --bg-secondary: #1A1A1F;
+  --purple-gradient: linear-gradient(135deg, #7B61FF, #2A6FFF);
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --card-bg: rgba(42, 111, 255, 0.05);
+  --card-border: rgba(42, 111, 255, 0.1);
+  --card-hover: rgba(0, 255, 196, 0.05);
+  --card-hover-border: rgba(0, 255, 196, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 浅色主题变量 */
+[data-theme="light"] {
+  --primary: #1A56DB;
+  --primary-rgb: 26, 86, 219;
+  --neon: #00B890;
+  --neon-rgb: 0, 184, 144;
+  --bg: #FFFFFF;
+  --bg-primary: #F8F9FA;
+  --bg-secondary: #F8F9FA;
+  --purple-gradient: linear-gradient(135deg, #6B46FF, #1A56DB);
+  --text-primary: #1A1A1A;
+  --text-secondary: rgba(26, 26, 26, 0.7);
+  --border-color: rgba(26, 26, 26, 0.1);
+  --card-bg: rgba(26, 86, 219, 0.05);
+  --card-border: rgba(26, 86, 219, 0.1);
+  --card-hover: rgba(0, 184, 144, 0.05);
+  --card-hover-border: rgba(0, 184, 144, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 共享变量 */
+:root {
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+  --bg-primary: #0c0d0f;
+  --bg-secondary: #0c0d0f;
+}
+
+/* 基础样式 */
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-xs);
+  }
+}
+
+/* 通用动效 */
+.hover-float {
+  transition: transform 0.3s ease;
+}
+
+.hover-float:hover {
+  transform: translateY(-5px);
+}
+
+/* 渐变文本 */
+.gradient-text {
+  background: var(--purple-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 添加文本过渡效果 */
+[data-i18n-transition] {
+  transition: opacity 0.2s ease;
+}
+
+[data-i18n-transition="fade"] {
+  opacity: 0;
+}
