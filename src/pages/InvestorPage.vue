@@ -7,7 +7,7 @@
 
       <!-- Token Usage Section -->
       <section class="info-section">
-        <h2>{{ t('investor.tokenUsage.title') }}</h2>
+        <h2 class="section-title">{{ t('investor.tokenUsage.title') }}</h2>
         <div class="info-card pearl-card">
           <IconPearl class="card-icon" />
           <div class="card-content">
@@ -19,7 +19,7 @@
 
       <!-- Transaction Fee Section -->
       <section class="info-section">
-        <h2>{{ t('investor.transactionFee.title') }}</h2>
+        <h2 class="section-title">{{ t('investor.transactionFee.title') }}</h2>
         <div class="info-card fee-card">
           <IconFee class="card-icon" />
           <div class="card-content">
@@ -39,7 +39,7 @@
 
       <!-- Revenue Distribution Section -->
       <section class="info-section">
-        <h2>{{ t('investor.revenue.title') }}</h2>
+        <h2 class="section-title">{{ t('investor.revenue.title') }}</h2>
         <div class="cards-grid">
           <div class="info-card mining-card">
             <IconMining class="card-icon" />
@@ -98,7 +98,7 @@
 
       <!-- Dynamic Adjustment Section -->
       <section class="info-section">
-        <h2>{{ t('investor.adjustment.title') }}</h2>
+        <h2 class="section-title">{{ t('investor.adjustment.title') }}</h2>
         <div class="cards-grid">
           <div class="info-card network-card">
             <IconNetwork class="card-icon" />
@@ -161,6 +161,15 @@ const { t } = useI18n();
     background-clip: text;
     text-align: center;
     margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, var(--primary), var(--neon));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .subtitle {

@@ -3,11 +3,11 @@
     <ParticlesBg />
     <div class="container">
       <h1 class="gradient-title">{{ t('satoshinet.title') }}</h1>
-      <p class="subtitle">{{ t('satoshinet.subtitle') }}</p>
+      <p class="satoshinet-description">{{ t('satoshinet.subtitle') }}</p>
 
       <!-- 技术架构详情 -->
       <section class="section architecture">
-        <h2>{{ t('satoshinet.architecture.title') }}</h2>
+        <h2 class="section-title">{{ t('satoshinet.architecture.title') }}</h2>
         <div class="feature-list">
           <div v-for="(feature, idx) in tm('satoshinet.architecture.features')" 
                :key="idx" 
@@ -19,7 +19,7 @@
 
       <!-- 核心优势 -->
       <section class="section advantages">
-        <h2>{{ t('satoshinet.advantages.title') }}</h2>
+        <h2 class="section-title">{{ t('satoshinet.advantages.title') }}</h2>
         <div class="advantages-grid">
           <div v-for="(item, idx) in tm('satoshinet.advantages.items')"
                :key="idx"
@@ -32,7 +32,7 @@
 
       <!-- 经济模型 -->
       <section class="section economy">
-        <h2>{{ t('satoshinet.economy.title') }}</h2>
+        <h2 class="section-title">{{ t('satoshinet.economy.title') }}</h2>
         <div class="model-grid">
           <div v-for="(model, idx) in tm('satoshinet.economy.models')"
                :key="idx"
@@ -46,7 +46,7 @@
 
       <!-- 生态发展 -->
       <section class="section ecosystem">
-        <h2>{{ t('satoshinet.ecosystem.title') }}</h2>
+        <h2 class="section-title">{{ t('satoshinet.ecosystem.title') }}</h2>
         <div class="phase-timeline">
           <div v-for="(phase, idx) in tm('satoshinet.ecosystem.phases')"
                :key="idx"
@@ -100,12 +100,31 @@ const { t, tm } = useI18n()
     text-align: center;
   }
 
+  .section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, var(--primary), var(--neon));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .subtitle {
     font-size: 1.5rem;
     color: var(--text-secondary);
     text-align: center;
     margin-bottom: 4rem;
   }
+
+  .satoshinet-description {
+      color: var(--text-secondary);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      text-align: center;
+      opacity: 0.9;
+    }
 
   .section {
     margin-bottom: 6rem;

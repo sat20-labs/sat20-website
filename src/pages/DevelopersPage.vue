@@ -215,10 +215,11 @@ function getIconComponent(iconName) {
 
 .section-title {
   font-size: 2rem;
-  font-weight: bold;
   text-align: center;
   margin-bottom: 3rem;
-  color: var(--text-primary);
+  background: linear-gradient(135deg, var(--primary), var(--neon));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .docs-grid,

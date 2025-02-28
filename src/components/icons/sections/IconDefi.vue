@@ -1,18 +1,27 @@
 <template>
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="48" height="48" rx="8" fill="currentColor" fill-opacity="0.1"/>
-    <path d="M24 14V34M24 14C24 14 28 18 32 18M24 14C24 14 20 18 16 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M24 34C24 34 28 30 32 30M24 34C24 34 20 30 16 30" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M19 24H29M19 24C19 22.8954 19.8954 22 21 22H27C28.1046 22 29 22.8954 29 24M19 24C19 25.1046 19.8954 26 21 26H27C28.1046 26 29 25.1046 29 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <svg :width="size" :height="size" viewBox="0 0 512 512">
+    <defs>
+      <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:var(--primary)" />
+        <stop offset="100%" style="stop-color:var(--neon)" />
+      </linearGradient>
+    </defs>
+    <path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9zm-52.5 185.4L256 407.2 102.2 248.1c-37.2-38.4-35.2-99 4.7-135.4 35.6-32.7 89.7-29.7 122.1 4.3l26.6 27.5 26.6-27.5c32.4-33.9 86.5-37 122.1-4.3 39.8 36.4 41.8 97 4.5 135.3z" fill="url(#iconGradient)" />
   </svg>
 </template>
 
 <script setup>
 // DeFi图标组件
+defineProps({
+  size: {
+    type: [Number, String],
+    default: 32
+  }
+});
 </script>
 
-<style scoped>
+<!-- <style scoped>
 svg {
   color: var(--primary);
 }
-</style>
+</style> -->

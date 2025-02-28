@@ -1,18 +1,20 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" :width="size" :height="size" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="10"></circle>
-    <circle cx="12" cy="12" r="4"></circle>
-    <line x1="21.17" y1="8" x2="12" y2="8"></line>
-    <line x1="3.95" y1="6.06" x2="8.54" y2="14"></line>
-    <line x1="10.88" y1="21.94" x2="15.46" y2="14"></line>
+  <svg :width="size" :height="size" viewBox="0 0 512 512">
+    <defs>
+      <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:var(--primary)" />
+        <stop offset="100%" style="stop-color:var(--neon)" />
+      </linearGradient>
+    </defs>
+    <path d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z" fill="url(#iconGradient)" />
   </svg>
 </template>
 
 <script setup>
 defineProps({
   size: {
-    type: Number,
-    default: 24
+    type: [Number, String],
+    default: 32
   }
 });
 </script>

@@ -87,6 +87,6 @@ main {
 /* 语言切换过渡 */
 [data-i18n-transition="fade"] {
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
 }
 </style>

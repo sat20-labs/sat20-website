@@ -30,7 +30,7 @@ export default {
 
   // ==================== Roles ====================
   roles: {
-    investor: 'Investor',
+    explorer: 'Explorer',
     developer: 'Developer',
     user: 'User'
   },
@@ -157,8 +157,7 @@ export default {
           "Ordinals",
           "BRC20",
           "Runes",
-          "OrdX",
-          "RGB"
+          "OrdX"
         ]
       },
       assetTypes: {
@@ -166,19 +165,23 @@ export default {
         types: {
           ft: {
             title: 'Fungible Token',
-            description: 'Interchangeable assets'
+            description: 'Interchangeable assets',
+            imgurl: '/images/assetstype/ft.png'
           },
           nft: {
             title: 'Non-Fungible Token',
-            description: 'Unique digital assets'
+            description: 'Unique digital assets',
+            imgurl: '/images/assetstype/nft.png'
           },
           sft: {
             title: 'Semi-Fungible Token',
-            description: 'Batch assets'
+            description: 'Batch assets',
+            imgurl: '/images/assetstype/sft.png'
           },
           did: {
             title: 'Decentralized Identity',
-            description: 'Decentralized identity system'
+            description: 'Decentralized identity system',
+            imgurl: '/images/assetstype/did.png'
           }
         }
       }
@@ -235,6 +238,7 @@ export default {
       items: [],
       sat20market: 'Leading Bitcoin native asset trading platform',
       btcname: 'Decentralized Bitcoin domain name service',
+      morego: 'Innovative SocialFi and GameFi applications',
       unisat: 'Popular Bitcoin wallet and inscription platform',
       okx: 'Global leading digital asset exchange',
       magiceden: 'Leading NFT marketplace and ecosystem'
@@ -245,24 +249,24 @@ export default {
   technology: {
     title: 'Technical Architecture',
     subtitle: 'Explore SAT20\'s Innovative Blockchain Technology',
-    description: 'SAT20 employs cutting-edge blockchain technology to ensure security and scalability.',
+    description: 'The SAT20 protocol uses the most advanced blockchain technology to build an efficient, secure, cost-effective, and intelligent management system for the issuance and circulation of Bitcoin-native assets, providing revolutionary opportunities for the innovative development of the Bitcoin ecosystem.',
     hero: {
       title: 'Innovative Technical Architecture',
       subtitle: 'Explore SAT20\'s Technical Innovations'
     },
     architecture: {
-      title: 'Layered Architecture',
+      title: 'Technical Architecture',
       base: {
-        title: 'Base Layer',
-        desc: 'Bitcoin network as underlying infrastructure'
+        title: 'BTC Mainnet',
+        desc: 'Asset issuance base layer, compatible with mainstream protocols, such as Ordinals、Runes、Brc20、OrdX...'
       },
       protocol: {
-        title: 'Protocol Layer',
-        desc: 'SAT20 core protocol and smart contracts'
+        title: 'Lightning Channel',
+        desc: 'Dynamic Lightning Channel technology, compatible with various BTC Layer 1 assets on the main and Satoshi networks'
       },
       application: {
-        title: 'Application Layer',
-        desc: 'Decentralized application ecosystem'
+        title: 'SatoshiNet',
+        desc: 'Dynamic Lightning Channel technology, compatible with various BTC Layer 1 assets on the main and Satoshi networks'
       }
     },
     comparison: {
@@ -281,10 +285,10 @@ export default {
         dev: 'Development Barrier'
       },
       traditional: {
-        asset: '1 Satoshi Unit',
+        asset: 'UTXO Unit',
         contract: 'Non-Turing Complete',
         speed: '10-minute Confirmation',
-        cost: 'Bridge Fee 0.1%+',
+        cost: 'Bridge Fee 0.5%+',
         dev: 'Custom Sidechain Required'
       },
       innovation: {
@@ -314,7 +318,15 @@ export default {
           ]
         },
         {
-          title: 'Smart Evolution Network',
+          title: 'Enhanced Lightning Network',
+          features: [
+            'Dynamic channel capacity adjustment',
+            'Compatible with Layer 1 native assets',
+            'Secure bridge-less cross-chain transfers'
+          ]
+        },
+        {
+          title: 'SatoshiNet Smart Evolution',
           features: [
             'Templated smart contracts',
             'OP_CAT instruction set extension',
@@ -327,61 +339,65 @@ export default {
       title: 'Four Technical Pillars',
       items: [
         {
-          title: 'Satoshi-level Asset Management Engine',
-          innovation: 'Innovation: UTXO Coloring Technology',
+          title: 'Satoshi Asset Management Engine (OrdX)',
+          innovation: 'Innovation: Satoshi-level precision asset issuance and management, multiple asset types for different scenarios',
           features: [
-            'Non-invasive data writing',
-            'Dynamic splicing channels',
-            'Cross-chain atomic mirroring'
+            'Ordinals-based numbering system with precise satoshi positioning and tracking technology',
+            'Flexible support for "one-sat-one-token" and "one-sat-multi-token" asset issuance',
+            'Professional rare satoshi mining and management, enhancing asset scarcity and value'
           ]
         },
         {
-          title: 'Enhanced Smart Contract System',
-          innovation: 'Innovation: Hybrid Execution Mode',
+          title: 'Satoshi Transfer Protocol (STP)',
+          innovation: 'Innovation: Avoiding security risks of traditional cross-chain bridges, improving transaction reliability and transparency',
           features: [
-            'On-chain verification + Off-chain computation',
-            'Contract template marketplace',
-            'Security sandbox mechanism'
+            'Dynamic Channels: Implementing dynamic channel capacity adjustment through Splicing technology',
+            'Bridge-less Cross-chain: Native Lightning Channel technology, avoiding security risks of cross-chain bridges',
+            'Secure Contracts: Automated asset locking and release based on RSMC contracts, reducing risks'
           ]
         },
         {
-          title: 'High-performance Trading Engine',
-          innovation: 'Innovation: Sharded Order Book',
+          title: 'Super UTXO - Multi-protocol Asset Compatibility',
+          innovation: 'Innovation: Unified framework integrating assets from different protocols, seamless cross-protocol asset exchange',
           features: [
-            'Multi-level cache architecture',
-            'Asynchronous matching engine',
-            'Real-time settlement system'
+            'Support for multiple protocol assets including Ordinals, BRC20, Runes, OrdX',
+            'SatoshiNet Super UTXO architecture enhances asset compatibility and management efficiency, reducing transaction costs',
+            'Support for cross-protocol interoperability, reducing asset exchange and circulation difficulties'
           ]
         },
         {
-          title: 'Decentralized Identity System',
-          innovation: 'Innovation: Multi-dimensional Credit Scoring',
+          title: 'Asset Exchange Engine - SATSWAP',
+          innovation: 'Innovation: Enabling real-time asset exchange, reducing transaction delays and fees',
           features: [
-            'On-chain credit accumulation',
-            'Multi-factor authentication',
-            'Privacy protection mechanism'
+            'SATSWAP provides decentralized, low-cost asset exchange and circulation',
+            'Trading engine supports high-frequency trading and liquidity pools, solving liquidity challenges',
+            'DeFi capabilities enable asset lending, liquidity provision, and yield optimization'
           ]
         }
       ]
     },
     roadmap: {
-      title: 'Technical Evolution Roadmap',
+      title: 'Technical Development Roadmap',
       phases: [
         {
           time: '2024 Q1',
-          desc: 'Complete core protocol design and testnet deployment'
-        },
-        {
-          time: '2024 Q2',
-          desc: 'Mainnet launch and ecosystem application incubation'
+          desc: 'Complete OrdX issuance protocol development and mainnet deployment'
         },
         {
           time: '2024 Q3',
-          desc: 'Cross-chain bridge and DEX integration'
+          desc: 'Complete STP core development and testnet deployment'
         },
         {
           time: '2024 Q4',
-          desc: 'Decentralized identity and credit system'
+          desc: 'Complete SatoshiNet node setup, deployment, and assets cross and transfer between Bitcoin Mainnet and SatoshiNet'
+        },
+        {
+          time: '2025 Q1',
+          desc: 'Complete lightning channel pool management function, wallet, Dex major development work'
+        },
+        {
+          time: '2025 Q2',
+          desc: 'SatoshiNet mainnet launch, full Dex online'
         }
       ]
     }
@@ -390,7 +406,7 @@ export default {
   // ==================== SatoshiNet Page ====================
   satoshinet: {
     title: "SatoshiNet",
-    subtitle: "Next Generation Blockchain Infrastructure",
+    subtitle: "SatoshiNet is an evolved version of the Lightning Network, based on extended Lightning channel technology and Bitcoin's core code, building a native second-layer network. It enables bridge-less cross-chain, instant confirmations, and low-cost transactions. It has revolutionized the scalability and application scenarios of the Bitcoin ecosystem, driving innovation and development across the entire ecosystem.",
     architecture: {
       title: "Technical Architecture",
       feature1: "Based on Bitcoin Network",
@@ -979,7 +995,7 @@ export default {
       },
       trading: {
         title: 'Trading Features',
-        description: 'SAT20 DEX coming soon',
+        description: 'SATSWAP DEX coming soon',
         features: [
           {
             title: 'Order Book Trading',
@@ -992,15 +1008,15 @@ export default {
             icon: 'pool'
           },
           {
-            title: 'Cross-chain Bridge',
-            description: 'Transfer assets across chains',
-            icon: 'bridge'
+            title: 'Asset Transcending',
+            description: 'Assets transcending between the mainnet and SatoshiNet via lightning channels',
+            icon: 'transcending'
           }
         ]
       },
       testing: {
         title: 'Testnet Experience',
-        description: 'Try all SAT20 features on testnet',
+        description: 'Try features on testnet',
         features: [
           {
             title: 'Get Test Coins',
@@ -1015,7 +1031,7 @@ export default {
           {
             title: 'Simulate Trading',
             description: 'Experience trading features',
-            icon: 'trade'
+            icon: 'tradeing'
           }
         ]
       }
@@ -1358,7 +1374,6 @@ Security recommendations:
   - time: Block timestamp
   - nonce: Nonce value
   - bits: Difficulty target
-  - difficulty: Difficulty value
   - previousblockhash: Previous block hash
   - nextblockhash: Next block hash
   - tx: Transaction list

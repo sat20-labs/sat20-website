@@ -11,10 +11,10 @@
               :class="{ 'active': isMenuOpen }" 
               @click="toggleMenu"
               aria-label="Toggle menu">
-        <svg class="menu-icon" viewBox="0 0 24 24">
-          <path class="menu-line top" d="M3 6h18" />
-          <path class="menu-line middle" d="M3 12h18" />
-          <path class="menu-line bottom" d="M3 18h18" />
+        <svg class="menu-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <line class="menu-line top" x1="3" y1="6" x2="21" y2="6" />
+          <line class="menu-line middle" x1="3" y1="12" x2="21" y2="12" />
+          <line class="menu-line bottom" x1="3" y1="18" x2="21" y2="18" />
         </svg>
       </button>
       
@@ -66,13 +66,13 @@
               </div>
             </div>
             
-            <div class="setting-item">
+            <!-- <div class="setting-item">
               <span class="setting-label">{{ t('menu.theme') }}</span>
               <button class="theme-btn" @click="toggleTheme">
                 <IconSun v-if="theme === 'dark'" />
                 <IconMoon v-else />
               </button>
-            </div>
+            </div> -->
           </div>
           <!-- 文档导航 -->
           <div class="dropdown-section">
@@ -153,12 +153,12 @@
           </button>
         </div>
         
-        <div class="theme-switch">
+        <!-- <div class="theme-switch">
           <button class="theme-btn" @click="toggleTheme">
             <IconSun v-if="theme === 'dark'" />
             <IconMoon v-else />
           </button>
-        </div>
+        </div> -->
         
         <div class="docs-dropdown" v-click-outside="closeDocsMenu">
           <button class="docs-btn" @click="toggleDocsMenu">
@@ -232,8 +232,15 @@ const docItems = [
   { key: 'contributing', to: '/docs/contributing' }
 ];
 
+const explorerUrl = computed(() => {
+  return locale.value === 'zh' ? 'https://app.sat20.org/#/explorer' : 'https://app.sat20.org/#/explorer?language=en';
+});
+
 const roles = [
-  { key: 'investor', to: '/investor' },
+  { 
+    key: 'explorer', 
+    to: explorerUrl
+  },
   { key: 'developer', to: '/developers' },
   { key: 'user', to: '/user' }
 ];
@@ -246,7 +253,13 @@ const switchRole = (role) => {
   currentRole.value = role;
   const selectedRole = roles.find(r => r.key === role);
   if (selectedRole && selectedRole.to) {
-    router.push(selectedRole.to);
+    // Handle both computed refs and direct string URLs
+    const url = selectedRole.to.value || selectedRole.to;
+    if (url.startsWith('http')) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } else {
+      router.push(url);
+    }
   }
   closeMenu();
 };
@@ -348,7 +361,7 @@ const directives = {
   background: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  -webkit-backpack-filter: blur(12px);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -368,6 +381,7 @@ const directives = {
   text-decoration: none;
   color: var(--text-primary);
   transition: opacity 0.2s ease;
+  padding: 4px;
 }
 
 .logo:hover {
@@ -658,7 +672,122 @@ const directives = {
 }
 
 .dropdown-menu {
-  min-width: 280px;
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backpack-filter: blur(12px);
+}
+
+.dropdown-menu.active {
+  display: block;
+}
+
+.dropdown-section {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section-title {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: var(--bg-hover);
+}
+
+.dropdown-item.active {
+  color: var(--primary-color);
+  background-color: var(--active-bg);
+}
+
+.role-btn {
+  display: block;
+  padding: 0.5rem;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.role-btn:hover {
+  background-color: var(--bg-hover);
+}
+
+.role-btn.active {
+  color: var(--primary-color);
+  background-color: var(--active-bg);
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.setting-label {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.lang-btn {
+  padding: 0.25rem 0.5rem;
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.lang-btn:hover {
+  background: var(--bg-hover);
+  border-color: var(--primary-color);
+}
+
+.lang-btn.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.theme-btn {
+  padding: 0.5rem;
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-btn:hover {
+  background-color: var(--bg-hover);
 }
 
 .menu-group {
@@ -809,7 +938,9 @@ const directives = {
   }
 
   .menu-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .container {
@@ -818,10 +949,11 @@ const directives = {
 
   .logo img {
     height: 28px;
+    margin-right: 0.5rem;
   }
 
   .logo-text {
-    font-size: 1.125rem;
+    display: none;
   }
 
   .dropdown-menu {
@@ -878,318 +1010,45 @@ const directives = {
   border: none;
   padding: 0.5rem;
   cursor: pointer;
-  border-radius: 6px;
+  color: var(--text-primary);
+  z-index: 1000;
 }
 
 .menu-icon {
   width: 24px;
   height: 24px;
-  fill: none;
-  stroke: var(--text-primary);
-  stroke-width: 2;
-  stroke-linecap: round;
+  display: block;
+  position: relative;
 }
 
 .menu-line {
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
   transform-origin: center;
   transition: all 0.3s ease;
 }
 
+/* 菜单关闭动画 */
 .menu-toggle.active .menu-line.top {
-  transform: translateY(6px) rotate(45deg);
+  transform: translate(0, 6px) rotate(45deg);
 }
 
 .menu-toggle.active .menu-line.middle {
   opacity: 0;
-  transform: translateX(-10px);
+  transform: translateX(100%);
 }
 
 .menu-toggle.active .menu-line.bottom {
-  transform: translateY(-6px) rotate(-45deg);
+  transform: translate(0, -6px) rotate(-45deg);
 }
 
-.dropdown-menu {
-  display: none;
-  position: fixed;
-  top: 64px;
-  left: 0;
-  right: 0;
-  padding: 1rem;
-  border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.dropdown-menu.active {
-  display: block;
-}
-
-.dropdown-section {
-  padding: 1rem;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.section-title {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.dropdown-item {
-  display: block;
-  padding: 0.5rem;
-  color: var(--text-primary);
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background-color 0.2s;
-}
-
-.dropdown-item:hover {
-  background-color: var(--bg-hover);
-}
-
-.dropdown-item.active {
-  color: var(--primary-color);
-  background-color: var(--active-bg);
-}
-
-.role-btn {
-  display: block;
-  padding: 0.5rem;
-  text-align: left;
-  background: none;
-  border: none;
-  color: var(--text-primary);
-  cursor: pointer;
-  border-radius: 6px;
-  transition: background-color 0.2s;
-}
-
-.role-btn:hover {
-  background-color: var(--bg-hover);
-}
-
-.role-btn.active {
-  color: var(--primary-color);
-  background-color: var(--active-bg);
-}
-
-.setting-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem;
-}
-
-.setting-label {
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-}
-
-.lang-btn {
-  padding: 0.25rem 0.5rem;
-  background: none;
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-  cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.2s;
-  font-size: 14px;
-}
-
-.lang-btn:hover {
-  background: var(--bg-hover);
-  border-color: var(--primary-color);
-}
-
-.lang-btn.active {
-  background: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
-}
-
-.theme-btn {
-  padding: 0.5rem;
-  background: none;
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-  cursor: pointer;
-  border-radius: 6px;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.theme-btn:hover {
-  background-color: var(--bg-hover);
-}
-
-@media (max-width: 1024px) {
-  .header {
-    padding: 0 1rem;
-  }
-  
-  .logo {
-    font-size: 1.25rem;
-  }
-  
-  .nav-links {
-    display: none;
-  }
-  
-  .menu-toggle {
-    display: block;
-  }
-  
-  .dropdown-menu {
-    display: none;
-  }
-  
-  .dropdown-menu.active {
-    display: block;
-  }
-}
-
+/* 确保移动端显示 */
 @media (max-width: 768px) {
-  .header {
-    padding: 0 0.75rem;
-  }
-  
-  .logo {
-    font-size: 1.125rem;
-  }
-  
   .menu-toggle {
-    padding: 0.25rem;
-  }
-  
-  .dropdown-menu {
-    padding: 0.75rem;
-  }
-  
-  .dropdown-item {
-    padding: 0.5rem 0.75rem;
-  }
-  
-  .setting-item {
-    padding: 0.75rem 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .language-switcher {
-    width: 100%;
+    display: flex;
+    align-items: center;
     justify-content: center;
   }
-  
-  .lang-btn {
-    flex: 1;
-    text-align: center;
-  }
-}
-
-.dropdown-section {
-  padding: 1rem;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.section-title {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.dropdown-item {
-  display: block;
-  padding: 0.5rem;
-  color: var(--text-primary);
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background-color 0.2s;
-}
-
-.dropdown-item:hover {
-  background-color: var(--bg-hover);
-}
-
-.dropdown-item.active {
-  color: var(--primary-color);
-  background-color: var(--active-bg);
-}
-
-.role-btn {
-  display: block;
-  padding: 0.5rem;
-  text-align: left;
-  background: none;
-  border: none;
-  color: var(--text-primary);
-  cursor: pointer;
-  border-radius: 6px;
-  transition: background-color 0.2s;
-}
-
-.role-btn:hover {
-  background-color: var(--bg-hover);
-}
-
-.role-btn.active {
-  color: var(--primary-color);
-  background-color: var(--active-bg);
-}
-
-.setting-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem;
-}
-
-.setting-label {
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-}
-
-.lang-btn {
-  padding: 0.25rem 0.5rem;
-  background: none;
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-  cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.2s;
-  font-size: 14px;
-}
-
-.lang-btn:hover {
-  background: var(--bg-hover);
-  border-color: var(--primary-color);
-}
-
-.lang-btn.active {
-  background: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
-}
-
-.theme-btn {
-  padding: 0.5rem;
-  background: none;
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-  cursor: pointer;
-  border-radius: 6px;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.theme-btn:hover {
-  background-color: var(--bg-hover);
 }
 </style>

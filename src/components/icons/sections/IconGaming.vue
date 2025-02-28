@@ -1,19 +1,27 @@
 <template>
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="48" height="48" rx="8" fill="currentColor" fill-opacity="0.1"/>
-    <path d="M34 20V28C34 29.1046 33.1046 30 32 30H16C14.8954 30 14 29.1046 14 28V20C14 18.8954 14.8954 18 16 18H32C33.1046 18 34 18.8954 34 20Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M20 24H22M18 22V26" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="28" cy="24" r="2" fill="currentColor"/>
-    <circle cx="30" cy="22" r="2" fill="currentColor"/>
+  <svg :width="size" :height="size" viewBox="0 0 512 512">
+    <defs>
+      <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:var(--primary)" />
+        <stop offset="100%" style="stop-color:var(--neon)" />
+      </linearGradient>
+    </defs>
+    <path d="M483.13 245.38C461.92 149.49 430 98.31 382.65 98.31c-35.82 0-65.21 27.77-85.75 50.88-18.68 21.04-44.15 21.04-62.82 0-20.54-23.11-49.93-50.88-85.75-50.88-47.35 0-79.27 51.18-100.48 147.07-17.24 77.82-13.19 153.13 11.21 153.13 22.59 0 27.14-36.48 40.04-72.95 14.06-39.71 30.01-84.75 72.05-84.75 27.69 0 42.04 16.18 61.15 38.62 18.68 21.95 44.15 21.95 62.82 0 19.11-22.44 33.46-38.62 61.15-38.62 42.04 0 57.99 45.04 72.05 84.75 12.9 36.47 17.45 72.95 40.04 72.95 24.4 0 28.45-75.31 11.21-153.13z" fill="url(#iconGradient)" />
   </svg>
 </template>
 
 <script setup>
 // 游戏图标组件
+defineProps({
+  size: {
+    type: [Number, String],
+    default: 32
+  }
+});
 </script>
 
-<style scoped>
+<!-- <style scoped>
 svg {
   color: var(--primary);
 }
-</style>
+</style> -->

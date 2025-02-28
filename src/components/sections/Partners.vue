@@ -46,6 +46,12 @@ const partners = computed(() => ({
     logo: '/images/partners/btcname.png',
     url: 'https://btc.name'
   },
+  morego: {
+    name: 'Morego',
+    description: t('home.partners.morego'),
+    logo: '/images/partners/morego.png',
+    url: 'http://official.morego.io/'
+  },
   unisat: {
     name: 'Unisat',
     description: t('home.partners.unisat'),

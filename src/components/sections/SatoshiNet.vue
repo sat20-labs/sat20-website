@@ -36,8 +36,8 @@
           <div v-for="(type, key) in assetTypes" 
                :key="key" 
                class="asset-card">
-            <div class="asset-icon" :class="key">
-              <span>{{ key.toUpperCase() }}</span>
+            <div class="asset-type-icon" :class="key">
+              <img :src="t(`home.satoshinet.assetTypes.types.${key}.imgurl`)" :alt="type.title" :class="asset-type-icon" />
             </div>
             <div class="asset-info">
               <h4>{{ t(`home.satoshinet.assetTypes.types.${key}.title`) }}</h4>
@@ -75,6 +75,7 @@ const description = computed(() => t('home.satoshinet.description'))
 const layers = computed(() => tm('home.satoshinet.architecture.layers.items'))
 const protocols = computed(() => tm('home.satoshinet.compatibility.protocols'))
 const assetTypes = computed(() => tm('home.satoshinet.assetTypes.types'))
+const assetTypesurl = computed(() => tm('home.satoshinet.assetTypes.imgurl'))
 
 const iconSize = 32
 </script>
@@ -309,8 +310,12 @@ const iconSize = 32
       box-shadow: 0 10px 30px var(--shadow-color);
 
       .asset-icon {
-        transform: scale(1.1);
+        transform: scale(1.5);
         background: rgba(var(--primary-rgb), 0.2);
+      }
+
+      .asset-type-icon {   
+        transform: scale(1.5);
       }
 
       &::before {

@@ -41,7 +41,14 @@
         <component :is="getIconComponent('swap')" class="card-icon" />
         <div class="card-content">
           <h3>{{ t('user.sections.trading.description') }}</h3>
-          <span class="development-badge">开发中...</span>
+          <span class="development-badge">In Development...</span>
+        </div>
+      </div>
+      <div class="features-grid">
+        <div v-for="feature in tm('user.sections.trading.features')" :key="feature.title" class="feature-item">
+          <component :is="getIconComponent(feature.icon)" class="feature-icon" />
+          <h4>{{ feature.title }}</h4>
+          <p>{{ feature.description }}</p>
         </div>
       </div>
     </section>
@@ -50,15 +57,22 @@
     <section class="section testing-section">
       <h2 class="section-title">{{ t('user.sections.testing.title') }}</h2>
       <div class="feature-card">
-        <component :is="getIconComponent('test')" class="card-icon" />
+        <component :is="getIconComponent('testcoin')" class="card-icon" />
         <div class="card-content">
           <h3>{{ t('user.sections.testing.description') }}</h3>
           <a :href="t('user.sections.testing.link')" 
              target="_blank" 
              rel="noopener noreferrer" 
              class="demo-link">
-            访问测试网 →
+             Visit Testnet →
           </a>
+        </div>
+      </div>
+      <div class="features-grid">
+        <div v-for="feature in tm('user.sections.testing.features')" :key="feature.title" class="feature-item">
+          <component :is="getIconComponent(feature.icon)" class="feature-icon" />
+          <h4>{{ feature.title }}</h4>
+          <p>{{ feature.description }}</p>
         </div>
       </div>
     </section>
@@ -66,30 +80,52 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-import { computed } from 'vue';
-import ParticlesBg from '@/components/ParticlesBg.vue';
-import IconGuide from '@/components/icons/user/IconGuide.vue';
-import IconToken from '@/components/icons/user/IconToken.vue';
-import IconRare from '@/components/icons/user/IconRare.vue';
-import IconSwap from '@/components/icons/user/IconSwap.vue';
-import IconTest from '@/components/icons/user/IconTest.vue';
-import IconWallet from '@/components/icons/user/IconWallet.vue';
+import { ref, onMounted, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import ParticlesBg from '@/components/ParticlesBg.vue'
 
-const { t, tm } = useI18n();
+// 钱包功能图标
+import IconWallet from '../components/icons/user/IconWallet.vue'
+import IconToken from '../components/icons/user/IconToken.vue'
+import IconManage from '../components/icons/user/IconManage.vue'
 
-const iconComponents = {
-  guide: IconGuide,
-  token: IconToken,
-  rare: IconRare,
-  swap: IconSwap,
-  test: IconTest,
-  wallet: IconWallet
-};
+// 交易功能图标
+import IconTrade from '../components/icons/user/IconTrade.vue'
+import IconPool from '../components/icons/user/IconPool.vue'
+import IconTranscending from '../components/icons/user/IconTranscending.vue'
 
-const getIconComponent = (iconName) => {
-  return iconComponents[iconName] || 'div';
-};
+// 测试网功能图标
+import IconFaucet from '../components/icons/user/IconFaucet.vue'
+import IconTest from '../components/icons/user/IconTest.vue'
+import IconTradeing from '../components/icons/user/IconTradeing.vue'
+
+import IconSwap from '../components/icons/user/IconSwap.vue'
+import IconTestCoin from '../components/icons/user/IconTestCoin.vue'
+
+const { t, tm } = useI18n()
+
+const getIconComponent = (name) => {
+  const iconMap = {
+    // 钱包功能
+    'wallet': IconWallet,
+    'token': IconToken,
+    'manage': IconManage,
+
+    // 交易功能
+    'trade': IconTrade,
+    'pool': IconPool,
+    'transcending': IconTranscending,
+
+    // 测试网功能
+    'faucet': IconFaucet,
+    'test': IconTest,
+    'tradeing': IconTradeing,
+
+    'swap': IconSwap,
+    'testcoin': IconTestCoin
+  }
+  return iconMap[name] || null
+}
 
 const mintingTutorials = computed(() => {
   return tm('user.sections.minting.tutorials') || [];
@@ -143,8 +179,10 @@ const mintingTutorials = computed(() => {
 .section-title {
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, var(--primary), var(--neon));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .section-description {
@@ -267,6 +305,34 @@ const mintingTutorials = computed(() => {
 
 .demo-link:hover {
   color: var(--neon);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-item {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--card-border);
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.3);
+}
+
+.feature-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
 }
 
 .particles-container {

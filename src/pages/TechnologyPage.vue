@@ -18,7 +18,10 @@
             <h3 class="layer-title">{{ layer.title }}</h3>
             <p class="layer-desc">{{ layer.desc }}</p>
           </div>
-          <div v-if="index < architectureLayers.length - 1" class="arrow">→</div>
+          <div v-if="index < architectureLayers.length - 1" class="bi-directional-arrow">
+            <span class="arrow-left">←</span>
+            <span class="arrow-right">→</span>
+          </div>
         </template>
       </div>
     </section>
@@ -55,6 +58,7 @@
           class="innovation-card"
         >
           <div class="card-header">
+            <component :is="getInnovationIcon(item.title)" class="card-icon" :size="32" />
             <h3 class="card-title">{{ item.title }}</h3>
           </div>
           <ul class="feature-list">
@@ -63,7 +67,7 @@
               :key="fIndex"
               class="feature-item"
             >
-              <span class="feature-icon">▶</span>
+              <!-- <span class="feature-icon">•</span> -->
               {{ feature }}
             </li>
           </ul>
@@ -133,6 +137,8 @@ import '@/assets/styles/pages/_technology.scss';
 import IconBitcoin from '@/components/icons/tech/IconBitcoin.vue';
 import IconLightning from '@/components/icons/tech/IconLightning.vue';
 import IconGlobe from '@/components/icons/tech/IconGlobe.vue';
+import IconSatoshiSystem from '@/components/icons/tech/IconSatoshiSystem.vue';
+import IconSmartNetwork from '@/components/icons/tech/IconSmartNetwork.vue';
 
 const { t, tm } = useI18n();
 
@@ -152,9 +158,9 @@ const techData = computed(() => ({
       title: t('technology.architecture.protocol.title'),
       desc: t('technology.architecture.protocol.desc')
     },
-    network: {
-      title: t('technology.architecture.network.title'),
-      desc: t('technology.architecture.network.desc')
+    application: {
+      title: t('technology.architecture.application.title'),
+      desc: t('technology.architecture.application.desc')
     }
   },
   comparison: {
@@ -225,12 +231,26 @@ const architectureLayers = computed(() => [
   },
   {
     icon: IconGlobe,
-    title: t('technology.architecture.network.title'),
-    desc: t('technology.architecture.network.desc')
+    title: t('technology.architecture.application.title'),
+    desc: t('technology.architecture.application.desc')
   }
 ]);
 const comparisonData = computed(() => getTechSection('comparison'));
 const comparisonHeaders = computed(() => tm('technology.comparison.headings'));
+
+// 获取创新图标
+const getInnovationIcon = (title) => {
+  // 使用对象的键值对来映射标题和图标
+  const iconMap = {
+    // 中文标题
+    '聪本位体系': IconSatoshiSystem,
+    '智能进化网络': IconSmartNetwork,
+    // 英文标题 (从 en.js 中获取的实际标题)
+    'Satoshi-based System': IconSatoshiSystem,
+    'Smart Evolution Network': IconSmartNetwork
+  };
+  return iconMap[title] || null;
+};
 </script>
 
 <style scoped>
@@ -284,5 +304,60 @@ const comparisonHeaders = computed(() => tm('technology.comparison.headings'));
 .layer-desc {
   color: var(--text-secondary);
   line-height: 1.6;
+}
+
+.bi-directional-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 0 16px;
+}
+
+.arrow-left, .arrow-right {
+  font-size: 1.2em;
+  color: #007bff;
+}
+
+.layer-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 16px;
+  color: #007bff;
+}
+
+.card-icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+  color: #007bff;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  padding: 16px;
+  border: 1px solid #1a1f2e;
+  border-radius: 8px;
+  background: #141824;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.5em;
+  line-height: 1.4;
+  color: #007bff;
+}
+
+.innovation-card {
+  padding: 0;
+  background: transparent;
+}
+
+.feature-list {
+  padding: 0 16px 16px;
 }
 </style>

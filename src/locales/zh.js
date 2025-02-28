@@ -30,7 +30,7 @@ export default {
 
   // ==================== 角色导航 ====================
   roles: {
-    investor: '投资者',
+    explorer: '浏览器',
     developer: '开发者',
     user: '用户'
   },
@@ -161,19 +161,23 @@ export default {
         types: {
           ft: {
             title: 'Fungible Token',
-            description: '同质化通证，可互换资产'
+            description: '同质化通证，可互换资产',
+            imgurl: '/images/assetstype/ft.png'
           },
           nft: {
             title: 'Non-Fungible Token',
-            description: '非同质化通证，独特资产'
+            description: '非同质化通证，独特资产',
+            imgurl: '/images/assetstype/nft.png'
           },
           sft: {
             title: 'Semi-Fungible Token',
-            description: '半同质化通证，批量资产'
+            description: '半同质化通证，批量资产',
+            imgurl: '/images/assetstype/sft.png'
           },
           did: {
             title: 'Decentralized Identity',
-            description: '去中心化身份标识'
+            description: '去中心化身份标识',
+            imgurl: '/images/assetstype/did.png'
           }
         }
       }
@@ -230,6 +234,7 @@ export default {
       items: [],
       sat20market: '领先的比特币原生资产交易平台',
       btcname: '去中心化比特币域名服务',
+      morego: '创新的SocialFi,GameFi应用',
       unisat: '流行的比特币钱包和铭文平台',
       okx: '全球领先的数字资产交易所',
       magiceden: '领先的NFT市场和生态系统'
@@ -240,7 +245,7 @@ export default {
   technology: {
     title: '技术架构',
     subtitle: '探索SAT20的创新区块链技术',
-    description: 'SAT20采用最新的区块链技术，确保安全性和可扩展性。',
+    description: 'SAT20协议采用最先进的区块链技术，构建了一个高效、安全、经济且智能化的比特币原生资产发行和流通的管理体系，为比特币生态的创新发展提供了革命性的机会。',
     hero: {
       title: '创新技术架构',
       subtitle: '探索SAT20的技术创新'
@@ -248,16 +253,16 @@ export default {
     architecture: {
       title: '分层架构',
       base: {
-        title: '基础层',
-        desc: '比特币网络作为底层基础设施'
+        title: 'BTC Mainnet',
+        desc: '资产发行基础层，兼容主流协议，如Ordinals、Runes、Brc20、OrdX...'
       },
       protocol: {
-        title: '协议层',
-        desc: 'SAT20核心协议与智能合约'
+        title: 'Lightning Channel',
+        desc: '动态闪电通道技术，兼容各种BTC生态资产在主网和聪网之间安全的自由穿越'
       },
       application: {
-        title: '应用层',
-        desc: '去中心化应用生态系统'
+        title: 'SatoshiNet',
+        desc: '创新的闪电网络架构：DEX/SWAP、DeFi、GameFi、SocialFi、Metaverse...'
       }
     },
     comparison: {
@@ -276,25 +281,25 @@ export default {
         dev: '开发门槛'
       },
       traditional: {
-        asset: '1 聪为单位',
+        asset: 'UTXO为单位',
         contract: '非图灵完备',
         speed: '10分钟确认',
-        cost: '桥接手续费0.1%+',
+        cost: '手续费0.5%+',
         dev: '需定制侧链'
       },
       innovation: {
-        asset: '聪级精度',
+        asset: '聪级精准度',
         contract: 'OP_CAT增强型图灵完备',
         speed: '秒级闪电通道',
-        cost: '原子交换零手续费',
+        cost: '原子交换，低手续费',
         dev: '主网原生兼容'
       },
       improvement: {
         asset: 'BTC的1亿倍精细化',
-        contract: '支持复杂金融合约',
+        contract: '支持复杂智能合约',
         speed: '600倍加速',
-        cost: '成本归零',
-        dev: '降低90%开发成本'
+        cost: '超低成本',
+        dev: '省90%开发成本'
       }
     },
     innovation: {
@@ -309,7 +314,15 @@ export default {
           ]
         },
         {
-          title: '智能进化网络',
+          title: '进化版闪电网络',
+          features: [
+            '可动态调整通道容量',
+            '兼容一层发行的原生资产',
+            '实现资产安全的无桥跨链'
+          ]
+        },
+        {
+          title: '聪网的智能进化',
           features: [
             '模版化智能合约',
             'OP_CAT指令集扩展',
@@ -322,39 +335,39 @@ export default {
       title: '四大技术支柱',
       items: [
         {
-          title: '聪级资产管理引擎',
-          innovation: '创新点：UTXO染色技术',
+          title: '聪资产发行管理引擎（OrdX）',
+          innovation: '创新点：聪级精度的资产发行与管理，多资产类型满足不同场景',
           features: [
-            '非侵入式数据写入',
-            '动态splicing通道',
-            '跨链原子镜像'
+            '基于Ordinals序数编号，精准的聪定位与追踪技术',
+            '支持灵活的"一聪一币"和"一聪多币"资产发行',
+            '专业化稀有聪资产的挖掘与管理，提升资产稀缺性和价值'
           ]
         },
         {
-          title: '增强型智能合约系统',
-          innovation: '创新点：混合执行模式',
+          title: '聪穿越技术（STP协议）',
+          innovation: '创新点：避免传统跨链桥的安全隐患，提升交易的可靠性和透明度',
           features: [
-            '链上验证+链下计算',
-            '合约模板市场',
-            '安全沙箱机制'
+            '动态通道：通过Splicing技术实现动态通道容量调整',
+            '无桥跨链：原生闪电通道技术，避免跨链桥的安全隐患',
+            '安全合约：基于RSMC合约自动执行资产锁定与释放，降低风险'
           ]
         },
         {
-          title: '高性能交易引擎',
-          innovation: '创新点：分片订单簿',
+          title: '超级UTXO - 多协议资产兼容',
+          innovation: '创新点：统一框架整合不同协议资产，无缝跨协议资产交换',
           features: [
-            '多级缓存架构',
-            '异步撮合引擎',
-            '实时清算系统'
+            '支持Ordinals、BRC20、Runes、OrdX等多协议资产',
+            '聪网超级UTXO架构提升资产兼容性与管理效率，降低交易成本',
+            '支持跨协议互操作，降低了资产交换和流通难度'            
           ]
         },
         {
-          title: '去中心化身份系统',
-          innovation: '创新点：多维度信用评分',
+          title: '资产交换引擎 - SATSWAP',
+          innovation: '创新点：实现资产的实时交换，减少交易延迟和手续费',
           features: [
-            '链上信用累积',
-            '多因子认证',
-            '隐私保护机制'
+            'SATSWAP提供去中心化、低成本的资产交换与流通',
+            '交易引擎支持高频交易与流动性池，解决流动性难题',
+            '金融（DeFi）可实现资产的借贷、流动性提供与收益优化'
           ]
         }
       ]
@@ -364,19 +377,23 @@ export default {
       phases: [
         {
           time: '2024 Q1',
-          desc: '完成核心协议设计与测试网部署'
-        },
-        {
-          time: '2024 Q2',
-          desc: '主网上线与生态应用孵化'
+          desc: '完成资产发行协议OrdX的开发与主网部署'
         },
         {
           time: '2024 Q3',
-          desc: '跨链桥接与DEX集成'
+          desc: '完成流通协议STP的核心开发工作与测试网部署'
         },
         {
           time: '2024 Q4',
-          desc: '去中心化身份与信用系统'
+          desc: '完成SatoshiNet的节点搭建、部署以及OrdX,Runes资产的穿越、转移'
+        },
+        {
+          time: '2025 Q1',
+          desc: '完成闪电通道池子管理、钱包，Dex的大部分开发工作'
+        },
+        {
+          time: '2025 Q2',
+          desc: 'SatoshiNet主网启动，Dex的完整上线'
         }
       ]
     }
@@ -385,7 +402,7 @@ export default {
   // ==================== 聪网页面 ====================
   satoshinet: {
     title: "聪网",
-    subtitle: "新一代区块链基础设施",
+    subtitle: "聪网是基于扩展闪电通道技术和比特币核心代码的进化版闪电网络，构建了一个原生二层网络，实现了无桥跨链、秒级确认和低成本交易。它革命性地提升了比特币生态的可扩展性和应用场景，推动了整个生态的创新与发展",
     architecture: {
       title: "技术架构",
       feature1: "基于比特币网络",
@@ -495,8 +512,8 @@ export default {
       '3. 开发者工具：完整的SDK和API支持，助力开发者快速接入。\n\n' +
       '4. 社区治理：通过DAO机制实现社区驱动的决策。',
     hero: {
-      title: '加入SatoshiNet生态，共建区块链未来',
-      subtitle: 'SatoshiNet生态致力于构建一个开放、创新、共赢的区块链生态系统。我们邀请您参与生态建设，共同探索区块链技术的无限可能。'
+      title: '加入聪网生态，共建区块链未来',
+      subtitle: '聪网生态致力于构建一个开放、创新、共赢的区块链生态系统。我们邀请您参与生态建设，共同探索区块链技术的无限可能。'
     },
     assetIssuance: {
       title: '资产发行',
@@ -975,11 +992,28 @@ export default {
       },
       trading: {
         title: '交易功能',
-        description: 'SAT20 DEX即将上线，敬请期待'
+        description: 'SATSWAP即将上线，敬请期待',
+        features: [
+          {
+            title: '订单本交易',
+            description: '创建和管理订单',
+            icon: 'trade'
+          },
+          {
+            title: '流动性池',
+            description: '提供流动性和赚取费用',
+            icon: 'pool'
+          },
+          {
+            title: '资产穿越',
+            description: '资产通过闪电通道穿越主网与聪网',
+            icon: 'transcending'
+          }
+        ]
       },
       testing: {
         title: '测试网体验',
-        description: '在测试网上尝试SAT20的所有功能',
+        description: '在测试网上尝试新功能',
         features: [
           {
             title: '获取测试币',
@@ -994,7 +1028,7 @@ export default {
           {
             title: '模拟交易',
             description: '体验交易功能',
-            icon: 'trade'
+            icon: 'tradeing'
           }
         ]
       }
