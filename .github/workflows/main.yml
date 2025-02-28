@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: [self-hosted, sat20-website-runner]
     
     steps:
       - uses: actions/checkout@v3
