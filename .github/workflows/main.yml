@@ -1,0 +1,32 @@
+name: Deploy Static Website
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          
+      - name: Add known hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
+
+      - name: Make Dir
+        run: |
+          
+          
+      - name: Deploy to server
+        run: |
+          mkdir -p /var/www/sat20-website
+          rsync -avz --delete ./ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/www/sat20-website/ --exclude .git --exclude .github
