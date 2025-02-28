@@ -960,7 +960,7 @@ export default {
         tutorials: [
           {
             title: '创建钱包',
-            description: '设置您的SAT20钱包',
+            description: '设置您的SAT20钱包 ',
             icon: 'wallet',
             items: [
               '下载并安装钱包',
