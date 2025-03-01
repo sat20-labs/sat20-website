@@ -752,31 +752,7 @@ export default {
   developers: {
     title: 'Developer Center',
     subtitle: 'Build Next-gen Blockchain Applications',
-    description: 'Use SAT20 protocol to develop innovative applications',
-
-    updates: {
-      title: 'Latest Updates',
-      items: [
-        {
-          title: 'SDK v1.2.0 Release',
-          description: 'Added smart contract support, improved performance and stability',
-          date: '2024-02-20',
-          icon: 'code'
-        },
-        {
-          title: 'Developer Documentation Update',
-          description: 'Added API references and best practice guides',
-          date: '2024-02-15',
-          icon: 'book'
-        },
-        {
-          title: 'Testnet Upgrade',
-          description: 'Support for new transaction types and smart contract features',
-          date: '2024-02-10',
-          icon: 'server'
-        }
-      ]
-    },
+    description: 'Use SAT20 protocol to develop innovative applications',    
 
     quickLinks: {
       title: 'Quick Links',
@@ -784,7 +760,7 @@ export default {
         {
           title: 'Developer Documentation',
           description: 'Detailed API documentation and development guides',
-          url: '/docs/api',
+          url: '/docs/api-reference',
           icon: 'book',
           submenu: [
             {
@@ -862,7 +838,7 @@ export default {
         {
           title: 'Developer Community',
           description: 'Join discussion and get support',
-          url: '/community',
+          url: '#',
           icon: 'users'
         }
       ]
@@ -900,11 +876,14 @@ export default {
 
     tools: {
       title: 'Tools',
-      indexer: {
-        title: 'SAT20 Indexer',
-        description: 'High-performance blockchain data indexing and querying tool'
-      },
+      description: 'Provide developers with necessary tools and resources',
       items: [
+        {
+          title: 'SAT20 Indexer',
+          description: 'High-performance blockchain data indexing and querying tool',
+          icon: 'indexer',
+          url: '/docs/indexer'
+        },
         {
           title: 'SDK',
           description: 'Full-featured development tools',
@@ -926,6 +905,30 @@ export default {
       ]
     },
 
+    updates: {
+      title: 'Latest Updates',
+      items: [
+        {
+          title: 'SDK v1.2.0 Release',
+          description: 'Added smart contract support, improved performance and stability',
+          date: '2024-02-20',
+          icon: 'code'
+        },
+        {
+          title: 'Developer Documentation Update',
+          description: 'Added API references and best practice guides',
+          date: '2024-02-15',
+          icon: 'book'
+        },
+        {
+          title: 'Testnet Upgrade',
+          description: 'Support for new transaction types and smart contract features',
+          date: '2024-02-10',
+          icon: 'server'
+        }
+      ]
+    },
+
     community: {
       title: 'Community',
       channels: [
@@ -933,7 +936,7 @@ export default {
           title: 'Discord',
           description: 'Join our developer chat',
           icon: 'discord',
-          url: 'https://discord.gg/sat20'
+          url: '#'
         },
         {
           title: 'GitHub',
@@ -945,7 +948,7 @@ export default {
           title: 'Forum',
           description: 'Discuss technical topics',
           icon: 'forum',
-          url: 'https://forum.sat20.io'
+          url: '#'
         }
       ]
     }
@@ -1017,6 +1020,7 @@ export default {
       testing: {
         title: 'Testnet Experience',
         description: 'Try features on testnet',
+        link: 'https://demo.ordx.market',
         features: [
           {
             title: 'Get Test Coins',

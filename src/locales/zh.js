@@ -750,43 +750,19 @@ export default {
     title: '开发者中心',
     subtitle: '构建去中心化的比特币原生资产生态',
     description: '加入SAT20开发者社区，使用我们的开发工具和SDK，构建下一代比特币原生资产应用。',
-
-    updates: {
-      title: '最新动态',
-      items: [
-        {
-          title: 'SDK v1.2.0 发布',
-          description: '新增智能合约支持，优化性能和稳定性',
-          date: '2024-02-20',
-          icon: 'code'
-        },
-        {
-          title: '开发者文档更新',
-          description: '新增API参考和最佳实践指南',
-          date: '2024-02-15',
-          icon: 'book'
-        },
-        {
-          title: '测试网升级',
-          description: '支持新的交易类型和智能合约功能',
-          date: '2024-02-10',
-          icon: 'server'
-        }
-      ]
-    },
-
+   
     quickLinks: {
       title: '快速入口',
       items: [
         {
           title: '开发者文档',
           description: '详尽的API文档和开发指南',
-          url: '/docs/api',
+          url: '/docs/api-reference',
           icon: 'book',
           submenu: [
             {
               title: '基础信息',
-              url: '/docs/api#basic-info'
+              url: '/docs/api-reference#basic-info'
             },
             {
               title: '认证与安全',
@@ -859,7 +835,7 @@ export default {
         {
           title: '开发者社区',
           description: '加入讨论，获取支持',
-          url: '/community',
+          url: '#',
           icon: 'users'
         }
       ]
@@ -877,7 +853,7 @@ export default {
         {
           title: 'API参考',
           description: '详细的API文档',
-          icon: 'code',
+          icon: 'api',
           url: '/docs/api-reference'
         },
         {
@@ -897,15 +873,18 @@ export default {
 
     tools: {
       title: '开发工具',
-      indexer: {
-        title: 'SAT20 索引器',
-        description: '高性能区块链数据索引和查询工具'
-      },
+      description: '提供开发者必备的工具和资源',
       items: [
+        {
+          title: 'SAT20 索引器',
+          description: '高性能区块链数据索引和查询工具',
+          icon: 'indexer',
+          url: '/docs/indexer'
+        },
         {
           title: 'SDK',
           description: '全功能开发工具包',
-          icon: 'code',
+          icon: 'sdk',
           url: '/docs/sdk'
         },
         {
@@ -923,6 +902,30 @@ export default {
       ]
     },
 
+    updates: {
+      title: '最新动态',
+      items: [
+        {
+          title: 'SDK v1.2.0 发布',
+          description: '新增智能合约支持，优化性能和稳定性',
+          date: '2024-02-20',
+          icon: 'code'
+        },
+        {
+          title: '开发者文档更新',
+          description: '新增API参考和最佳实践指南',
+          date: '2024-02-15',
+          icon: 'book'
+        },
+        {
+          title: '测试网升级',
+          description: '支持新的交易类型和智能合约功能',
+          date: '2024-02-10',
+          icon: 'server'
+        }
+      ]
+    },
+
     community: {
       title: '开发者社区',
       channels: [
@@ -930,7 +933,7 @@ export default {
           title: 'Discord',
           description: '加入开发者讨论',
           icon: 'discord',
-          url: 'https://discord.gg/sat20'
+          url: '#'
         },
         {
           title: 'GitHub',
@@ -942,7 +945,7 @@ export default {
           title: '论坛',
           description: '技术交流与支持',
           icon: 'forum',
-          url: 'https://forum.sat20.io'
+          url: '#'
         }
       ]
     }
@@ -952,7 +955,7 @@ export default {
   user: {
     title: '用户中心',
     subtitle: '探索SAT20的功能与服务',
-    description: '使用SAT20进行资产发行、交易和管理，体验下一代区块链资产生态。',
+    description: '使用SAT20进行资产发行、交易和管理，体验下一代区块链资产生态',
     sections: {
       minting: {
         title: '资产发行',
@@ -1014,6 +1017,7 @@ export default {
       testing: {
         title: '测试网体验',
         description: '在测试网上尝试新功能',
+        link: 'https://demo.ordx.market',
         features: [
           {
             title: '获取测试币',

@@ -15,6 +15,9 @@
             {{ feature }}
           </div>
         </div>
+        <div class="architecture-image">
+          <img src="/images/satoshinet.png" alt="Satoshinet Architecture" class="centered-image">
+        </div>
       </section>
 
       <!-- 核心优势 -->
@@ -31,7 +34,7 @@
       </section>
 
       <!-- 经济模型 -->
-      <section class="section economy">
+      <!-- <section class="section economy">
         <h2 class="section-title">{{ t('satoshinet.economy.title') }}</h2>
         <div class="model-grid">
           <div v-for="(model, idx) in tm('satoshinet.economy.models')"
@@ -42,7 +45,7 @@
             <p>{{ model.desc }}</p>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!-- 生态发展 -->
       <section class="section ecosystem">
@@ -67,7 +70,7 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-import ParticlesBg from '@/components/common/ParticlesBg.vue'
+//import ParticlesBg from '@/components/common/ParticlesBg.vue'
 
 const { t, tm } = useI18n()
 </script>
@@ -117,14 +120,11 @@ const { t, tm } = useI18n()
   }
 
   .satoshinet-description {
-      color: var(--text-secondary);
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.6;
-      text-align: center;
-      opacity: 0.9;
-    }
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+    color: var(--text-secondary);
+  }
 
   .section {
     margin-bottom: 6rem;
@@ -273,6 +273,15 @@ const { t, tm } = useI18n()
       }
     }
   }
+
+  .centered-image {
+    display: block;
+    // margin: 0 auto;
+    margin-left: 22%;
+    width: 65%;
+  }
+
+
 
   @media (max-width: 1024px) {
     .model-grid {
