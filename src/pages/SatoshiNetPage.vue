@@ -15,6 +15,8 @@
             {{ feature }}
           </div>
         </div>
+
+        <!-- 架构图 -->
         <div class="architecture-image">
           <img src="/images/satoshinet.png" alt="Satoshinet Architecture" class="centered-image">
         </div>
