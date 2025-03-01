@@ -6,18 +6,20 @@
       <div v-for="(partner, key) in partners" 
            :key="key" 
            class="partner-card"
-           :class="{ 'highlight': partner.highlight }">
-        <div class="partner-logo">
-          <img :src="partner.logo" :alt="partner.name" />
-        </div>
-        <div class="partner-info">
-          <h3>{{ partner.name }}</h3>
-          <p>{{ partner.description }}</p>
-        </div>
-        <a :href="partner.url" target="_blank" class="partner-link">
-          <span class="link-text">访问</span>
-          <span class="link-icon">→</span>
-        </a>
+           :class="{ 'highlight': partner.highlight }">   
+        
+          <div class="partner-logo">
+            <img :src="partner.logo" :alt="partner.name" />
+          </div>
+         
+          <div class="partner-info">
+            <h3>{{ partner.name }}</h3>
+            <p>{{ partner.description }}</p>
+          </div>
+          <a :href="partner.url" target="_blank" class="partner-link">
+            <span class="link-text">访问</span>
+            <span class="link-icon">→</span>
+          </a>
       </div>
     </div>
   </section>
@@ -37,14 +39,14 @@ const partners = computed(() => ({
     name: 'SAT20Market',
     description: t('home.partners.sat20market'),
     logo: '/images/partners/sat20market.png',
-    url: 'https://sat20.market',
+    url: 'https://ordx.market',
     highlight: true
   },
   btcname: {
     name: 'BTCName',
     description: t('home.partners.btcname'),
     logo: '/images/partners/btcname.png',
-    url: 'https://btc.name'
+    url: 'https://x.com/btcname_did'
   },
   morego: {
     name: 'Morego',
@@ -118,16 +120,13 @@ const partners = computed(() => ({
       border-color: var(--card-hover-border);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 
-      .partner-logo {
-        transform: scale(1.1);
-        background: rgba(var(--primary-rgb), 0.2);
-      }
-
       &::before {
+        z-index: 1;  /* 降低伪元素的层级 */
         opacity: 1;
       }
 
       &::after {
+        z-index: 1;  /* 降低伪元素的层级 */
         left: 100%;
       }
     }
@@ -178,7 +177,9 @@ const partners = computed(() => ({
     margin-bottom: 1.5rem;
     background: rgba(var(--primary-rgb), 0.1);
     border-radius: 8px;
+    // transform: scale(1.2);
     transition: all 0.3s ease;
+    margin-bottom: 1rem; /* 添加底部间距 */
   }
 
   .partner-info {
@@ -198,24 +199,28 @@ const partners = computed(() => ({
 
   .partner-link {
     display: inline-flex;
+    position: relative;  /* 添加相对定位 */
+    z-index: 2;         /* 确保链接在伪元素之上 */
     align-items: center;
-    color: var(--primary);
+    gap: 0.5rem;
     text-decoration: none;
+    color: var(--primary);
     font-weight: 500;
     transition: all 0.3s ease;
+    cursor: pointer;
 
     &:hover {
-      transform: translateX(5px);
-    }
-
-    .link-text {
-      margin-right: 0.5rem;
+      color: var(--neon);
+      .link-icon {
+        transform: translateX(4px);
+      }
     }
 
     .link-icon {
-      font-size: 1.2rem;
+      transition: transform 0.3s ease;
     }
   }
+
 
   @media (max-width: 768px) {
     padding: 4rem 0;

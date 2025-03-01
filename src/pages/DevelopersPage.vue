@@ -28,19 +28,7 @@
       <!-- Tools Section -->
       <section class="section tools-section">
         <h2 class="section-title">{{ toolsTitle }}</h2>
-        <div class="tools-grid">
-          <div class="tool-card">
-            <div class="card-header">
-              <component :is="getIconComponent('indexer')" class="card-icon" />
-              <h3>{{ indexerTitle }}</h3>
-            </div>
-            <p class="card-description">{{ indexerDescription }}</p>
-            <a href="https://github.com/sat20-labs/indexer" 
-               class="tool-link" 
-               target="_blank">
-              {{ t('common.learnMore') }} →
-            </a>
-          </div>
+        <div class="tools-grid">         
           <div v-for="(tool, index) in developerTools" 
                :key="index"
                class="tool-card">
@@ -82,9 +70,11 @@
              :href="channel.url"
              class="community-card"
              target="_blank">
-            <component :is="getIconComponent(channel.icon)" class="card-icon" />
-            <h3>{{ channel.title }}</h3>
-            <p>{{ channel.description }}</p>
+             <div class="card-header">
+               <component :is="getIconComponent(channel.icon)" class="card-icon" />              
+             </div>
+             <h3>{{ channel.title }}</h3>
+             <p>{{ channel.description }}</p>
           </a>
         </div>
       </section>
@@ -98,12 +88,23 @@ import { useI18n } from 'vue-i18n';
 import ParticlesBg from '@/components/common/ParticlesBg.vue';
 
 // Icons
-import IconGuide from '@/components/icons/developers/IconGuide.vue';
+import IconRocket from '@/components/icons/developers/IconRocket.vue';
+import IconApi from '@/components/icons/developers/IconApi.vue';
+import IconStar from '@/components/icons/developers/IconModular.vue';
+import IconGraduationCap from '@/components/icons/developers/IconGraduationCap.vue';//
+
+import IconIndexer from '@/components/icons/developers/IconIndexer.vue';
+import IconSdk from '@/components/icons/developers/IconSdk.vue';//
+import IconTerminal from '@/components/icons/developers/IconTest.vue';
+import IconContract from '@/components/icons/developers/IconContract.vue';
+
 import IconBook from '@/components/icons/developers/IconDocument.vue';
 import IconCode from '@/components/icons/developers/IconCode.vue';
-import IconServer from '@/components/icons/developers/IconNetwork.vue';
+import IconServer from '@/components/icons/developers/IconServer.vue';
+
 import IconGithub from '@/components/icons/developers/IconGithub.vue';
 import IconDiscord from '@/components/icons/developers/IconDiscord.vue';
+import IconCommunity from '@/components/icons/developers/IconCommunity.vue';
 
 const { t, tm } = useI18n();
 
@@ -118,8 +119,6 @@ const documentation = computed(() => tm('developers.documentation.categories'));
 
 // Tools Section
 const toolsTitle = computed(() => t('developers.tools.title'));
-const indexerTitle = computed(() => t('developers.tools.indexer.title'));
-const indexerDescription = computed(() => t('developers.tools.indexer.description'));
 const developerTools = computed(() => tm('developers.tools.items'));
 
 // Updates Section
@@ -132,13 +131,24 @@ const communityChannels = computed(() => tm('developers.community.channels'));
 
 // Icon mapping function
 function getIconComponent(iconName) {
-  const iconMap = {
-    'guide': IconGuide,
-    'book': IconBook,
+  const iconMap = {    
+    'rocket':IconRocket,
+    'api': IconApi,
+    'star': IconStar,
+    'graduation-cap': IconGraduationCap,
+
+    'indexer': IconIndexer,
+    'sdk': IconSdk,
+    'terminal': IconTerminal,
+    'contract': IconContract,
+
     'code': IconCode,
+    'book': IconBook,
     'server': IconServer,
+    
     'github': IconGithub,
-    'discord': IconDiscord
+    'discord': IconDiscord,
+    'forum': IconCommunity,
   };
   return iconMap[iconName] || null;
 }
