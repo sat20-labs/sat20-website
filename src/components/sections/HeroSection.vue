@@ -52,7 +52,7 @@ const goToTestnet = () => {
 
 <style scoped>
 .hero-section {
-  min-height: 60vh;
+  min-height: 56vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,11 +69,27 @@ const goToTestnet = () => {
   z-index: 1;
   background: url('@/assets/images/hero/sc-bg1.png');
   background-size: cover;
-  background-position: center;
+  background-position: top center;
   background-repeat: no-repeat;
   padding: 4rem;
+  margin-top: 1rem; /* 移动端适当增加顶部间距 */
   border-radius: 24px;
   color: var(--text-primary);
+  @media (max-width: 1024px) {
+    background-size: 200%; /* 放大背景图，仅显示中间部分 */
+    background-position: top center; /* 确保背景图顶部对齐，居中 */
+    padding: 8rem 2rem 2rem; /* 移动端额外增加顶部间距 */
+    min-height: 300px; 
+    margin-top: 2rem; /* 移动端适当增加顶部间距 */
+  }
+
+  @media (max-width: 768px) {
+    background-size: 200%; /* 放大背景图，仅显示中间部分 */
+    background-position: top center; /* 确保背景图顶部对齐，居中 */
+    padding: 8rem 2rem 2rem; /* 移动端额外增加顶部间距 */
+    min-height: 300px; 
+    margin-top: 3rem; /* 移动端适当增加顶部间距 */
+  }
 }
 
 .main-title {
@@ -83,7 +99,10 @@ const goToTestnet = () => {
   position: relative;
   display: inline-block;
   background: linear-gradient(135deg, var(--primary), var(--neon));
+  background-clip: text;
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--primary); /* 兜底颜色，适用于不支持 text-fill 的浏览器 */
   -webkit-text-fill-color: transparent;
 }
 

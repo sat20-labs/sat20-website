@@ -22,7 +22,7 @@ export default {
   nav: {
     home: 'Home',
     tech: 'Tech',
-    satnet: 'SatoshiNet',
+    satnet: 'SatNet',
     eco: 'Eco',
     roadmap: 'Roadmap',
     docs: 'Docs'

@@ -73,14 +73,14 @@
                 <IconMoon v-else />
               </button>
             </div> -->
-            
+
           </div>
           <!-- 文档导航 -->
           <div class="dropdown-section">
             <div class="section-title">{{ t('menu.documentation') }}</div>
             <div 
               class="docs-dropdown" 
-              @click.stop 
+              @click.stop="toggleDocsMenu"
               :class="{ 'show': showDocsMenu }"
             >
               <button 
@@ -631,16 +631,16 @@ const directives = {
   font-size: 0.9375rem;
   border-radius: 6px;
   transition: all 0.3s ease;
+}
 
-  &:hover {
-    color: var(--text-primary);
-    background: rgba(var(--primary-rgb), 0.1);
-  }
+.docs-link:hover {
+  color: var(--text-primary);
+  background: rgba(var(--primary-rgb), 0.1);
+}
 
-  &.active {
-    color: var(--primary);
-    background: rgba(var(--primary-rgb), 0.1);
-  }
+.docs-link.active {
+  color: var(--primary);
+  background: rgba(var(--primary-rgb), 0.1);
 }
 
 .external-icon {
@@ -692,6 +692,9 @@ const directives = {
 .dropdown-section {
   padding: 1rem;
   border-bottom: 1px solid var(--border-color);
+  @media (max-width: 768px) {
+    width: 100%; 
+  }
 }
 
 .section-title {
@@ -920,16 +923,50 @@ const directives = {
 
 @media (max-width: 1024px) {
   .container {
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.2rem;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .main-nav {
-    gap: 2rem;
+    display: flex;
+    gap: 0.8rem;
+    margin-right: 0.5rem;
+    align-items: center;
+  }
+
+  .docs-dropdown {
+    position: relative;
+    margin-left: 0.3rem;
+    display: inline-block;
+  }
+
+  .docs-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    min-width: 160px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backpack-filter: blur(12px);
+    z-index: 100;
   }
 
   .role-switch {
-    gap: 0.75rem;
-    margin: 0 1rem;
+    gap: 0.45rem;
+    margin: 0 0.5rem;
   }
 }
 
@@ -954,7 +991,7 @@ const directives = {
   }
 
   .logo-text {
-    display: none;
+    display:block;
   }
 
   .dropdown-menu {

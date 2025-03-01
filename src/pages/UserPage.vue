@@ -182,7 +182,10 @@ const mintingTutorials = computed(() => {
   text-align: center;
   margin-bottom: 3rem;
   background: linear-gradient(135deg, var(--primary), var(--neon));
+  background-clip: text;
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--primary); /* 兜底颜色，适用于不支持 text-fill 的浏览器 */
   -webkit-text-fill-color: transparent;
 }
 

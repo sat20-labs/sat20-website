@@ -8,7 +8,7 @@ if (import.meta.env.DEV) {
 }
 
 // 获取当前语言
-const currentLang = localStorage.getItem('language') || 'zh';
+const currentLang = localStorage.getItem('language') || 'en';
 
 // 创建i18n实例
 const i18n = createI18n({

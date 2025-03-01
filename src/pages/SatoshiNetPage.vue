@@ -9,9 +9,7 @@
       <section class="section architecture">
         <h2 class="section-title">{{ t('satoshinet.architecture.title') }}</h2>
         <div class="feature-list">
-          <div v-for="(feature, idx) in tm('satoshinet.architecture.features')" 
-               :key="idx" 
-               class="feature-item">
+          <div v-for="(feature, idx) in tm('satoshinet.architecture.features')" :key="idx" class="feature-item">
             {{ feature }}
           </div>
         </div>
@@ -26,9 +24,7 @@
       <section class="section advantages">
         <h2 class="section-title">{{ t('satoshinet.advantages.title') }}</h2>
         <div class="advantages-grid">
-          <div v-for="(item, idx) in tm('satoshinet.advantages.items')"
-               :key="idx"
-               class="advantage-card">
+          <div v-for="(item, idx) in tm('satoshinet.advantages.items')" :key="idx" class="advantage-card">
             <h3>{{ item.title }}</h3>
             <p>{{ item.desc }}</p>
           </div>
@@ -53,13 +49,10 @@
       <section class="section ecosystem">
         <h2 class="section-title">{{ t('satoshinet.ecosystem.title') }}</h2>
         <div class="phase-timeline">
-          <div v-for="(phase, idx) in tm('satoshinet.ecosystem.phases')"
-               :key="idx"
-               class="phase-card">
+          <div v-for="(phase, idx) in tm('satoshinet.ecosystem.phases')" :key="idx" class="phase-card">
             <h3>{{ phase.title }}</h3>
             <ul>
-              <li v-for="(item, itemIdx) in phase.items"
-                  :key="itemIdx">
+              <li v-for="(item, itemIdx) in phase.items" :key="itemIdx">
                 {{ item }}
               </li>
             </ul>
@@ -140,7 +133,10 @@ const { t, tm } = useI18n()
     }
   }
 
-  .feature-list, .advantages-grid, .model-grid, .phase-timeline {
+  .feature-list,
+  .advantages-grid,
+  .model-grid,
+  .phase-timeline {
     display: grid;
     gap: 2rem;
   }
@@ -162,7 +158,10 @@ const { t, tm } = useI18n()
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 
-  .feature-item, .advantage-card, .model-card, .phase-card {
+  .feature-item,
+  .advantage-card,
+  .model-card,
+  .phase-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: 20px;
@@ -177,7 +176,8 @@ const { t, tm } = useI18n()
       border-color: var(--card-hover-border);
       box-shadow: 0 10px 30px var(--shadow-color);
 
-      h3, .percent {
+      h3,
+      .percent {
         color: var(--text-primary);
       }
 
@@ -217,16 +217,15 @@ const { t, tm } = useI18n()
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.2),
-        transparent
-      );
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent);
       transition: 0.5s;
     }
 
-    h3, .percent {
+    h3,
+    .percent {
       font-size: 1.2rem;
       margin-bottom: 1rem;
       color: var(--text-primary);
@@ -279,8 +278,8 @@ const { t, tm } = useI18n()
   .centered-image {
     display: block;
     // margin: 0 auto;
-    margin-left: 22%;
-    width: 65%;
+    margin-left: 18%;
+    width: 75%;
   }
 
 
@@ -288,6 +287,12 @@ const { t, tm } = useI18n()
   @media (max-width: 1024px) {
     .model-grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    .centered-image {
+      display: block;
+      margin-left: 5%;
+      width: 100%;
     }
   }
 
@@ -309,6 +314,14 @@ const { t, tm } = useI18n()
     .model-grid {
       grid-template-columns: 1fr;
     }
+
+    .centered-image {
+      display: block;
+      margin-left: 10%;
+      width: 100%;
+    }
   }
+
 }
+
 </style>
