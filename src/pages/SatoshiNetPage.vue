@@ -70,7 +70,7 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-//import ParticlesBg from '@/components/common/ParticlesBg.vue'
+import ParticlesBg from '@/components/common/ParticlesBg.vue'
 
 const { t, tm } = useI18n()
 </script>

@@ -121,6 +121,7 @@ const getIconComponent = (name) => {
     'test': IconTest,
     'tradeing': IconTradeing,
 
+    // 其他功能
     'swap': IconSwap,
     'testcoin': IconTestCoin
   }
