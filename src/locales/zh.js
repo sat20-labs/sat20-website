@@ -1053,7 +1053,7 @@ export default {
       title: 'SAT20白皮书',
       content: `
 # SAT20白皮书
-
+<a id="whitepaper-overview"></a>
 ## 简介
 
 SAT20是一种基于比特币的原生资产发行和流通协议，旨在为比特币生态提供一个安全、可扩展和高效的资产管理解决方案。
@@ -1094,35 +1094,35 @@ SAT20是一种基于比特币的原生资产发行和流通协议，具有安全
       title: '快速开始指南',
       content: `
 # 快速开始指南
-
 <a id="guide-install"></a>
 ## 安装
 
 使用npm安装SAT20开发套件：
-
+<pre v-pre>
 \`\`\`bash
-npm install @sat20/sdk
+npm install @sat20\sdk
 \`\`\`
+</pre>
 
 <a id="guide-init"></a>
 ## 初始化
 
 创建SAT20客户端实例：
-
+<pre v-pre>
 \`\`\`javascript
-import { SAT20Client } from '@sat20/sdk';
+import { SAT20Client } from '@sat20\/sdk';
 
 const client = new SAT20Client({
   network: 'mainnet',  // 或 'testnet'
   apiKey: 'YOUR_API_KEY'
 });
 \`\`\`
-
+</pre>
 <a id="guide-basic"></a>
 ## 基本用法
 
 ### 发行资产
-
+<pre v-pre>
 \`\`\`javascript
 const result = await client.issueAsset({
   name: 'MyToken',
@@ -1130,10 +1130,10 @@ const result = await client.issueAsset({
   totalSupply: '1000000'
 });
 \`\`\`
-
+</pre>
 <a id="guide-transfer"></a>
 ### 转账资产
-
+<pre v-pre>
 \`\`\`javascript
 await client.transfer({
   to: 'recipient_address',
@@ -1141,6 +1141,7 @@ await client.transfer({
   asset: 'MTK'
 });
 \`\`\`
+</pre>
 `
     },
     'api-reference': {
@@ -1182,11 +1183,12 @@ Authorization: Bearer YOUR_API_KEY
 
 <a id="endpoint-assets"></a>
 ### 获取UTXO中的资产详情
-- **端点**: GET /address/assets/{utxo}
+- **端点**: GET \/address\/assets\/\{utxo\}
 - **描述**: 获取指定UTXO中的资产详情，包括代币数量、类型等信息
 - **参数**: 
   - utxo: UTXO标识符（路径参数，必需）
 - **响应示例**:
+<pre v-pre>
 \`\`\`json
 {
   "utxo": "txid:vout",
@@ -1200,10 +1202,10 @@ Authorization: Bearer YOUR_API_KEY
   ]
 }
 \`\`\`
-
+</pre>
 <a id="endpoint-history"></a>
 ### 获取地址铸造历史
-- **端点**: GET /address/history/{address}/{ticker}
+- **端点**: GET \/address\/history\/\{address\}\/\{ticker\}
 - **描述**: 获取指定地址的铸造历史记录，支持分页查询
 - **参数**:
   - address: 比特币地址（路径参数，必需）
@@ -1211,6 +1213,7 @@ Authorization: Bearer YOUR_API_KEY
   - page: 页码（查询参数，可选，默认1）
   - limit: 每页记录数（查询参数，可选，默认20）
 - **响应示例**:
+<pre v-pre>
 \`\`\`json
 {
   "total": 100,
@@ -1226,14 +1229,15 @@ Authorization: Bearer YOUR_API_KEY
   ]
 }
 \`\`\`
-
+</pre>
 <a id="endpoint-summary"></a>
 ### 获取地址余额摘要
-- **端点**: GET /address/summary/{address}
+- **端点**: GET \/address\/summary\/\{address\}
 - **描述**: 获取指定地址的所有代币余额摘要
 - **参数**:
   - address: 比特币地址（路径参数，必需）
 - **响应示例**:
+<pre v-pre>
 \`\`\`json
 {
   "address": "bc1...",
@@ -1247,10 +1251,10 @@ Authorization: Bearer YOUR_API_KEY
   ]
 }
 \`\`\`
-
+</pre>
 <a id="endpoint-utxolist"></a>
 ### 获取地址UTXO列表
-- **端点**: GET /address/utxolist/{address}/{ticker}
+- **端点**: GET \/address\/utxolist\/\{address\}\/\{ticker\}
 - **描述**: 获取指定地址和代币的UTXO列表，支持分页和排序
 - **参数**:
   - address: 比特币地址（路径参数，必需）
@@ -1258,6 +1262,7 @@ Authorization: Bearer YOUR_API_KEY
   - sort: 排序方式（查询参数，可选，值：amount_asc/amount_desc/time_asc/time_desc）
   - confirmed_only: 是否只返回已确认的UTXO（查询参数，可选，默认false）
 - **响应示例**:
+<pre v-pre>
 \`\`\`json
 {
   "utxos": [
@@ -1271,40 +1276,42 @@ Authorization: Bearer YOUR_API_KEY
   ]
 }
 \`\`\`
-
+</pre>
 <a id="blockchain-api"></a>
 ## 区块链相关接口
 
 <a id="endpoint-bestheight"></a>
 ### 获取当前区块高度
-- **端点**: GET /bestheight
+- **端点**: GET \/bestheight
 - **描述**: 获取当前比特币区块高度
 - **缓存**: 10秒
 - **响应示例**:
+<pre v-pre>
 \`\`\`json
 {
   "height": 800000,
   "timestamp": "2024-02-22T14:30:00Z"
 }
 \`\`\`
-
+</pre>
 <a id="endpoint-blockhash"></a>
 ### 获取区块哈希
-- **端点**: GET /btc/block/blockhash/{height}
+- **端点**: GET \/btc\/block\/blockhash\/\{height\}
 - **描述**: 根据区块高度获取区块哈希
 - **参数**:
   - height: 区块高度（路径参数，必需）
 - **响应示例**:
+<pre v-pre>
 \`\`\`json
 {
   "height": 800000,
   "hash": "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"
 }
 \`\`\`
-
+</pre>
 <a id="endpoint-block"></a>
 ### 获取原始区块数据
-- **端点**: GET /btc/block/{blockhash}
+- **端点**: GET \/btc\/block\/\{blockhash\}
 - **描述**: 根据区块哈希获取完整的区块数据
 - **参数**:
   - blockhash: 区块哈希（路径参数，必需）
@@ -1326,16 +1333,17 @@ Authorization: Bearer YOUR_API_KEY
 
 <a id="endpoint-sendtx"></a>
 ### 发送原始交易
-- **端点**: POST /btc/tx
+- **端点**: POST \/btc\/tx
 - **描述**: 发送已签名的原始交易到比特币网络
 - **参数**:
   - signedTxHex: 已签名的交易十六进制数据（请求体，必需）
-  - maxfeerate: 最大费率，单位BTC/kB（请求体，可选）
+  - maxfeerate: 最大费率，单位BTC\/kB（请求体，可选）
 - **注意事项**:
   - 交易必须完整签名
   - 建议先在测试网络验证
   - 设置合理的费率以避免交易延迟
 - **响应示例**:
+<pre v-pre>
 \`\`\`json
 {
   "txid": "...",
@@ -1343,10 +1351,10 @@ Authorization: Bearer YOUR_API_KEY
   "size": 225
 }
 \`\`\`
-
+</pre>
 <a id="endpoint-tx"></a>
 ### 获取交易详情
-- **端点**: GET /btc/tx/{txid}
+- **端点**: GET \/btc\/tx\/\{txid\}
 - **描述**: 获取指定交易ID的详细信息
 - **参数**:
   - txid: 交易ID（路径参数，必需）
@@ -1366,7 +1374,7 @@ Authorization: Bearer YOUR_API_KEY
 
 <a id="error-handling"></a>
 ## 错误处理
-
+<a id="http-status-codes"></a>
 ### HTTP状态码
 
 - 200: 请求成功
@@ -1377,8 +1385,9 @@ Authorization: Bearer YOUR_API_KEY
 - 429: 请求频率超限
 - 500: 服务器内部错误
 
+<a id="error-response-format"></a>
 ### 错误响应格式
-
+<pre v-pre>
 \`\`\`json
 {
   "error": {
@@ -1391,7 +1400,8 @@ Authorization: Bearer YOUR_API_KEY
   }
 }
 \`\`\`
-
+</pre>
+<a id="error-codes"></a>
 ### 常见错误码
 
 - INVALID_PARAMETER: 参数无效
@@ -1402,12 +1412,13 @@ Authorization: Bearer YOUR_API_KEY
 
 <a id="best-practices"></a>
 ## 最佳实践
-
+<a id="request-limit"></a>
 ### 请求限制
-- 基础版API密钥: 60次/分钟
-- 专业版API密钥: 600次/分钟
-- 企业版API密钥: 6000次/分钟
+- 基础版API密钥: 60次\/分钟
+- 专业版API密钥: 600次\/分钟
+- 企业版API密钥: 6000次\/分钟
 
+<a id="optimization"></a>
 ### 优化建议
 
 1. **使用批量接口**
@@ -1428,7 +1439,7 @@ Authorization: Bearer YOUR_API_KEY
    - 使用压缩传输
    - 减少请求频率
    - 实现本地缓存
-
+<a id="security"></a>
 ### 安全建议
 
 1. **API密钥管理**
@@ -1464,11 +1475,11 @@ Authorization: Bearer YOUR_API_KEY
 ## 代码规范
 
 我们使用ESLint进行代码规范检查，请确保你的代码符合规范：
-
+<pre v-pre>
 \`\`\`bash
 npm run lint
 \`\`\`
-
+</pre>
 <a id="commit-message-format"></a>
 ## 提交消息格式
 

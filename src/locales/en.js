@@ -1133,7 +1133,7 @@ SAT20 is a Bitcoin-native asset issuance and circulation protocol designed to pr
 *   Full Asset Compatibility: SAT20 supports various asset protocols, including Ordinals, OrdX, Runes, and BRC20.
 *   Smart Contract Support: SAT20 supports templated smart contracts and Turing-complete scripts, enabling flexible asset management.
 
-a id="whitepaper-architecture"></a>
+<a id="whitepaper-architecture"></a>
 ## Technical Architecture
 
 SAT20's technical architecture includes the following layers:
@@ -1166,16 +1166,17 @@ SAT20 is a Bitcoin-native asset issuance and circulation protocol that is secure
 ## Installation
 
 Install SAT20 development kit using npm:
-
+<pre v-pre>
 \`\`\`bash
 npm install @sat20/sdk
 \`\`\`
+</pre>
 
 <a id="guide-init"></a>
 ## Initialization
 
 Create SAT20 client instance:
-
+<pre v-pre>
 \`\`\`javascript
 import { SAT20Client } from '@sat20/sdk';
 
@@ -1184,13 +1185,13 @@ const client = new SAT20Client({
   apiKey: 'YOUR_API_KEY'
 });
 \`\`\`
-
+</pre>
 <a id="guide-basic"></a>
 ## Basic Usage
 
 <a id="guide-issue"></a>
 ### Issue Asset
-
+<pre v-pre>
 \`\`\`javascript
 const result = await client.issueAsset({
   name: 'MyToken',
@@ -1198,10 +1199,11 @@ const result = await client.issueAsset({
   totalSupply: '1000000'
 });
 \`\`\`
-
+</pre>
 <a id="guide-transfer"></a>
 ### Transfer Asset
 
+<pre v-pre>
 \`\`\`javascript
 await client.transfer({
   to: 'recipient_address',
@@ -1209,6 +1211,7 @@ await client.transfer({
   asset: 'MTK'
 });
 \`\`\`
+</pre>
 `
     },
     'api-reference': {
@@ -1229,10 +1232,11 @@ await client.transfer({
 ## Authentication and Security
 
 All API requests require Bearer Token authentication in the Header:
-
+<pre v-pre>
 \`\`\`http
 Authorization: Bearer YOUR_API_KEY
 \`\`\`
+</pre>
 
 How to get API key:
 1. Login to SAT20 Developer Platform
@@ -1247,13 +1251,14 @@ Security recommendations:
 
 <a id="address-api"></a>
 ## Address Related APIs
-
+<a id="endpoint-assets"></a>
 ### Get UTXO Asset Details
 - **Endpoint**: GET /address/assets/{utxo}
 - **Description**: Get asset details in specified UTXO, including token amount, type, etc.
 - **Parameters**: 
   - utxo: UTXO identifier (path parameter, required)
 - **Response Example**:
+<pre v-pre>
 \`\`\`json
 {
   "utxo": "txid:vout",
@@ -1267,7 +1272,7 @@ Security recommendations:
   ]
 }
 \`\`\`
-
+</pre>
 <a id="endpoint-history"></a>
 ### Get Address Minting History
 - **Endpoint**: GET /address/history/{address}/{ticker}
@@ -1278,6 +1283,7 @@ Security recommendations:
   - page: Page number (query parameter, optional, default 1)
   - limit: Records per page (query parameter, optional, default 20)
 - **Response Example**:
+<pre v-pre>
 \`\`\`json
 {
   "total": 100,
@@ -1293,7 +1299,7 @@ Security recommendations:
   ]
 }
 \`\`\`
-
+</pre>
 <a id="endpoint-summary"></a>
 ### Get Address Balance Summary
 - **Endpoint**: GET /address/summary/{address}
@@ -1301,6 +1307,7 @@ Security recommendations:
 - **Parameters**:
   - address: Bitcoin address (path parameter, required)
 - **Response Example**:
+<pre v-pre>
 \`\`\`json
 {
   "address": "bc1...",
@@ -1314,7 +1321,7 @@ Security recommendations:
   ]
 }
 \`\`\`
-
+</pre>
 <a id="endpoint-utxolist"></a>
 ### Get Address UTXO List
 - **Endpoint**: GET /address/utxolist/{address}/{ticker}
@@ -1325,6 +1332,7 @@ Security recommendations:
   - sort: Sort method (query parameter, optional, values: amount_asc/amount_desc/time_asc/time_desc)
   - confirmed_only: Whether to return only confirmed UTXOs (query parameter, optional, default false)
 - **Response Example**:
+<pre v-pre>
 \`\`\`json
 {
   "utxos": [
@@ -1338,7 +1346,7 @@ Security recommendations:
   ]
 }
 \`\`\`
-
+</pre>
 <a id="blockchain-api"></a>
 ## Blockchain Related APIs
 
@@ -1348,13 +1356,14 @@ Security recommendations:
 - **Description**: Get current Bitcoin block height
 - **Cache**: 10 seconds
 - **Response Example**:
+<pre v-pre>
 \`\`\`json
 {
   "height": 800000,
   "timestamp": "2024-02-22T14:30:00Z"
 }
 \`\`\`
-
+</pre>
 <a id="endpoint-blockhash"></a>
 ### Get Block Hash
 - **Endpoint**: GET /btc/block/blockhash/{height}
@@ -1362,13 +1371,14 @@ Security recommendations:
 - **Parameters**:
   - height: Block height (path parameter, required)
 - **Response Example**:
+<pre v-pre>
 \`\`\`json
 {
   "height": 800000,
   "hash": "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"
 }
 \`\`\`
-
+</pre>
 <a id="endpoint-block"></a>
 ### Get Raw Block Data
 - **Endpoint**: GET /btc/block/{blockhash}
@@ -1402,6 +1412,7 @@ Security recommendations:
   - Recommend testing on testnet first
   - Set reasonable fee rate to avoid transaction delay
 - **Response Example**:
+<pre v-pre>
 \`\`\`json
 {
   "txid": "...",
@@ -1409,7 +1420,7 @@ Security recommendations:
   "size": 225
 }
 \`\`\`
-
+</pre>
 <a id="endpoint-tx"></a>
 ### Get Transaction Details
 - **Endpoint**: GET /btc/tx/{txid}
@@ -1432,7 +1443,7 @@ Security recommendations:
 
 <a id="error-handling"></a>
 ## Error Handling
-
+<a id="http-status-codes"></a>
 ### HTTP Status Codes
 
 - 200: Request successful
@@ -1443,8 +1454,9 @@ Security recommendations:
 - 429: Request rate limit exceeded
 - 500: Server internal error
 
+<a id="error-response-format"></a>
 ### Error Response Format
-
+<pre v-pre>
 \`\`\`json
 {
   "error": {
@@ -1457,7 +1469,9 @@ Security recommendations:
   }
 }
 \`\`\`
+</pre>
 
+<a id="common-error-codes"></a>
 ### Common Error Codes
 
 - INVALID_PARAMETER: Invalid parameter
@@ -1468,12 +1482,12 @@ Security recommendations:
 
 <a id="best-practices"></a>
 ## Best Practices
-
+<a id="request-limit"></a>
 ### Request Limits
 - Basic API key: 60 requests/minute
 - Professional API key: 600 requests/minute
 - Enterprise API key: 6000 requests/minute
-
+<a id="optimization"></a>
 ### Optimization Suggestions
 
 1. **Use Batch APIs**
@@ -1494,7 +1508,7 @@ Security recommendations:
    - Use compression
    - Reduce request frequency
    - Implement local cache
-
+<a id="security"></a>
 ### Security Recommendations
 
 1. **API Key Management**
@@ -1530,10 +1544,11 @@ Security recommendations:
 ## Code Standards
 
 We use ESLint for code standard checking, please ensure your code meets the standards:
-
+<pre v-pre>
 \`\`\`bash
 npm run lint
 \`\`\`
+</pre>
 
 <a id="commit-message-format"></a>
 ## Commit Message Format
