@@ -63,9 +63,9 @@
 <script setup>
 import { ref, computed, onMounted, watch, onUnmounted, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
-import { marked } from 'marked'
 import { useI18n } from 'vue-i18n'
 import DOMPurify from 'dompurify'
+import marked from 'marked'
 
 const props = defineProps({
   category: {
