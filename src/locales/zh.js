@@ -757,72 +757,72 @@ export default {
         {
           title: '开发者文档',
           description: '详尽的API文档和开发指南',
-          url: '/docs/api-reference',
+          url: '/docs/api_reference',
           icon: 'book',
           submenu: [
             {
               title: '基础信息',
-              url: '/docs/api-reference#basic-info'
+              url: '/docs/api_reference#basic-info'
             },
             {
               title: '认证与安全',
-              url: '/docs/api#authentication'
+              url: '/docs/api_reference#authentication'
             },
             {
               title: '地址接口',
-              url: '/docs/api#address-api',
+              url: '/docs/api_reference#address-api',
               submenu: [
                 {
                   title: '获取UTXO资产详情',
-                  url: '/docs/api#endpoint-assets'
+                  url: '/docs/api_reference#endpoint-assets'
                 },
                 {
                   title: '获取地址铸造历史',
-                  url: '/docs/api#endpoint-history'
+                  url: '/docs/api_reference#endpoint-history'
                 },
                 {
                   title: '获取地址余额摘要',
-                  url: '/docs/api#endpoint-summary'
+                  url: '/docs/api_reference#endpoint-summary'
                 },
                 {
                   title: '获取地址UTXO列表',
-                  url: '/docs/api#endpoint-utxolist'
+                  url: '/docs/api_reference#endpoint-utxolist'
                 }
               ]
             },
             {
               title: '区块链接口',
-              url: '/docs/api#blockchain-api',
+              url: '/docs/api_reference#blockchain-api',
               submenu: [
                 {
                   title: '获取当前区块高度',
-                  url: '/docs/api#endpoint-bestheight'
+                  url: '/docs/api_reference#endpoint-bestheight'
                 },
                 {
                   title: '获取区块哈希',
-                  url: '/docs/api#endpoint-blockhash'
+                  url: '/docs/api_reference#endpoint-blockhash'
                 },
                 {
                   title: '获取原始区块数据',
-                  url: '/docs/api#endpoint-block'
+                  url: '/docs/api_reference#endpoint-block'
                 },
                 {
                   title: '发送原始交易',
-                  url: '/docs/api#endpoint-sendtx'
+                  url: '/docs/api_reference#endpoint-sendtx'
                 },
                 {
                   title: '获取交易详情',
-                  url: '/docs/api#endpoint-tx'
+                  url: '/docs/api_reference#endpoint-tx'
                 }
               ]
             },
             {
               title: '错误处理',
-              url: '/docs/api#error-handling'
+              url: '/docs/api_reference#error-handling'
             },
             {
               title: '最佳实践',
-              url: '/docs/api#best-practices'
+              url: '/docs/api_reference#best-practices'
             }
           ]
         },
@@ -848,13 +848,13 @@ export default {
           title: '入门指南',
           description: '快速上手SAT20开发',
           icon: 'rocket',
-          url: '/docs/getting-started'
+          url: '/docs/getting_started'
         },
         {
           title: 'API参考',
           description: '详细的API文档',
           icon: 'api',
-          url: '/docs/api-reference'
+          url: '/docs/api_reference'
         },
         {
           title: '最佳实践',
@@ -1045,8 +1045,8 @@ export default {
     lastUpdated: "最后更新",
     categories: {
       whitepaper: '白皮书',
-      'getting-started': '快速开始',
-      'api-reference': 'API 文档',
+      getting_started: '快速开始',
+      api_reference: 'API 文档',
       contributing: '贡献指南'
     },
     whitepaper: {
@@ -1090,7 +1090,7 @@ SAT20的应用场景包括：
 SAT20是一种基于比特币的原生资产发行和流通协议，具有安全、可扩展和高效的特点。它支持聪级别的资产发行和管理，实现了比特币原生资产的高效流通。SAT20的技术架构包括基础层、协议层和应用层，支持多种资产协议和智能合约。其应用场景包括DeFi应用、NFT市场和区块链游戏等。
 `
     },
-    'getting-started': {
+    getting_started: {
       title: '快速开始指南',
       content: `
 # 快速开始指南
@@ -1144,10 +1144,10 @@ await client.transfer({
 
 `
     },
-    'api-reference': {
-      title: 'API 文档',
+    api_reference: {
+      title: 'API Reference',
       content: `
-# SAT20 API 文档
+# SAT20 API Documentation
 
 <a id="basic-info"></a>
 ## 基础信息
@@ -1458,7 +1458,7 @@ Authorization: Bearer YOUR_API_KEY
    - 记录审计日志
 `,
     },
-    'contributing': {
+    contributing: {
       title: '贡献指南',
       content: `
 # 贡献指南

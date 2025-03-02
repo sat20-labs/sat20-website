@@ -53,7 +53,7 @@
     <!-- 错误提示 -->
     <div class="error-message" v-else>
       <p>抱歉，该文档不存在或正在建设中。</p>
-      <router-link :to="{ name: 'documentation', params: { category: 'getting-started' }}">
+      <router-link :to="{ name: 'documentation', params: { category: 'getting_started' }}">
         返回快速开始
       </router-link>
     </div>

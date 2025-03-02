@@ -72,7 +72,7 @@ const goToDevelopers = () => {
 };
 
 const goToDocs = () => {
-  router.push('/docs/api-reference');
+  router.push('/docs/api_reference');
 };
 </script>
 

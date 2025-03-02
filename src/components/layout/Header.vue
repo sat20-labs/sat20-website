@@ -228,8 +228,8 @@ const navItems = [
 
 const docItems = [
   { key: 'whitepaper', to: '/docs/whitepaper' },
-  { key: 'getting-started', to: '/docs/getting-started' },
-  { key: 'api-reference', to: '/docs/api-reference' },
+  { key: 'getting_started', to: '/docs/getting_started' },
+  { key: 'api_reference', to: '/docs/api_reference' },
   { key: 'contributing', to: '/docs/contributing' }
 ];
 

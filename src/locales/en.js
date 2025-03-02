@@ -752,7 +752,7 @@ export default {
   developers: {
     title: 'Developer Center',
     subtitle: 'Build Next-gen Blockchain Applications',
-    description: 'Use SAT20 protocol to develop innovative applications',    
+    description: 'Use SAT20 protocol to develop innovative applications',
 
     quickLinks: {
       title: 'Quick Links',
@@ -760,72 +760,72 @@ export default {
         {
           title: 'Developer Documentation',
           description: 'Detailed API documentation and development guides',
-          url: '/docs/api-reference',
+          url: '/docs/api_reference',
           icon: 'book',
           submenu: [
             {
               title: 'Basic Information',
-              url: '/docs/api#basic-info'
+              url: '/docs/api_reference#basic-info'
             },
             {
               title: 'Authentication and Security',
-              url: '/docs/api#authentication'
+              url: '/docs/api_reference#authentication'
             },
             {
               title: 'Address API',
-              url: '/docs/api#address-api',
+              url: '/docs/api_reference#address-api',
               submenu: [
                 {
                   title: 'Get UTXO Asset Details',
-                  url: '/docs/api#endpoint-assets'
+                  url: '/docs/api_reference#endpoint-assets'
                 },
                 {
                   title: 'Get Address Minting History',
-                  url: '/docs/api#endpoint-history'
+                  url: '/docs/api_reference#endpoint-history'
                 },
                 {
                   title: 'Get Address Balance Summary',
-                  url: '/docs/api#endpoint-summary'
+                  url: '/docs/api_reference#endpoint-summary'
                 },
                 {
                   title: 'Get Address UTXO List',
-                  url: '/docs/api#endpoint-utxolist'
+                  url: '/docs/api_reference#endpoint-utxolist'
                 }
               ]
             },
             {
               title: 'Blockchain API',
-              url: '/docs/api#blockchain-api',
+              url: '/docs/api_reference#blockchain-api',
               submenu: [
                 {
                   title: 'Get Current Block Height',
-                  url: '/docs/api#endpoint-bestheight'
+                  url: '/docs/api_reference#endpoint-bestheight'
                 },
                 {
                   title: 'Get Block Hash',
-                  url: '/docs/api#endpoint-blockhash'
+                  url: '/docs/api_reference#endpoint-blockhash'
                 },
                 {
                   title: 'Get Raw Block Data',
-                  url: '/docs/api#endpoint-block'
+                  url: '/docs/api_reference#endpoint-block'
                 },
                 {
                   title: 'Send Raw Transaction',
-                  url: '/docs/api#endpoint-sendtx'
+                  url: '/docs/api_reference#endpoint-sendtx'
                 },
                 {
                   title: 'Get Transaction Details',
-                  url: '/docs/api#endpoint-tx'
+                  url: '/docs/api_reference#endpoint-tx'
                 }
               ]
             },
             {
               title: 'Error Handling',
-              url: '/docs/api#error-handling'
+              url: '/docs/api_reference#error-handling'
             },
             {
               title: 'Best Practices',
-              url: '/docs/api#best-practices'
+              url: '/docs/api_reference#best-practices'
             }
           ]
         },
@@ -851,13 +851,13 @@ export default {
           title: 'Getting Started',
           description: 'Quick start guide for SAT20 development',
           icon: 'rocket',
-          url: '/docs/getting-started'
+          url: '/docs/gettingstarted'
         },
         {
           title: 'API Reference',
           description: 'Detailed API documentation',
           icon: 'code',
-          url: '/docs/api-reference'
+          url: '/docs/api_reference'
         },
         {
           title: 'Best Practices',
@@ -1112,8 +1112,8 @@ export default {
     lastUpdated: "Last Updated",
     categories: {
       whitepaper: 'Whitepaper',
-      'getting-started': 'Getting Started',
-      'api-reference': 'API Reference',
+      getting_started: 'Getting Started',
+      api_reference: 'API Reference',
       contributing: 'Contributing Guide'
     },
     whitepaper: {
@@ -1157,7 +1157,7 @@ SAT20's application scenarios include:
 SAT20 is a Bitcoin-native asset issuance and circulation protocol that is secure, scalable, and efficient. It supports satoshi-level asset issuance and management, enabling efficient circulation of Bitcoin native assets. SAT20's technical architecture includes base layer, protocol layer, and application layer, supporting various asset protocols and smart contracts. Its application scenarios include DeFi applications, NFT markets, and blockchain games.
 `
     },
-    'getting-started': {
+    getting_started: {
       title: 'Getting Started Guide',
       content: `
 # Getting Started Guide
@@ -1214,7 +1214,7 @@ await client.transfer({
 
 `
     },
-    'api-reference': {
+    api_reference: {
       title: 'API Reference',
       content: `
 # SAT20 API Documentation
@@ -1527,7 +1527,7 @@ Security recommendations:
    - Record audit logs
 `,
     },
-    'contributing': {
+    contributing: {
       title: 'Contributing Guide',
       content: `
 # Contributing Guide
