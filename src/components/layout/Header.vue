@@ -88,7 +88,7 @@
                 @click="toggleDocsMenu"
                 :class="{ 'active': showDocsMenu }"
               >
-                {{ $t('nav.documentation') }}
+                {{ $t('menu.documentation') }}
                 <i class="fas fa-chevron-down"></i>
               </button>
               <div class="dropdown-menu" v-if="showDocsMenu">

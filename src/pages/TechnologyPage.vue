@@ -137,6 +137,7 @@ import '@/assets/styles/pages/_technology.scss';
 import IconBitcoin from '@/components/icons/tech/IconBitcoin.vue';
 import IconLightning from '@/components/icons/tech/IconLightning.vue';
 import IconGlobe from '@/components/icons/tech/IconGlobe.vue';
+
 import IconSatoshiSystem from '@/components/icons/tech/IconSatoshiSystem.vue';
 import IconSmartNetwork from '@/components/icons/tech/IconSmartNetwork.vue';
 
@@ -244,10 +245,12 @@ const getInnovationIcon = (title) => {
   const iconMap = {
     // 中文标题
     '聪本位体系': IconSatoshiSystem,
-    '智能进化网络': IconSmartNetwork,
+    '进化版闪电网络': IconLightning,
+    '聪网的智能进化': IconSmartNetwork,
     // 英文标题 (从 en.js 中获取的实际标题)
     'Satoshi-based System': IconSatoshiSystem,
-    'Smart Evolution Network': IconSmartNetwork
+    'Enhanced Lightning Network': IconLightning,
+    'SatoshiNet Smart Evolution': IconSmartNetwork
   };
   return iconMap[title] || null;
 };

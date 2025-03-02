@@ -116,18 +116,22 @@ const headingElements = ref([])
 
 const extractHeadings = () => {
   if (!contentEl.value) return
-  
+
   // 获取所有h2和h3标题
   const elements = contentEl.value.querySelectorAll('h2, h3')
   headingElements.value = elements
-  
-  // 提取标题信息
-  headings.value = Array.from(elements).map(el => ({
-    id: el.id,
-    text: el.textContent,
-    level: parseInt(el.tagName.substring(1)),
-    offsetTop: el.offsetTop
-  }))
+
+  headings.value = Array.from(elements).map(el => {    
+    // 获取上方的 a 标签的 id
+    let headingId = el.previousElementSibling?.querySelector('a')?.id || '';    
+    return {
+      id: headingId,
+      text: el.textContent,
+      level: parseInt(el.tagName.substring(1)),
+      offsetTop: el.offsetTop
+    };
+  });
+
 }
 
 // 处理滚动，更新当前激活的标题
@@ -149,18 +153,42 @@ const handleScroll = () => {
   activeHeading.value = currentHeading
 }
 
-// 滚动到指定标题
-const scrollToHeading = (id) => {
-  const target = document.getElementById(id)
-  if (target) {
-    const offset = target.offsetTop - 80 // 考虑顶部导航栏的高度
-    window.scrollTo({
-      top: offset,
-      behavior: 'smooth'
-    })
-    activeHeading.value = id
+function findScrollParent(element) {
+  while (element) {
+    const overflow = getComputedStyle(element).overflowY;
+    if (overflow === 'auto' || overflow === 'scroll') {
+      return element;
+    }
+    element = element.parentElement;
   }
+  return window;
 }
+
+
+const scrollToHeading = (id) => {
+  setTimeout(() => {
+    const target = document.getElementById(id);
+    if (!target) {
+      console.error("Element not found:", id);
+      return;
+    }
+
+    // 确保目标可见
+    target.style.display = "block";
+
+    // 找到最近的可滚动容器
+    const scrollParent = findScrollParent(target);
+    const offset = target.offsetTop - 80;
+
+    scrollParent.scrollTo({
+      top: offset,
+      behavior: "smooth",
+    });
+
+    activeHeading.value = id;
+  }, 100);
+};
+
 
 // 监听路由hash变化
 watch(() => route.hash, (newHash) => {

@@ -1058,6 +1058,7 @@ export default {
 
 SAT20是一种基于比特币的原生资产发行和流通协议，旨在为比特币生态提供一个安全、可扩展和高效的资产管理解决方案。
 
+<a id="whitepaper-core-features"></a>
 ## 核心特性
 
 *   聪本位资产：SAT20支持聪级别的资产发行和管理，实现了比特币原生资产的高效流通。
@@ -1065,6 +1066,7 @@ SAT20是一种基于比特币的原生资产发行和流通协议，旨在为比
 *   全资产兼容：SAT20支持多种资产协议，包括Ordinals、OrdX、Runes和BRC20等。
 *   智能合约支持：SAT20支持模板化智能合约和图灵完备脚本，实现了高灵活性的资产管理。
 
+<a id="whitepaper-architecture"></a>
 ## 技术架构
 
 SAT20的技术架构包括以下几个层次：
@@ -1073,6 +1075,7 @@ SAT20的技术架构包括以下几个层次：
 *   协议层：SAT20核心协议和智能合约。
 *   应用层：去中心化应用生态系统。
 
+<a id="whitepaper-applications"></a>
 ## 应用场景
 
 SAT20的应用场景包括：
@@ -1081,6 +1084,7 @@ SAT20的应用场景包括：
 *   NFT市场：数字艺术品和收藏品的发行和交易平台。
 *   区块链游戏：基于区块链的游戏资产和虚拟世界。
 
+<a id="whitepaper-conclusion"></a>
 ## 总结
 
 SAT20是一种基于比特币的原生资产发行和流通协议，具有安全、可扩展和高效的特点。它支持聪级别的资产发行和管理，实现了比特币原生资产的高效流通。SAT20的技术架构包括基础层、协议层和应用层，支持多种资产协议和智能合约。其应用场景包括DeFi应用、NFT市场和区块链游戏等。
@@ -1091,6 +1095,7 @@ SAT20是一种基于比特币的原生资产发行和流通协议，具有安全
       content: `
 # 快速开始指南
 
+<a id="guide-install"></a>
 ## 安装
 
 使用npm安装SAT20开发套件：
@@ -1099,6 +1104,7 @@ SAT20是一种基于比特币的原生资产发行和流通协议，具有安全
 npm install @sat20/sdk
 \`\`\`
 
+<a id="guide-init"></a>
 ## 初始化
 
 创建SAT20客户端实例：
@@ -1112,6 +1118,7 @@ const client = new SAT20Client({
 });
 \`\`\`
 
+<a id="guide-basic"></a>
 ## 基本用法
 
 ### 发行资产
@@ -1124,6 +1131,7 @@ const result = await client.issueAsset({
 });
 \`\`\`
 
+<a id="guide-transfer"></a>
 ### 转账资产
 
 \`\`\`javascript
@@ -1444,6 +1452,7 @@ Authorization: Bearer YOUR_API_KEY
       content: `
 # 贡献指南
 
+<a id="contributing-process"></a>
 ## 开发流程
 
 1. Fork 项目仓库
@@ -1451,6 +1460,7 @@ Authorization: Bearer YOUR_API_KEY
 3. 提交变更
 4. 发起Pull Request
 
+<a id="code-standards"></a>
 ## 代码规范
 
 我们使用ESLint进行代码规范检查，请确保你的代码符合规范：
@@ -1459,6 +1469,7 @@ Authorization: Bearer YOUR_API_KEY
 npm run lint
 \`\`\`
 
+<a id="commit-message-format"></a>
 ## 提交消息格式
 
 使用Angular提交规范：

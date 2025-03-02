@@ -22,7 +22,7 @@ export default {
   nav: {
     home: 'Home',
     tech: 'Tech',
-    satnet: 'SatNet',
+    satnet: 'SatsNet',
     eco: 'Eco',
     roadmap: 'Roadmap',
     docs: 'Docs'
@@ -63,9 +63,9 @@ export default {
     explorer: 'Explorer',
     eco: 'Ecosystem',
     links: [
-      { link1: 'Link 1' },
-      { link2: 'Link 2' },
-      { link3: 'Link 3' }
+      { link1: '' },
+      { link2: '' },
+      { link3: '' }
     ]
   },
 
@@ -1120,11 +1120,12 @@ export default {
       title: 'SAT20 Whitepaper',
       content: `
 # SAT20 Whitepaper
-
+<a id="whitepaper-intro"></a>
 ## Introduction
 
 SAT20 is a Bitcoin-native asset issuance and circulation protocol designed to provide a secure, scalable, and efficient asset management solution for the Bitcoin ecosystem.
 
+<a id="whitepaper-features"></a>
 ## Core Features
 
 *   Satoshi-based Assets: SAT20 supports satoshi-level asset issuance and management, enabling efficient circulation of Bitcoin native assets.
@@ -1132,6 +1133,7 @@ SAT20 is a Bitcoin-native asset issuance and circulation protocol designed to pr
 *   Full Asset Compatibility: SAT20 supports various asset protocols, including Ordinals, OrdX, Runes, and BRC20.
 *   Smart Contract Support: SAT20 supports templated smart contracts and Turing-complete scripts, enabling flexible asset management.
 
+a id="whitepaper-architecture"></a>
 ## Technical Architecture
 
 SAT20's technical architecture includes the following layers:
@@ -1140,6 +1142,7 @@ SAT20's technical architecture includes the following layers:
 *   Protocol Layer: SAT20 core protocol and smart contracts.
 *   Application Layer: Decentralized application ecosystem.
 
+<a id="whitepaper-scenarios"></a>
 ## Application Scenarios
 
 SAT20's application scenarios include:
@@ -1148,6 +1151,7 @@ SAT20's application scenarios include:
 *   NFT Market: Digital art and collectibles issuance and trading platform.
 *   Blockchain Games: Blockchain-based game assets and virtual worlds.
 
+<a id="whitepaper-summary"></a>
 ## Summary
 
 SAT20 is a Bitcoin-native asset issuance and circulation protocol that is secure, scalable, and efficient. It supports satoshi-level asset issuance and management, enabling efficient circulation of Bitcoin native assets. SAT20's technical architecture includes base layer, protocol layer, and application layer, supporting various asset protocols and smart contracts. Its application scenarios include DeFi applications, NFT markets, and blockchain games.
@@ -1158,6 +1162,7 @@ SAT20 is a Bitcoin-native asset issuance and circulation protocol that is secure
       content: `
 # Getting Started Guide
 
+<a id="guide-install"></a>
 ## Installation
 
 Install SAT20 development kit using npm:
@@ -1166,6 +1171,7 @@ Install SAT20 development kit using npm:
 npm install @sat20/sdk
 \`\`\`
 
+<a id="guide-init"></a>
 ## Initialization
 
 Create SAT20 client instance:
@@ -1179,8 +1185,10 @@ const client = new SAT20Client({
 });
 \`\`\`
 
+<a id="guide-basic"></a>
 ## Basic Usage
 
+<a id="guide-issue"></a>
 ### Issue Asset
 
 \`\`\`javascript
@@ -1191,6 +1199,7 @@ const result = await client.issueAsset({
 });
 \`\`\`
 
+<a id="guide-transfer"></a>
 ### Transfer Asset
 
 \`\`\`javascript
@@ -1239,7 +1248,6 @@ Security recommendations:
 <a id="address-api"></a>
 ## Address Related APIs
 
-<a id="endpoint-assets"></a>
 ### Get UTXO Asset Details
 - **Endpoint**: GET /address/assets/{utxo}
 - **Description**: Get asset details in specified UTXO, including token amount, type, etc.
@@ -1510,6 +1518,7 @@ Security recommendations:
       content: `
 # Contributing Guide
 
+<a id="contributing-process"></a>
 ## Development Process
 
 1. Fork project repository
@@ -1517,6 +1526,7 @@ Security recommendations:
 3. Submit changes
 4. Create Pull Request
 
+<a id="code-standards"></a>
 ## Code Standards
 
 We use ESLint for code standard checking, please ensure your code meets the standards:
@@ -1525,6 +1535,7 @@ We use ESLint for code standard checking, please ensure your code meets the stan
 npm run lint
 \`\`\`
 
+<a id="commit-message-format"></a>
 ## Commit Message Format
 
 Use Angular commit convention:

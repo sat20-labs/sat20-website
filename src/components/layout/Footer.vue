@@ -53,9 +53,9 @@
       <div class="footer-bottom">
         <p class="copyright">&copy; {{ new Date().getFullYear() }} SAT20.org. All rights reserved.</p>
         <div class="footer-links">
-          <a href="#">Link 1</a>
+          <!-- <a href="#">Link 1</a>
           <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
+          <a href="#">Link 3</a> -->
         </div>
       </div>
     </div>
@@ -108,7 +108,7 @@ const { t } = useI18n();
 
   .footer-brand {
     .footer-logo {
-      height: 40px;
+      height: 60px;
       margin-bottom: 1.5rem;
     }
 
