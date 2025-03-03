@@ -86,9 +86,9 @@ const docData = computed(() => {
     const title = t(`docs.${props.category}.title`)
     let content = ''
     
-    // 直接获取原始内容，避免 i18n 解析 JSON 结构
-    const key = `docs.${props.category}.content`
-    const rawContent = i18n.global.messages.value[i18n.global.locale.value]?.docs?.[props.category]?.content
+    // 使用 useI18n() 获取当前语言的内容
+    const { messages, locale } = useI18n()
+    const rawContent = messages.value[locale.value]?.docs?.[props.category]?.content
     
     if (rawContent) {
       content = rawContent
