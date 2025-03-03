@@ -5,6 +5,7 @@ import path from 'path';
 import sass from 'sass'
 
 export default defineConfig({
+  base: './' ,
   build: {
     rollupOptions: {
       output: {
