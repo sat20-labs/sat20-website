@@ -558,15 +558,15 @@ export default {
     sidebar: {
       announcements: '最新公告',
       announcementList: [
-        { title: 'SAT20协议V2.0版本发布', link: '/news/sat20-v2' },
-        { title: '生态发展基金启动', link: '/news/eco-fund' },
-        { title: '聪网及Dex将上线', link: '/news/bridge-launch' }
+        { title: 'SAT20协议V2.0版本发布', link: '/#/news/sat20-v2' },
+        { title: '生态发展基金启动', link: '/#/news/eco-fund' },
+        { title: '聪网及Dex将上线', link: '/#/news/bridge-launch' }
       ],
       resources: '资源下载',
       resourceList: [
-        { title: 'SAT20技术白皮书', link: '/docs/whitepaper' },
-        { title: '开发者工具包', link: '/docs/devkit' },
-        { title: '生态路线图', link: '/docs/roadmap' }
+        { title: 'SAT20技术白皮书', link: '/#/docs/whitepaper' },
+        { title: '开发者工具包', link: '/#/docs/devkit' },
+        { title: '生态路线图', link: '/#/docs/roadmap' }
       ]
     },
     newsletter: {
@@ -757,72 +757,72 @@ export default {
         {
           title: '开发者文档',
           description: '详尽的API文档和开发指南',
-          url: '/docs/api_reference',
+          url: '/#/docs/api_reference',
           icon: 'book',
           submenu: [
             {
               title: '基础信息',
-              url: '/docs/api_reference#basic-info'
+              url: '/#/docs/api_reference#basic-info'
             },
             {
               title: '认证与安全',
-              url: '/docs/api_reference#authentication'
+              url: '/#/docs/api_reference#authentication'
             },
             {
               title: '地址接口',
-              url: '/docs/api_reference#address-api',
+              url: '/#/docs/api_reference#address-api',
               submenu: [
                 {
                   title: '获取UTXO资产详情',
-                  url: '/docs/api_reference#endpoint-assets'
+                  url: '/#/docs/api_reference#endpoint-assets'
                 },
                 {
                   title: '获取地址铸造历史',
-                  url: '/docs/api_reference#endpoint-history'
+                  url: '/#/docs/api_reference#endpoint-history'
                 },
                 {
                   title: '获取地址余额摘要',
-                  url: '/docs/api_reference#endpoint-summary'
+                  url: '/#/docs/api_reference#endpoint-summary'
                 },
                 {
                   title: '获取地址UTXO列表',
-                  url: '/docs/api_reference#endpoint-utxolist'
+                  url: '/#/docs/api_reference#endpoint-utxolist'
                 }
               ]
             },
             {
               title: '区块链接口',
-              url: '/docs/api_reference#blockchain-api',
+              url: '/#/docs/api_reference#blockchain-api',
               submenu: [
                 {
                   title: '获取当前区块高度',
-                  url: '/docs/api_reference#endpoint-bestheight'
+                  url: '/#/docs/api_reference#endpoint-bestheight'
                 },
                 {
                   title: '获取区块哈希',
-                  url: '/docs/api_reference#endpoint-blockhash'
+                  url: '/#/docs/api_reference#endpoint-blockhash'
                 },
                 {
                   title: '获取原始区块数据',
-                  url: '/docs/api_reference#endpoint-block'
+                  url: '/#/docs/api_reference#endpoint-block'
                 },
                 {
                   title: '发送原始交易',
-                  url: '/docs/api_reference#endpoint-sendtx'
+                  url: '/#/docs/api_reference#endpoint-sendtx'
                 },
                 {
                   title: '获取交易详情',
-                  url: '/docs/api_reference#endpoint-tx'
+                  url: '/#/docs/api_reference#endpoint-tx'
                 }
               ]
             },
             {
               title: '错误处理',
-              url: '/docs/api_reference#error-handling'
+              url: '/#/docs/api_reference#error-handling'
             },
             {
               title: '最佳实践',
-              url: '/docs/api_reference#best-practices'
+              url: '/#/docs/api_reference#best-practices'
             }
           ]
         },
@@ -848,25 +848,25 @@ export default {
           title: '入门指南',
           description: '快速上手SAT20开发',
           icon: 'rocket',
-          url: '/docs/getting_started'
+          url: '/#/docs/getting_started'
         },
         {
           title: 'API参考',
           description: '详细的API文档',
           icon: 'api',
-          url: '/docs/api_reference'
+          url: '/#/docs/api_reference'
         },
         {
           title: '最佳实践',
           description: '开发建议和示例',
           icon: 'star',
-          url: '/docs/best-practices'
+          url: '/#/docs/best-practices'
         },
         {
           title: '教程',
           description: '深入的开发教程',
           icon: 'graduation-cap',
-          url: '/docs/tutorials'
+          url: '/#/docs/tutorials'
         }
       ]
     },
@@ -879,25 +879,25 @@ export default {
           title: 'SAT20 索引器',
           description: '高性能区块链数据索引和查询工具',
           icon: 'indexer',
-          url: '/docs/indexer'
+          url: '/#/docs/indexer'
         },
         {
           title: 'SDK',
           description: '全功能开发工具包',
           icon: 'sdk',
-          url: '/docs/sdk'
+          url: '/#/docs/sdk'
         },
         {
           title: 'CLI工具',
           description: '命令行开发工具',
           icon: 'terminal',
-          url: '/docs/cli'
+          url: '/#/docs/cli'
         },
         {
           title: '合约模板',
           description: '智能合约开发模板',
           icon: 'contract',
-          url: '/docs/contract-templates'
+          url: '/#/docs/contract-templates'
         }
       ]
     },

@@ -568,9 +568,9 @@ export default {
       ],
       resources: 'Resources',
       resourceList: [
-        { title: 'SAT20 Whitepaper', link: '/docs/whitepaper' },
-        { title: 'Developer Kit', link: '/docs/devkit' },
-        { title: 'Roadmap', link: '/docs/roadmap' }
+        { title: 'SAT20 Whitepaper', link: '/#/docs/whitepaper' },
+        { title: 'Developer Kit', link: '/#/docs/devkit' },
+        { title: 'Roadmap', link: '/#/docs/roadmap' }
       ]
     },
     newsletter: {
@@ -760,72 +760,72 @@ export default {
         {
           title: 'Developer Documentation',
           description: 'Detailed API documentation and development guides',
-          url: '/docs/api_reference',
+          url: '/#/docs/api_reference',
           icon: 'book',
           submenu: [
             {
               title: 'Basic Information',
-              url: '/docs/api_reference#basic-info'
+              url: '/#/docs/api_reference#basic-info'
             },
             {
               title: 'Authentication and Security',
-              url: '/docs/api_reference#authentication'
+              url: '/#/docs/api_reference#authentication'
             },
             {
               title: 'Address API',
-              url: '/docs/api_reference#address-api',
+              url: '/#/docs/api_reference#address-api',
               submenu: [
                 {
                   title: 'Get UTXO Asset Details',
-                  url: '/docs/api_reference#endpoint-assets'
+                  url: '/#/docs/api_reference#endpoint-assets'
                 },
                 {
                   title: 'Get Address Minting History',
-                  url: '/docs/api_reference#endpoint-history'
+                  url: '/#/docs/api_reference#endpoint-history'
                 },
                 {
                   title: 'Get Address Balance Summary',
-                  url: '/docs/api_reference#endpoint-summary'
+                  url: '/#/docs/api_reference#endpoint-summary'
                 },
                 {
                   title: 'Get Address UTXO List',
-                  url: '/docs/api_reference#endpoint-utxolist'
+                  url: '/#/docs/api_reference#endpoint-utxolist'
                 }
               ]
             },
             {
               title: 'Blockchain API',
-              url: '/docs/api_reference#blockchain-api',
+              url: '/#/docs/api_reference#blockchain-api',
               submenu: [
                 {
                   title: 'Get Current Block Height',
-                  url: '/docs/api_reference#endpoint-bestheight'
+                  url: '/#/docs/api_reference#endpoint-bestheight'
                 },
                 {
                   title: 'Get Block Hash',
-                  url: '/docs/api_reference#endpoint-blockhash'
+                  url: '/#/docs/api_reference#endpoint-blockhash'
                 },
                 {
                   title: 'Get Raw Block Data',
-                  url: '/docs/api_reference#endpoint-block'
+                  url: '/#/docs/api_reference#endpoint-block'
                 },
                 {
                   title: 'Send Raw Transaction',
-                  url: '/docs/api_reference#endpoint-sendtx'
+                  url: '/#/docs/api_reference#endpoint-sendtx'
                 },
                 {
                   title: 'Get Transaction Details',
-                  url: '/docs/api_reference#endpoint-tx'
+                  url: '/#/docs/api_reference#endpoint-tx'
                 }
               ]
             },
             {
               title: 'Error Handling',
-              url: '/docs/api_reference#error-handling'
+              url: '/#/docs/api_reference#error-handling'
             },
             {
               title: 'Best Practices',
-              url: '/docs/api_reference#best-practices'
+              url: '/#/docs/api_reference#best-practices'
             }
           ]
         },
@@ -851,25 +851,25 @@ export default {
           title: 'Getting Started',
           description: 'Quick start guide for SAT20 development',
           icon: 'rocket',
-          url: '/docs/gettingstarted'
+          url: '/#/docs/gettingstarted'
         },
         {
           title: 'API Reference',
           description: 'Detailed API documentation',
           icon: 'code',
-          url: '/docs/api_reference'
+          url: '/#/docs/api_reference'
         },
         {
           title: 'Best Practices',
           description: 'Development guidelines and examples',
           icon: 'star',
-          url: '/docs/best-practices'
+          url: '/#/docs/best-practices'
         },
         {
           title: 'Tutorials',
           description: 'Deep dive tutorials',
           icon: 'graduation-cap',
-          url: '/docs/tutorials'
+          url: '/#/docs/tutorials'
         }
       ]
     },
@@ -882,25 +882,25 @@ export default {
           title: 'SAT20 Indexer',
           description: 'High-performance blockchain data indexing and querying tool',
           icon: 'indexer',
-          url: '/docs/indexer'
+          url: '/#/docs/indexer'
         },
         {
           title: 'SDK',
           description: 'Full-featured development tools',
           icon: 'code',
-          url: '/docs/sdk'
+          url: '/#/docs/sdk'
         },
         {
           title: 'CLI Tools',
           description: 'Command-line development tools',
           icon: 'terminal',
-          url: '/docs/cli'
+          url: '/#/docs/cli'
         },
         {
           title: 'Contract Templates',
           description: 'Smart contract development templates',
           icon: 'contract',
-          url: '/docs/contract-templates'
+          url: '/#/docs/contract-templates'
         }
       ]
     },

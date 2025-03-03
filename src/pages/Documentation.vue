@@ -82,13 +82,24 @@ const contentEl = ref(null)
 // 获取文档数据
 const docData = computed(() => {
   try {
-    return {
-      title: t(`docs.${props.category}.title`),
-      content: t(`docs.${props.category}.content`)
+    // 分开获取 title 和 content，并添加错误处理
+    const title = t(`docs.${props.category}.title`)
+    let content = ''
+    
+    // 直接获取原始内容，避免 i18n 解析 JSON 结构
+    const key = `docs.${props.category}.content`
+    const rawContent = i18n.global.messages.value[i18n.global.locale.value]?.docs?.[props.category]?.content
+    
+    if (rawContent) {
+      content = rawContent
+    } else {
+      console.warn(`Missing content for key: ${key}`)
     }
+
+    return { title, content }
   } catch (e) {
-    //console.error("翻译加载失败:", e); // 打印错误，方便排查
-    return null
+    console.error("文档加载失败:", e)
+    return { title: '', content: '' }
   }
 })
 
@@ -100,16 +111,40 @@ const lastUpdated = computed(() => {
   }).format(new Date())
 })
 
-// 解析并消毒Markdown内容
 const sanitizedContent = computed(() => {
   if (!docData.value) return ''
   
-  const html = marked.parse(docData.value.content || '', {
-    headerIds: true,
-    breaks: true
-  })
-  //console.log("html:", html)
-  return DOMPurify.sanitize(html)
+  try {
+    // 1. 先处理代码块，将其转换为安全的HTML
+    const processedContent = docData.value.content.replace(
+      /```([\w-]+)?\n([\s\S]+?)```/g,
+      (match, lang, code) => {
+        return `<pre><code class="language-${lang || ''}">${
+          code.replace(/[{}"]/g, char => `&#${char.charCodeAt(0)};`)
+        }</code></pre>`
+      }
+    )
+
+    // 2. 使用marked解析其余内容
+    const html = marked.parse(processedContent, {
+      headerIds: true,
+      breaks: true,
+      gfm: true,
+      mangle: false,
+      headerPrefix: 'doc-'
+    })
+
+    // 3. 使用DOMPurify清理HTML
+    return DOMPurify.sanitize(html, {
+      ALLOWED_TAGS: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'a', 'ul', 'ol', 'li', 
+                    'code', 'pre', 'strong', 'em', 'blockquote', 'span'],
+      ALLOWED_ATTR: ['href', 'target', 'class', 'id'],
+      ALLOW_DATA_ATTR: true
+    })
+  } catch (error) {
+    console.error('Error processing markdown:', error)
+    return ''
+  }
 })
 
 // 提取标题生成目录
