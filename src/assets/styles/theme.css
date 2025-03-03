@@ -51,6 +51,13 @@
   --warning-text: #ff9800;
   --success-bg: rgba(76, 175, 80, 0.2);
   --success-text: #4caf50;
+
+  /* 覆盖浏览器的自动主题切换 */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: dark;
+  }
+}
 }
 
 /* 全局基础样式 */

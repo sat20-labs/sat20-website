@@ -6,8 +6,6 @@ import Particles from 'vue3-particles'
 import '@/assets/styles/variables.css';
 import '@/assets/styles/theme.css';
 import '@/assets/styles/code.css';
-// 移除 tech-page.css 的引用
-// import '@/assets/styles/tech-page.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCode, faShieldAlt, faDownload, faExclamationTriangle, faCheckCircle, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -17,6 +15,16 @@ if (import.meta.env.DEV) {
   // console.log('zh-CN:', zh)
   // console.log('en-US:', en)
 }
+
+// 强制设置暗色主题
+document.documentElement.classList.add('dark');
+localStorage.setItem('theme', 'dark');
+
+// 禁用系统主题自动切换
+const meta = document.createElement('meta');
+meta.name = 'color-scheme';
+meta.content = 'dark';
+document.head.appendChild(meta);
 
 const app = createApp(App)
 
