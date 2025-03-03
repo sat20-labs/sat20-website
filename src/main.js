@@ -1,3 +1,4 @@
+// 在最顶部添加主题初始化代码
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
@@ -16,9 +17,6 @@ if (import.meta.env.DEV) {
   // console.log('en-US:', en)
 }
 
-// 强制设置暗色主题
-document.documentElement.classList.add('dark');
-localStorage.setItem('theme', 'dark');
 
 // 禁用系统主题自动切换
 const meta = document.createElement('meta');

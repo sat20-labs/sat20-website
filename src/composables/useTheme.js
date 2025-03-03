@@ -10,29 +10,30 @@ export function useTheme() {
     localStorage.setItem(THEME_KEY, theme);
   };
 
-  const toggleTheme = () => {
-    const newTheme = preferredTheme.value === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-  };
+  // 切换主题
+  // const toggleTheme = () => {
+  //   const newTheme = preferredTheme.value === 'dark' ? 'light' : 'dark';
+  //   setTheme(newTheme);
+  // };
 
   const initTheme = () => {
     // 检查本地存储
-    const savedTheme = localStorage.getItem(THEME_KEY);
-    
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
-      // 检查系统偏好
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(prefersDark ? 'dark' : 'light');
-    }
+    // const savedTheme = localStorage.getItem(THEME_KEY);
+    setTheme('dark');
+    // if (savedTheme) {
+    //   setTheme(savedTheme);
+    // } else {
+    //   // 检查系统偏好
+    //   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    //   setTheme(prefersDark ? 'dark' : 'light');
+    // }
 
     // 监听系统主题变化
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      if (!localStorage.getItem(THEME_KEY)) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
-    });
+    // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    //   if (!localStorage.getItem(THEME_KEY)) {
+    //     setTheme(e.matches ? 'dark' : 'light');
+    //   }
+    // });
   };
 
   onMounted(() => {
@@ -41,7 +42,7 @@ export function useTheme() {
 
   return {
     theme: preferredTheme,
-    toggleTheme,
+    //toggleTheme,
     setTheme
   };
 } 
