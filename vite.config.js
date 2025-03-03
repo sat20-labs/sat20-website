@@ -29,16 +29,16 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        //implementation: sass,
+        implementation: sass,
         __VUE_I18N_FULL_INSTALL__: true,
         __VUE_I18N_LEGACY_API__: false,
         additionalData: `@use "@/assets/styles/variables" as *;`
       }
     }
   },
-  // define: {
-  //   __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'true'
-  // },
+  define: {
+    __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'true'
+  },
   publicDir: 'public',
   server: {
     port: 3000

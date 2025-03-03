@@ -64,8 +64,9 @@
 import { ref, computed, onMounted, watch, onUnmounted, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import { marked } from 'marked'
+
 import DOMPurify from 'dompurify'
+import { marked } from 'marked'
 
 const props = defineProps({
   category: {
@@ -86,7 +87,7 @@ const docData = computed(() => {
       content: t(`docs.${props.category}.content`)
     }
   } catch (e) {
-    console.error("翻译加载失败:", e); // 打印错误，方便排查
+    //console.error("翻译加载失败:", e); // 打印错误，方便排查
     return null
   }
 })
@@ -107,6 +108,7 @@ const sanitizedContent = computed(() => {
     headerIds: true,
     breaks: true
   })
+  //console.log("html:", html)
   return DOMPurify.sanitize(html)
 })
 
