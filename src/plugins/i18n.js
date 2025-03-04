@@ -31,11 +31,11 @@ if (import.meta.env.DEV) {
       i18n.global.setLocaleMessage('zh', require('@/locales/zh').default);
     });
   }
-  console.log('i18n initialized with locale:', i18n.global.locale.value);
-  console.log('Current translations:', {
-    zh: i18n.global.t('developers.buttons.startDev', {}, 'zh'),
-    en: i18n.global.t('developers.buttons.startDev', {}, 'en')
-  });
+  // console.log('i18n initialized with locale:', i18n.global.locale.value);
+  // console.log('Current translations:', {
+  //   zh: i18n.global.t('developers.buttons.startDev', {}, 'zh'),
+  //   en: i18n.global.t('developers.buttons.startDev', {}, 'en')
+  // });
 }
 
 export default i18n;

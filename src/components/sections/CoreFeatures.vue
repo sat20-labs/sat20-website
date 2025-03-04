@@ -33,7 +33,7 @@ const IconCompatibility = defineAsyncComponent(() => import('@/components/icons/
 const IconSmartContract = defineAsyncComponent(() => import('@/components/icons/sections/IconSmartContract.vue'));
 const IconFee = defineAsyncComponent(() => import('@/components/icons/sections/IconFee.vue'));
 
-const iconSize = 32;
+const iconSize = 36;
 const activeFeature = ref(null);
 
 const title = computed(() => t('home.features.title'));
@@ -151,20 +151,20 @@ onMounted(() => {
 }
 
 .feature-icon {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
-  background: rgba(var(--primary-rgb), 0.1);
+  /* background: rgba(var(--primary-rgb), 0.1); */
   border-radius: 8px;
   transition: all 0.3s ease;
 }
 
 .feature-card:hover .feature-icon {
   transform: scale(1.1);
-  background: rgba(var(--primary-rgb), 0.2);
+  /* background: rgba(var(--primary-rgb), 0.2); */
 }
 
 .feature-title {

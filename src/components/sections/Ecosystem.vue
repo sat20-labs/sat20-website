@@ -14,7 +14,7 @@
                @mouseenter="activeCard = `app-${index}`"
                @mouseleave="activeCard = null">
             <div class="card-icon">
-              <component :is="app.icon" :size="32" />
+              <component :is="app.icon" :size="36" />
             </div>
             <h4>{{ tm(`home.ecosystem.applications.items.${index}.title`) }}</h4>
             <p>{{ tm(`home.ecosystem.applications.items.${index}.description`) }}</p>
@@ -136,7 +136,7 @@ const icons = [IconDecentralized, IconPerformance, IconCost];
 
       .card-icon {
         transform: scale(1.1);
-        background: rgba(var(--primary-rgb), 0.2);
+        // background: rgba(var(--primary-rgb), 0.2);
       }
 
       &::before {
@@ -192,7 +192,7 @@ const icons = [IconDecentralized, IconPerformance, IconCost];
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
-    background: rgba(var(--primary-rgb), 0.1);
+    // background: rgba(var(--primary-rgb), 0.1);
     border-radius: 8px;
     transition: all 0.3s ease;
   }

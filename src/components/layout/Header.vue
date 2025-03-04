@@ -23,7 +23,7 @@
         background: theme === 'dark' ? 'rgba(13, 13, 13, 0.95)' : 'rgba(255, 255, 255, 0.95)',
         backdropFilter: 'blur(10px)',
         '-webkit-backdrop-filter': 'blur(10px)'
-      }">
+      }">   
         <div class="dropdown-content">
           <!-- 导航链接 -->
           <div class="dropdown-section">
@@ -196,19 +196,19 @@
 <script setup>
 import { ref, computed, nextTick } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useTheme } from '@/composables/useTheme';
+// import { useTheme } from '@/composables/useTheme';
 import { useRoute, useRouter } from 'vue-router';
-import IconSun from '@/components/icons/theme/IconSun.vue';
-import IconMoon from '@/components/icons/theme/IconMoon.vue';
+// import IconSun from '@/components/icons/theme/IconSun.vue';
+// import IconMoon from '@/components/icons/theme/IconMoon.vue';
 import i18n from '@/plugins/i18n';
 
 const { t, locale } = useI18n();
-const { theme, toggleTheme } = useTheme();
+// const { theme, toggleTheme } = useTheme();
 const route = useRoute();
 const router = useRouter();
 
 const isMenuOpen = ref(false);
-const currentRole = ref('user');
+const currentRole = ref(null);
 const isDocsMenuOpen = ref(false);
 const showDocsMenu = ref(false);
 const activeDocItem = ref(null);
@@ -281,6 +281,7 @@ const switchLang = async (lang) => {
 };
 
 const toggleDocsMenu = () => {
+  console.log(isDocsMenuOpen.value);
   isDocsMenuOpen.value = !isDocsMenuOpen.value;
 };
 
@@ -352,6 +353,7 @@ const vClickOutside = {
 const directives = {
   'click-outside': vClickOutside
 };
+
 </script>
 
 <style scoped>
@@ -618,8 +620,16 @@ const directives = {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(12px);
   -webkit-backpack-filter: blur(12px);
-  z-index: 100;
+  z-index: 1000;
+
+   /* 添加过渡效果 */
+  transition: all 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
 }
+
+
 
 .docs-link {
   display: flex;
@@ -946,6 +956,7 @@ const directives = {
   .docs-dropdown {
     position: relative;
     margin-left: 0.3rem;
+    padding-bottom: 10px;
     display: inline-block;
   }
 
@@ -961,7 +972,7 @@ const directives = {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(12px);
     -webkit-backpack-filter: blur(12px);
-    z-index: 100;
+    z-index: 1000;
   }
 
   .role-switch {
@@ -1065,6 +1076,12 @@ const directives = {
   stroke-linecap: round;
   transform-origin: center;
   transition: all 0.3s ease;
+}
+
+.docs-dropdown {
+  position: relative;
+  margin-left: 1rem;
+  display: inline-block;
 }
 
 /* 菜单关闭动画 */

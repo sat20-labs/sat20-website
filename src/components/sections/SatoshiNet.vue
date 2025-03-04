@@ -77,7 +77,7 @@ const protocols = computed(() => tm('home.satoshinet.compatibility.protocols'))
 const assetTypes = computed(() => tm('home.satoshinet.assetTypes.types'))
 const assetTypesurl = computed(() => tm('home.satoshinet.assetTypes.imgurl'))
 
-const iconSize = 32
+const iconSize = 36
 </script>
 
 <style lang="scss" scoped>
@@ -141,7 +141,7 @@ const iconSize = 32
 
       .tech-icon {
         transform: scale(1.1);
-        background: rgba(var(--primary-rgb), 0.2);
+        // background: rgba(var(--primary-rgb), 0.2);
       }
 
       &::before {
@@ -197,7 +197,7 @@ const iconSize = 32
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
-    background: rgba(var(--primary-rgb), 0.1);
+    // background: rgba(var(--primary-rgb), 0.1);
     border-radius: 12px;
     transition: all 0.3s ease;
   }
