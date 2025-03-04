@@ -196,14 +196,14 @@
 <script setup>
 import { ref, computed, nextTick } from 'vue';
 import { useI18n } from 'vue-i18n';
-// import { useTheme } from '@/composables/useTheme';
+import { useTheme } from '@/composables/useTheme';
 import { useRoute, useRouter } from 'vue-router';
 // import IconSun from '@/components/icons/theme/IconSun.vue';
 // import IconMoon from '@/components/icons/theme/IconMoon.vue';
 import i18n from '@/plugins/i18n';
 
 const { t, locale } = useI18n();
-// const { theme, toggleTheme } = useTheme();
+const { theme, toggleTheme } = useTheme();
 const route = useRoute();
 const router = useRouter();
 
@@ -1007,7 +1007,9 @@ const directives = {
 
   .dropdown-menu {
     transform: translateY(-100%);
-    opacity: 0;
+    opacity: 1;
+    background: var(--bg-elevated);
+    
     visibility: hidden;
     transition: all 0.3s ease;
   }

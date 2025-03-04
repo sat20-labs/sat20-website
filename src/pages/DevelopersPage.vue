@@ -9,7 +9,7 @@
       <!-- Documentation Section -->
       <section class="section docs-section">
         <h2 class="section-title">{{ docsTitle }}</h2>
-        
+
         <div class="docs-grid">
           <div v-for="(doc, index) in documentation" 
                :key="index"
@@ -376,19 +376,44 @@ function getIconComponent(iconName) {
   flex-grow: 1;
 }
 
+// .doc-link,
+// .tool-link {
+//   display: inline-block;
+//   color: var(--primary);
+//   text-decoration: none;
+//   font-weight: 500;
+//   transition: color 0.3s ease;
+//   margin-top: auto;
+
+//   &:hover {
+//     color: var(--accent);
+//   }
+// }
+
 .doc-link,
 .tool-link {
-  display: inline-block;
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  margin-top: auto;
+    display: inline-flex;
+    position: relative;  /* 添加相对定位 */
+    z-index: 2;         /* 确保链接在伪元素之上 */
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
 
-  &:hover {
-    color: var(--accent);
+    &:hover {
+      color: var(--neon);
+      .link-icon {
+        transform: translateX(4px);
+      }
+    }
+
+    .link-icon {
+      transition: transform 0.3s ease;
+    }
   }
-}
 
 .update-date {
   font-size: 0.875rem;

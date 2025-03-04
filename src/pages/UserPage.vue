@@ -421,19 +421,27 @@ const mintingTutorials = computed(() => {
 }
 
 .demo-link {
-  display: inline-block;
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: 500;
-  margin-top: 1rem;
-  transition: color 0.3s ease;
-}
+    display: inline-block;
+    position: relative;  /* 添加相对定位 */
+    z-index: 2;         /* 确保链接在伪元素之上 */
 
-.demo-link:hover {
-  color: var(--neon);
-}
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
 
+    &:hover {
+      color: var(--neon);
+      .link-icon {
+        transform: translateX(4px);
+      }
+    }
 
+    .link-icon {
+      transition: transform 0.3s ease;
+    }
+  }
 
 .feature-item {
   background: var(--card-bg);
