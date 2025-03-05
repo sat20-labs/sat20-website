@@ -59,6 +59,17 @@ body {
   padding: 0;
 }
 
+main {
+  padding-top: 64px; /* 添加顶部内边距，与导航栏高度一致 */
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding-top: 56px; /* 移动端可以稍微小一点 */
+  }
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;

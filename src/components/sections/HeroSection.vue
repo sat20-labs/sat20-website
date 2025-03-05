@@ -52,14 +52,21 @@ const goToTestnet = () => {
 
 <style scoped>
 .hero-section {
-  min-height: 56vh;
+  min-height: 66vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 20px;
+  padding-top: 64px; /* 添加顶部内边距，与导航栏高度一致 */
   position: relative;
   background: var(--bg-primary);
   overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .hero-section {
+    padding-top: 56px; /* 移动端可以稍微小一点 */
+  }
 }
 
 .hero-content {
