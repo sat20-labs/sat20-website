@@ -93,7 +93,7 @@ const { t } = useI18n();
       right: 0;
       bottom: 0;
       border-radius: 20px;
-      padding: 2px;
+      padding: 1px;
       background: linear-gradient(135deg, var(--primary), var(--neon));
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);

@@ -426,13 +426,13 @@ const mintingTutorials = computed(() => {
     z-index: 2;         /* 确保链接在伪元素之上 */
 
     text-decoration: none;
-    color: var(--primary);
+    color: var(--neon);
     font-weight: 500;
     transition: all 0.3s ease;
     cursor: pointer;
 
     &:hover {
-      color: var(--neon);
+      color: var(--primary);
       .link-icon {
         transform: translateX(4px);
       }

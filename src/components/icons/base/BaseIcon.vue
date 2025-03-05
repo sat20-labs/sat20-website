@@ -26,11 +26,11 @@ const props = defineProps({
   },
   startColor: {
     type: String,
-    default: '#2A6FFF'  // 主色调
+    default: '#fe53f9'  // 主色调
   },
   endColor: {
     type: String,
-    default: '#00FFC4'  // 霓虹色
+    default: '#2A6FFF'  // 霓虹色
   }
 });
 

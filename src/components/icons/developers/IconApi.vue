@@ -2,8 +2,8 @@
   <BaseIcon :size="size">
     <defs>
       <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stop-color="#FFC107" />
-        <stop offset="100%" stop-color="#FF9800" />
+        <stop offset="0%" stop-color="#aa38f2" />
+        <stop offset="100%" stop-color="#2A6FFF" />
       </linearGradient>
     </defs>
     <path d="M16 18l6-6-6-6" stroke="url(#iconGradient)" fill="none" stroke-width="2"></path>

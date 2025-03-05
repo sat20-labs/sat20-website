@@ -1,205 +1,142 @@
 <template>
-  <header class="sticky-header">
-    <nav class="container">
-      <a href="/" class="logo">
-        <img src="@/assets/images/sat20-logo.png" alt="SAT20Labs">
-        <span class="logo-text">SAT20Labs</span>
-      </a>
-      
-      <!-- 移动端菜单按钮 -->
-      <button class="menu-toggle" 
-              :class="{ 'active': isMenuOpen }" 
-              @click="toggleMenu"
-              aria-label="Toggle menu">
-        <svg class="menu-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <line class="menu-line top" x1="3" y1="6" x2="21" y2="6" />
-          <line class="menu-line middle" x1="3" y1="12" x2="21" y2="12" />
-          <line class="menu-line bottom" x1="3" y1="18" x2="21" y2="18" />
-        </svg>
-      </button>
-      
-      <!-- 移动端下拉菜单 -->
-      <div class="dropdown-menu" :class="{ 'active': isMenuOpen }" :style="{
-        background: theme === 'dark' ? 'rgba(13, 13, 13, 0.95)' : 'rgba(255, 255, 255, 0.95)',
-        backdropFilter: 'blur(10px)',
-        '-webkit-backdrop-filter': 'blur(10px)'
-      }">   
-        <div class="dropdown-content">
-          <!-- 导航链接 -->
-          <div class="dropdown-section">
-            <div class="section-title">{{ t('menu.navigation') }}</div>
-            <router-link 
-              v-for="item in navItems" 
-              :key="item.key" 
-              :to="item.to"
-              class="dropdown-item"
-              :class="{ 'active': route.path === item.to }"
-              @click="closeMenu">
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <!-- Logo -->
+        <router-link to="/" class="logo">
+          <img src="@/assets/images/sat20-logo.png" alt="SAT20Labs" />
+          <span class="logo-text">SAT20Labs</span>
+        </router-link>
+
+        <!-- Desktop Navigation -->
+        <div class="desktop-nav">
+          <div class="main-nav">
+            <router-link v-for="item in navItems" :key="item.key" :to="item.to" class="main-nav-link"
+              :class="{ 'active': isMainNavActive && route.path === item.to }">
               {{ t(`nav.${item.key}`) }}
             </router-link>
           </div>
-          
-          <!-- 角色选择 -->
-          <div class="dropdown-section">
-            <div class="section-title">{{ t('menu.roles') }}</div>
-            <button v-for="role in roles"
-                    :key="role.key"
-                    class="role-btn"
-                    :class="{ 'active': currentRole === role.key }"
-                    @click="switchRole(role.key)">
+
+          <div class="role-switch">
+            <button v-for="role in roles" :key="role.key" class="role-btn" :class="{
+              'active': !isMainNavActive && currentRole === role.key,
+              'dimmed': isMainNavActive
+            }" @click="switchRole(role.key)">
               {{ t(`roles.${role.key}`) }}
             </button>
           </div>
-          
-          <!-- 设置选项 -->
-          <div class="dropdown-section settings">
-            <div class="setting-item">
-              <span class="setting-label">{{ t('menu.language') }}</span>
-              <div class="language-switcher">
-                <button v-for="lang in languages"
-                        :key="lang.key"
-                        class="lang-btn"
-                        :class="{ active: locale === lang.key }"
-                        @click="switchLang(lang.key)">
+
+          <div class="language-switcher">
+            <button v-for="lang in languages" :key="lang.key" class="lang-btn" :class="{ active: locale === lang.key }"
+              @click="switchLang(lang.key)">
+              {{ lang.label }}
+            </button>
+          </div>
+
+          <div class="desktop-docs-container">
+            <div class="docs-dropdown" v-click-outside="closeDocsMenu">
+              <button class="docs-btn" @click="toggleDocsMenu">
+                {{ t('menu.documentation') }}
+                <span class="arrow-down" :class="{ 'rotated': isDocsMenuOpen }">▼</span>
+              </button>
+              <div class="docs-menu" v-show="isDocsMenuOpen">
+                <template v-for="item in docItems" :key="item.key">
+                  <a v-if="item.external" :href="item.to" target="_blank" rel="noopener noreferrer" class="docs-link"
+                    @click="closeDocsMenu">
+                    {{ t(`docs.categories.${item.key}`) }}
+                    <span class="external-icon">↗</span>
+                  </a>
+                  <router-link v-else :to="item.to" class="docs-link" :class="{ 'active': route.path === item.to }"
+                    @click="closeDocsMenu">
+                    {{ t(`docs.categories.${item.key}`) }}
+                  </router-link>
+                </template>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="menu-toggle" :class="{ 'active': isMenuOpen }" @click="toggleMenu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <line x1="4" y1="6" x2="20" y2="6" class="menu-line top" />
+            <line x1="4" y1="12" x2="20" y2="12" class="menu-line middle" />
+            <line x1="4" y1="18" x2="20" y2="18" class="menu-line bottom" />
+          </svg>
+        </button>
+
+        <!-- Mobile Dropdown Menu -->
+        <div class="dropdown-menu" :class="{ active: isMenuOpen }">
+          <div class="dropdown-content">
+            <!-- Mobile Navigation Items -->
+            <div class="dropdown-section">
+              <router-link 
+                v-for="item in navItems" 
+                :key="item.key" 
+                :to="item.to" 
+                class="menu-item"
+                @click="closeMenu"
+              >
+                {{ t(`nav.${item.key}`) }}
+              </router-link>
+            </div>
+
+            <!-- Mobile Docs Menu -->
+            <div class="dropdown-section">
+              <button class="menu-item" @click="showDocsMenu = !showDocsMenu">
+                {{ t('menu.documentation') }}
+                <span class="icon" :class="{ 'is-active': showDocsMenu }">▼</span>
+              </button>
+              <div v-show="showDocsMenu" class="submenu">
+                <router-link
+                  v-for="doc in docItems"
+                  :key="doc.key"
+                  :to="doc.to"
+                  class="submenu-item"
+                  @click="closeMenu"
+                >
+                  {{ t(`docs.categories.${doc.key}`) }}
+                </router-link>
+              </div>
+            </div>
+
+            <!-- Mobile Settings -->
+            <div class="dropdown-section">
+              <div class="setting-item">
+                <button 
+                  v-for="role in roles"
+                  :key="role.key"
+                  class="role-btn"
+                  :class="{ active: currentRole === role.key && !isMainNavActive }"
+                  @click="switchRole(role.key)"
+                >
+                  {{ t(`roles.${role.key}`) }}
+                </button>
+              </div>
+              <div class="setting-item">
+                <button
+                  v-for="lang in languages"
+                  :key="lang.key"
+                  class="lang-btn"
+                  :class="{ active: locale === lang.key }"
+                  @click="switchLang(lang.key)"
+                >
                   {{ lang.label }}
                 </button>
               </div>
             </div>
-            
-            <!-- <div class="setting-item">
-              <span class="setting-label">{{ t('menu.theme') }}</span>
-              <button class="theme-btn" @click="toggleTheme">
-                <IconSun v-if="theme === 'dark'" />
-                <IconMoon v-else />
-              </button>
-            </div> -->
-
-          </div>
-          <!-- 文档导航 -->
-          <div class="dropdown-section">
-            <div class="section-title">{{ t('menu.documentation') }}</div>
-            <div 
-              class="docs-dropdown" 
-              @click.stop="toggleDocsMenu"
-              :class="{ 'show': showDocsMenu }"
-            >
-              <button 
-                class="docs-button" 
-                @click="toggleDocsMenu"
-                :class="{ 'active': showDocsMenu }"
-              >
-                {{ $t('menu.documentation') }}
-                <i class="fas fa-chevron-down"></i>
-              </button>
-              <div class="dropdown-menu" v-if="showDocsMenu">
-                <router-link 
-                  v-for="item in docItems" 
-                  :key="item.key"
-                  :to="item.to"
-                  class="menu-item"
-                  @click="handleDocClick(item)"
-                >
-                  {{ t(`docs.categories.${item.key}`) }}
-                </router-link>
-                <div v-if="activeDocItem && activeDocItem.submenu" class="submenu">
-                  <a 
-                    v-for="subitem in activeDocItem.submenu" 
-                    :key="subitem.url"
-                    :href="subitem.url"
-                    class="submenu-item"
-                    @click.prevent="handleSubmenuClick(subitem)"
-                  >
-                    {{ subitem.title }}
-                  </a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-      </div>
-      
-      <!-- 桌面端导航 -->
-      <div class="desktop-nav">
-        <div class="main-nav">
-          <router-link 
-            v-for="item in navItems" 
-            :key="item.key" 
-            :to="item.to"
-            class="main-nav-link"
-            :class="{ 'active': isMainNavActive && route.path === item.to }">
-            {{ t(`nav.${item.key}`) }}
-          </router-link>
-        </div>
-        
-        <div class="role-switch">
-          <button v-for="role in roles"
-                  :key="role.key"
-                  class="role-btn"
-                  :class="{ 
-                    'active': !isMainNavActive && currentRole === role.key,
-                    'dimmed': isMainNavActive
-                  }"
-                  @click="switchRole(role.key)">
-            {{ t(`roles.${role.key}`) }}
-          </button>
-        </div>
-        
-        <div class="language-switcher">
-          <button v-for="lang in languages"
-                  :key="lang.key"
-                  class="lang-btn"
-                  :class="{ active: locale === lang.key }"
-                  @click="switchLang(lang.key)">
-            {{ lang.label }}
-          </button>
-        </div>
-        
-        <!-- <div class="theme-switch">
-          <button class="theme-btn" @click="toggleTheme">
-            <IconSun v-if="theme === 'dark'" />
-            <IconMoon v-else />
-          </button>
-        </div> -->
-        
-        <div class="docs-dropdown" v-click-outside="closeDocsMenu">
-          <button class="docs-btn" @click="toggleDocsMenu">
-            {{ t('menu.documentation') }}
-            <span class="arrow-down" :class="{ 'rotated': isDocsMenuOpen }">▼</span>
-          </button>
-          <div class="docs-menu" v-show="isDocsMenuOpen">
-            <template v-for="item in docItems" :key="item.key">
-              <a v-if="item.external"
-                 :href="item.to"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="docs-link"
-                 @click="closeDocsMenu">
-                {{ t(`docs.categories.${item.key}`) }}
-                <span class="external-icon">↗</span>
-              </a>
-              <router-link 
-                v-else
-                :to="item.to"
-                class="docs-link"
-                :class="{ 'active': route.path === item.to }"
-                @click="closeDocsMenu">
-                {{ t(`docs.categories.${item.key}`) }}
-              </router-link>
-            </template>
-          </div>
-        </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
 </template>
 
 <script setup>
-import { ref, computed, nextTick } from 'vue';
+import { ref, computed, nextTick, onMounted, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useTheme } from '@/composables/useTheme';
 import { useRoute, useRouter } from 'vue-router';
-// import IconSun from '@/components/icons/theme/IconSun.vue';
-// import IconMoon from '@/components/icons/theme/IconMoon.vue';
 import i18n from '@/plugins/i18n';
 
 const { t, locale } = useI18n();
@@ -238,8 +175,8 @@ const explorerUrl = computed(() => {
 });
 
 const roles = [
-  { 
-    key: 'explorer', 
+  {
+    key: 'explorer',
     to: explorerUrl
   },
   { key: 'developer', to: '/developers' },
@@ -267,10 +204,13 @@ const switchRole = (role) => {
 
 const closeMenu = () => {
   isMenuOpen.value = false;
+  showDocsMenu.value = false;
 };
 
 const toggleMenu = () => {
+  //console.log('Toggle menu clicked, current:', isMenuOpen.value);
   isMenuOpen.value = !isMenuOpen.value;
+  //console.log('After toggle:', isMenuOpen.value);
 };
 
 const switchLang = async (lang) => {
@@ -281,8 +221,11 @@ const switchLang = async (lang) => {
 };
 
 const toggleDocsMenu = () => {
-  console.log(isDocsMenuOpen.value);
-  isDocsMenuOpen.value = !isDocsMenuOpen.value;
+  if (window.innerWidth < 768) {
+    showDocsMenu.value = !showDocsMenu.value;
+  } else {
+    isDocsMenuOpen.value = !isDocsMenuOpen.value;
+  }
 };
 
 const closeDocsMenu = () => {
@@ -292,7 +235,7 @@ const closeDocsMenu = () => {
 const handleDocClick = (item) => {
   activeDocItem.value = item;
   showDocsMenu.value = false;
-  
+
   // 处理导航
   if (item.to) {
     const [path, hash] = item.to.split('#');
@@ -302,16 +245,16 @@ const handleDocClick = (item) => {
       }
     });
   }
-  
+
   closeMenu();
 };
 
 const handleSubmenuClick = (subitem) => {
   showDocsMenu.value = false
-  
+
   // 解析URL和锚点
   const [path, hash] = subitem.url.split('#')
-  
+
   // 如果已经在文档页面，直接滚动到锚点
   if (router.currentRoute.value.path === path) {
     scrollToAnchor(hash)
@@ -327,12 +270,31 @@ const scrollToAnchor = (hash) => {
   if (!hash) return
   const element = document.getElementById(hash)
   if (element) {
-    element.scrollIntoView({ 
+    element.scrollIntoView({
       behavior: 'smooth',
       block: 'start'
     })
   }
 };
+
+// 点击外部关闭菜单
+const handleClickOutside = (event) => {
+  const menu = document.querySelector('.dropdown-menu');
+  const toggle = document.querySelector('.menu-toggle');
+  if (isMenuOpen.value && menu && toggle && 
+      !menu.contains(event.target) && 
+      !toggle.contains(event.target)) {
+    closeMenu();
+  }
+};
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside);
+});
 
 // 添加 v-click-outside 指令
 const vClickOutside = {
@@ -353,52 +315,49 @@ const vClickOutside = {
 const directives = {
   'click-outside': vClickOutside
 };
-
 </script>
 
 <style scoped>
-.sticky-header {
-  position: sticky;
+/* 基础样式 */
+.header {
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   background: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
-  backdrop-filter: blur(12px);
-  -webkit-backpack-filter: blur(12px);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0.75rem 2rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
 }
 
 .logo {
   display: flex;
   align-items: center;
+  gap: 0.75rem;
   text-decoration: none;
   color: var(--text-primary);
-  transition: opacity 0.2s ease;
   padding: 4px;
-}
-
-.logo:hover {
-  opacity: 0.9;
 }
 
 .logo img {
   height: 32px;
   width: auto;
-  margin-right: 0.75rem;
 }
 
 .logo-text {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.25rem;
   background: linear-gradient(135deg, var(--gradient-purple-start), var(--gradient-purple-end));
   -webkit-background-clip: text;
@@ -406,57 +365,43 @@ const directives = {
   -webkit-text-fill-color: transparent;
 }
 
+/* 桌面端导航样式 */
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .main-nav {
   display: flex;
-  gap: 2.5rem;
-  margin-right: 2rem;
-  align-items: center;
+  gap: 1rem;
 }
 
 .main-nav-link {
+  position: relative;
   color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 600;
   text-decoration: none;
   padding: 0.5rem 0;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  position: relative;
-  letter-spacing: 0.01em;
 }
 
 .main-nav-link::after {
   content: '';
   position: absolute;
-  bottom: -2px;
   left: 0;
+  bottom: 0;
   width: 100%;
   height: 2px;
   background: linear-gradient(135deg, var(--gradient-purple-start), var(--gradient-purple-end));
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.3s ease;
-  opacity: 0.9;
-  border-radius: 2px;
-}
-
-.main-nav-link:hover {
-  color: var(--text-primary);
 }
 
 .main-nav-link:hover::after {
   transform: scaleX(1);
   transform-origin: left;
-}
-
-.main-nav-link.active {
-  color: var(--text-primary);
-  font-weight: 700;
 }
 
 .main-nav-link.active::after {
@@ -465,120 +410,69 @@ const directives = {
 
 .role-switch {
   display: flex;
-  gap: 1rem;
-  margin: 0 1.5rem;
-  align-items: center;
+  gap: 0.125rem;  /* 进一步减小间距 */
+  padding: 2px;  /* 减小内边距 */
+  background: var(--bg-secondary);
+  border-radius: 4px;  /* 稍微减小圆角 */
+  margin: 0 0.75rem;  /* 添加左右间距 */
 }
 
 .role-btn {
-  background: transparent;
+  padding: 0.25rem 0.375rem;  /* 调整内边距 */
   border: none;
+  background: transparent;
   color: var(--text-secondary);
-  padding: 0.5rem 1rem;
-  font-size: 0.9375rem;
-  font-weight: 500;
   cursor: pointer;
+  border-radius: 3px;  /* 稍微减小圆角 */
   transition: all 0.3s ease;
-  position: relative;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.role-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--gradient-purple-start), var(--gradient-purple-end));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-  border-radius: inherit;
+  font-size: 0.875rem;
+  white-space: nowrap;  /* 防止文字换行 */
 }
 
 .role-btn:hover {
   color: var(--text-primary);
-}
-
-.role-btn:hover::before {
-  opacity: 0.1;
+  background: var(--bg-hover);
 }
 
 .role-btn.active {
   color: var(--text-primary);
-  font-weight: 600;
-}
-
-.role-btn.active::before {
-  opacity: 0.15;
+  background: var(--bg-active);
 }
 
 .role-btn.dimmed {
-  opacity: 0.7;
-}
-
-.role-btn.dimmed:hover {
-  opacity: 1;
+  opacity: 0.6;
 }
 
 .language-switcher {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
   padding: 4px;
-  border-radius: 12px;
   background: var(--bg-secondary);
+  border-radius: 6px;
 }
 
 .lang-btn {
-  padding: 0.25rem 0.5rem;
-  background: none;
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
+  padding: 0.25rem 0.75rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
   cursor: pointer;
   border-radius: 4px;
-  transition: all 0.2s;
-  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
 .lang-btn:hover {
+  color: var(--text-primary);
   background: var(--bg-hover);
-  border-color: var(--primary-color);
 }
 
 .lang-btn.active {
+  color: var(--text-primary);
   background: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
-}
-
-.theme-btn {
-  padding: 0.5rem;
-  background: none;
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-  cursor: pointer;
-  border-radius: 6px;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.theme-btn:hover {
-  color: var(--text-primary);
-  background: var(--bg-hover);
-}
-
-.theme-btn svg {
-  width: 20px;
-  height: 20px;
-  stroke: currentColor;
-  stroke-width: 2;
 }
 
 .docs-dropdown {
   position: relative;
-  margin-left: 1rem;
-  display: inline-block;
 }
 
 .docs-btn {
@@ -586,12 +480,10 @@ const directives = {
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  color: var(--text-secondary);
-  background: transparent;
   border: none;
+  background: transparent;
+  color: var(--text-secondary);
   cursor: pointer;
-  font-size: 0.9375rem;
-  font-weight: 500;
   transition: all 0.3s ease;
 }
 
@@ -610,502 +502,213 @@ const directives = {
 
 .docs-menu {
   position: absolute;
-  top: calc(100% + 0.5rem);
+  top: 100%;
   right: 0;
-  min-width: 200px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--card-border);
+  width: 240px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 0.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backpack-filter: blur(12px);
   z-index: 1000;
-
-   /* 添加过渡效果 */
-  transition: all 0.3s ease;
-  opacity: 1;
-  transform: translateY(0);
-  visibility: visible;
 }
 
-
-
 .docs-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: block;
   padding: 0.75rem 1rem;
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.9375rem;
-  border-radius: 6px;
+  border-radius: 4px;
   transition: all 0.3s ease;
 }
 
 .docs-link:hover {
   color: var(--text-primary);
-  background: rgba(var(--primary-rgb), 0.1);
+  background: var(--bg-hover);
 }
 
 .docs-link.active {
-  color: var(--primary);
-  background: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary-color);
+  background: var(--bg-active);
 }
 
 .external-icon {
-  font-size: 0.875rem;
   margin-left: 0.5rem;
   opacity: 0.7;
 }
 
-.submenu {
-  border-top: 1px solid var(--border-color);
-  margin-top: 0.5rem;
-  padding-top: 0.5rem;
-}
-
-.submenu-item {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  border-left: 2px solid transparent;
-}
-
-.submenu-item:hover {
-  color: var(--primary-color);
-  background: var(--bg-hover);
-  border-left-color: var(--primary-color);
-  padding-left: 1.5rem;
-}
-
-.dropdown-menu {
-  display: none;
-  position: fixed;
-  top: 64px;
-  left: 0;
-  right: 0;
-  padding: 1rem;
-  border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backpack-filter: blur(12px);
-}
-
-.dropdown-menu.active {
-  display: block;
-}
-
-.dropdown-section {
-  padding: 1rem;
-  border-bottom: 1px solid var(--border-color);
-  @media (max-width: 768px) {
-    width: 100%; 
-  }
-}
-
-.section-title {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.dropdown-item {
-  display: block;
-  padding: 0.5rem;
-  color: var(--text-primary);
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background-color 0.2s;
-}
-
-.dropdown-item:hover {
-  background-color: var(--bg-hover);
-}
-
-.dropdown-item.active {
-  color: var(--primary-color);
-  background-color: var(--active-bg);
-}
-
-.role-btn {
-  display: block;
-  padding: 0.5rem;
-  text-align: left;
-  background: none;
-  border: none;
-  color: var(--text-primary);
-  cursor: pointer;
-  border-radius: 6px;
-  transition: background-color 0.2s;
-}
-
-.role-btn:hover {
-  background-color: var(--bg-hover);
-}
-
-.role-btn.active {
-  color: var(--primary-color);
-  background-color: var(--active-bg);
-}
-
-.setting-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem;
-}
-
-.setting-label {
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-}
-
-.lang-btn {
-  padding: 0.25rem 0.5rem;
-  background: none;
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-  cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.2s;
-  font-size: 14px;
-}
-
-.lang-btn:hover {
-  background: var(--bg-hover);
-  border-color: var(--primary-color);
-}
-
-.lang-btn.active {
-  background: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
-}
-
-.theme-btn {
-  padding: 0.5rem;
-  background: none;
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-  cursor: pointer;
-  border-radius: 6px;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.theme-btn:hover {
-  background-color: var(--bg-hover);
-}
-
-.menu-group {
-  position: relative;
-}
-
-.menu-item {
-  display: flex;
-  align-items: center;
-  padding: 0.75rem 1rem;
-  color: var(--text-primary);
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-}
-
-.menu-item:hover {
-  background: var(--bg-hover);
-}
-
-.menu-item.has-submenu {
-  justify-content: space-between;
-}
-
-.item-content {
-  flex: 1;
-  margin: 0 1rem;
-}
-
-.item-title {
-  font-weight: 500;
-  margin-bottom: 0.25rem;
-}
-
-.item-description {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-}
-
-.submenu-arrow {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  transition: transform 0.3s ease;
-}
-
-.menu-item:hover .submenu-arrow {
-  transform: translateX(3px);
-}
-
-.submenu {
-  position: absolute;
-  left: 100%;
-  top: 0;
-  min-width: 220px;
-  background: var(--bg-color);
-  border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  padding: 0.5rem;
-  z-index: 100;
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: all 0.3s ease;
-  pointer-events: none;
-}
-
-.menu-group:hover .submenu {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
-}
-
-.submenu-group {
-  position: relative;
-}
-
-.submenu-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-  color: var(--text-secondary);
-  text-decoration: none;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  font-size: 0.95rem;
-}
-
-.submenu-item:hover {
-  color: var(--primary-color);
-  background: var(--bg-hover);
-}
-
-.submenu-children {
-  position: absolute;
-  left: 100%;
-  top: 0;
-  min-width: 200px;
-  background: var(--bg-color);
-  border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  padding: 0.5rem;
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: all 0.3s ease;
-  pointer-events: none;
-}
-
-.submenu-group:hover .submenu-children {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
-}
-
-.submenu-child-item {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: var(--text-secondary);
-  text-decoration: none;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
-}
-
-.submenu-child-item:hover {
-  color: var(--primary-color);
-  background: var(--bg-hover);
-  padding-left: 1.25rem;
-}
-
-@media (max-width: 1024px) {
+/* 移动端样式 */
+@media screen and (max-width: 768px) {
   .container {
-    padding: 0.75rem 1.2rem;
-  }
-
-  .logo-text {
-    display: none;
+    padding: 0.5rem 1rem;
   }
 
   .desktop-nav {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .main-nav {
-    display: flex;
-    gap: 0.8rem;
-    margin-right: 0.5rem;
-    align-items: center;
-  }
-
-  .docs-dropdown {
-    position: relative;
-    margin-left: 0.3rem;
-    padding-bottom: 10px;
-    display: inline-block;
-  }
-
-  .docs-menu {
-    position: absolute;
-    top: calc(100% + 0.5rem);
-    right: 0;
-    min-width: 160px;
-    background: var(--bg-elevated);
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    padding: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backpack-filter: blur(12px);
-    z-index: 1000;
-  }
-
-  .role-switch {
-    gap: 0.45rem;
-    margin: 0 0.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .desktop-nav {
-    display: none;
+    display: none !important;
   }
 
   .menu-toggle {
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    z-index: 102;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
   }
 
-  .container {
-    padding: 0.75rem 1rem;
-  }
-
-  .logo img {
-    height: 28px;
-    margin-right: 0.5rem;
-  }
-
-  .logo-text {
-    display:block;
-  }
-
-  .dropdown-menu {
-    transform: translateY(-100%);
-    opacity: 1;
-    background: var(--bg-elevated);
-    
-    visibility: hidden;
+  /* 桌面端菜单默认按钮样式 */
+  .menu-line {
+    stroke: var(--text-primary);
+    stroke-width: 2;
     transition: all 0.3s ease;
   }
 
-  .dropdown-menu.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
+  /* 移动端菜单关闭按钮样式 */
+  .menu-toggle.active .menu-line.top {
+    transform: translateY(-7px) translateX(10px) rotate(45deg);
   }
 
-  .dropdown-section:not(:last-child) {
+  .menu-toggle.active .menu-line.middle {
+    opacity: 0;
+  }
+
+  .menu-toggle.active .menu-line.bottom {
+    transform: translateY(2px) translateX(-7px) rotate(-45deg);
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-primary);
+    opacity: 0.85;
+    z-index: 101;
+    padding-top: 64px;
+  }
+
+  .dropdown-menu.active {
+    display: block;
+  }
+
+  .dropdown-content {
+    height: 100%;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+
+  .dropdown-section {
+    padding: 1rem 0;
     border-bottom: 1px solid var(--border-color);
+  }
+
+  .dropdown-section:last-child {
+    border-bottom: none;
+  }
+
+  .role-switch {
     padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
     margin-bottom: 1rem;
+  }
+
+  .language-switcher {
+    margin-top: 1rem;
+  }
+
+  .menu-item {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    text-align: left;
+    color: var(--text-primary);
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;   
+  }
+
+  .submenu {
+    padding-left: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .submenu-item {
+    display: block;    
+    padding: 0.75rem;
+    color: var(--text-primary);
+    text-decoration: none;
   }
 
   .role-btn,
   .lang-btn {
+    display: block;
     width: 100%;
-    justify-content: flex-start;
+    padding: 0.75rem;
     text-align: left;
-    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .role-btn.active,
+  .lang-btn.active {
+    color: var(--primary-color);
+    background: var(--bg-active);
   }
 
   .setting-item {
-    padding: 0.75rem 0;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
   }
 
-  .submenu,
-  .submenu-children {
-    position: static;
-    box-shadow: none;
-    padding-left: 1rem;
-    transform: none;
-    opacity: 1;
-    pointer-events: auto;
+  .setting-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
   }
-  
-  .menu-item,
-  .submenu-item,
-  .submenu-child-item {
-    padding: 0.5rem;
+
+  .role-btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    text-align: left;
+    color: var(--text-primary);
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .lang-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: 4px;
   }
 }
 
-.menu-toggle {
-  display: none;
-  background: transparent;
-  border: none;
-  padding: 0.5rem;
-  cursor: pointer;
-  color: var(--text-primary);
-  z-index: 1000;
-}
+/* 桌面端样式 */
+@media screen and (min-width: 769px) {
+  .menu-toggle,
+  .dropdown-menu {
+    display: none !important;
+  }
 
-.menu-icon {
-  width: 24px;
-  height: 24px;
-  display: block;
-  position: relative;
-}
-
-.menu-line {
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  transform-origin: center;
-  transition: all 0.3s ease;
-}
-
-.docs-dropdown {
-  position: relative;
-  margin-left: 1rem;
-  display: inline-block;
-}
-
-/* 菜单关闭动画 */
-.menu-toggle.active .menu-line.top {
-  transform: translate(0, 6px) rotate(45deg);
-}
-
-.menu-toggle.active .menu-line.middle {
-  opacity: 0;
-  transform: translateX(100%);
-}
-
-.menu-toggle.active .menu-line.bottom {
-  transform: translate(0, -6px) rotate(-45deg);
-}
-
-/* 确保移动端显示 */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: flex;
+  .desktop-nav {
+    display: flex !important;
     align-items: center;
-    justify-content: center;
+    gap: 2rem;
   }
 }
 </style>

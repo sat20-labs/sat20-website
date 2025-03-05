@@ -20,11 +20,11 @@ export default {
 
   // ==================== 导航菜单 ====================
   nav: {
-    home: '首页',
-    tech: '技术',
-    satnet: '聪网',
-    eco: '生态',
-    roadmap: '路线',
+    home: '首 页',
+    tech: '技 术',
+    satnet: '聪 网',
+    eco: '生 态',
+    roadmap: '路 线',
     docs: '文档'
   },
 

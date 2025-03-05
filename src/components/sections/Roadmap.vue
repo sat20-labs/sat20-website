@@ -83,12 +83,12 @@ const getPhaseItems = (phaseKey) => {
 // 2024年的阶段
 const phases2024 = [
   { key: 'phase1', status: 'completed' },
-  { key: 'phase2', status: 'inProgress' }
+  { key: 'phase2', status: 'completed' }
 ];
 
 // 2025年的阶段
 const phases2025 = [
-  { key: 'phase3', status: 'upcoming' },
+  { key: 'phase3', status: 'inProgress' },
   { key: 'phase4', status: 'upcoming' }
 ];
 </script>
@@ -113,14 +113,9 @@ const phases2025 = [
   margin-bottom: 4rem;
 }
 
-// .timeline {
-//   position: relative;
-//   padding: 2rem 0;
-// }
-
 .timeline {
     position: relative;
-    padding: 2rem 0;
+    padding: 3rem 0;
     margin: 3rem auto;
     max-width: 1000px;
     
@@ -131,10 +126,10 @@ const phases2025 = [
       top: 50px;
       // left: 50%;
       transform: translateX(-50%);
-      width: 3px;
+      width: 4px;
       height: calc(100% - 100px);
       background: linear-gradient(135deg, var(--primary), var(--neon));
-      opacity: 1;
+      opacity: 0.6;
       z-index: 0;
       box-shadow: 0 0 20px var(--shadow-color);
     }
@@ -186,14 +181,6 @@ const phases2025 = [
   align-items: center;
   margin-bottom: 2rem;
 }
-
-// .year-dot {
-//   width: 12px;
-//   height: 12px;
-//   background: var(--primary);
-//   border-radius: 50%;
-//   margin-right: 1rem;
-// }
 
 
 .year-title {
@@ -258,7 +245,7 @@ const phases2025 = [
     right: 0;
     bottom: 0;
     border-radius: 20px;
-    padding: 2px;
+    padding: 1.5px;
     background: linear-gradient(135deg, var(--primary), var(--neon));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -330,7 +317,7 @@ const phases2025 = [
 
 .phase-status.completed {
   background: rgba(0, 255, 0, 0.1);
-  color: #00ff00;
+  color: #686868;
 }
 
 .phase-status.inProgress {

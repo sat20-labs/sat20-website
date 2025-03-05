@@ -398,13 +398,13 @@ function getIconComponent(iconName) {
     align-items: center;
     gap: 0.5rem;
     text-decoration: none;
-    color: var(--primary);
+    color: var(--neon);
     font-weight: 500;
     transition: all 0.3s ease;
     cursor: pointer;
 
     &:hover {
-      color: var(--neon);
+      color: var(--primary);
       .link-icon {
         transform: translateX(4px);
       }

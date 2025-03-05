@@ -1,13 +1,13 @@
 /* 深色主题变量 */
 [data-theme="dark"] {
-  --primary: #2A6FFF;
+  --primary: #a202b1;
   --primary-rgb: 42, 111, 255;
-  --neon: #00FFC4;
+  --neon: #2A6FFF;
   --neon-rgb: 0, 255, 196;
   --bg: #0c0d0f;
   --bg-primary: #0c0d0f;
   --bg-secondary: #1A1A1F;
-  --purple-gradient: linear-gradient(135deg, #7B61FF, #2A6FFF);
+  --purple-gradient: linear-gradient(135deg, #d90e79, #2A6FFF);
   --text-primary: #FFFFFF;
   --text-secondary: rgba(255, 255, 255, 0.7);
   --border-color: rgba(255, 255, 255, 0.1);
@@ -20,7 +20,7 @@
 
 /* 浅色主题变量 */
 [data-theme="light"] {
-  --primary: #1A56DB;
+  --primary: #2A6FFF;
   --primary-rgb: 26, 86, 219;
   --neon: #00B890;
   --neon-rgb: 0, 184, 144;

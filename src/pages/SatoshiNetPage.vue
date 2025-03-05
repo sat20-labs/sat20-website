@@ -291,7 +291,7 @@ const { t, tm } = useI18n()
 
     .centered-image {
       display: block;
-      margin-left: 5%;
+      margin-left: 1%;
       width: 100%;
     }
   }
@@ -317,8 +317,8 @@ const { t, tm } = useI18n()
 
     .centered-image {
       display: block;
-      margin-left: 10%;
-      width: 100%;
+      margin-left: 5%;
+      width: 110%;
     }
   }
 
