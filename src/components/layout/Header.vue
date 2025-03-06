@@ -637,6 +637,7 @@ const directives = {
 
   .submenu {
     padding-left: 1rem;
+    font-size: small;
     border-bottom: 1px solid var(--border-color);
   }
 

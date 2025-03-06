@@ -89,7 +89,7 @@ export default {
           accent: 'trade anytime.'
         }
       ],
-      description: 'SAT20Labs provides asset issuance and circulation infrastructure for the Bitcoin ecosystem. The core technology consists of the SAT20 protocol and innovative SatoshiNet. SatoshiNet is based on Lightning channels and Bitcoin parallel networks, supporting multiple protocol assets such as Ordinals, Runes, OrdX, and BRC20, offering ultra-low fees and second-level confirmation through the network.\n\nThrough the SAT20 protocol, users can easily issue and circulate BTC native assets, enjoying seamless compatibility and instant trading experience.',
+      description: 'SAT20Labs focuses on BTC ecosystem asset issuance and circulation infrastructure, with core technologies including the SAT20 protocol and SatoshiNet. SatoshiNet integrates Lightning channels and the Bitcoin parallel network, supporting Ordinals, Runes, OrdX, BRC20, and other protocol assets, enabling second-level confirmation and ultra-low fees. Users can enjoy seamless asset compatibility and instant trading experiences.',
       downloadWhitepaper: 'Download Whitepaper',
       tryTestnet: 'Try Testnet'
     },
@@ -605,6 +605,7 @@ export default {
   roadmap: {
     title: 'Technology Roadmap',
     subtitle: 'SAT20 Technology Roadmap',
+    description: 'SAT20 is the starting point for building the BTC ecosystem, driving BTC asset issuance, circulation, and expansion. We are committed to creating a BTC value network, making One Satoshi, One World a reality!',
     status: {
       completed: 'Completed',
       inProgress: 'In Progress',

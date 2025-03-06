@@ -120,7 +120,7 @@ const goToDocs = () => {
 
 .cta-buttons {
   display: flex;
-  gap: 20px;
+  gap: 1rem;
   margin-top: 1rem;
 }
 

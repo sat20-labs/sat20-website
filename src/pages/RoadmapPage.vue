@@ -4,6 +4,8 @@
     <div class="container">
       <h1 class="gradient-text">{{ t('roadmap.title') }}</h1>
       <p class="subtitle">{{ t('roadmap.subtitle') }}</p>
+      <p class="description">{{ t('roadmap.description') }}</p>
+      
       <Roadmap />
     </div>
   </div>
@@ -47,12 +49,17 @@ const { t } = useI18n();
 
   .subtitle {
     font-size: 1.5rem;
+    font-weight: 600;
     color: var(--text-secondary);
     text-align: center;
     margin-bottom: 4rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+    color: var(--text-secondary);
   }
 
   :deep(.roadmap-card) {
@@ -164,12 +171,12 @@ const { t } = useI18n();
     padding: 4rem 0;
 
     .gradient-text {
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
 
     .subtitle {
-      font-size: 1.1rem;
-      margin-bottom: 3rem;
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
     }
 
     :deep(.roadmap-card) {

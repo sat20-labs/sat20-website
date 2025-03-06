@@ -95,9 +95,9 @@ const phases2025 = [
 
 <style lang="scss" scoped>
 .roadmap-section {
-  padding: 80px 0;
+  padding: 40px 0;
   background: var(--bg);
-  min-height: 100vh;
+  min-height: 80vh;
 }
 
 .container {

@@ -282,8 +282,6 @@ const { t, tm } = useI18n()
     width: 75%;
   }
 
-
-
   @media (max-width: 1024px) {
     .model-grid {
       grid-template-columns: repeat(2, 1fr);
@@ -300,11 +298,11 @@ const { t, tm } = useI18n()
     padding: 4rem 0;
 
     .gradient-title {
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
 
     .subtitle {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
     }
 
     h2 {

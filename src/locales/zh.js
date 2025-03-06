@@ -90,7 +90,7 @@ export default {
           accent: '随时交易。'
         }
       ],
-      description: 'SAT20Labs为比特币生态提供资产发行和流通基础设施。核心技术是SAT20协议和创新的SatoshiNet。SatoshiNet基于闪电通道和比特币平行网络，支持Ordinals、Runes、OrdX、BRC20等多种协议资产，通过网络提供超低手续费和秒级确认。\n\n通过SAT20协议，用户可以轻松发行和流通BTC原生资产，享受无缝兼容和即时交易体验。',
+      description: 'SAT20Labs专注于BTC生态资产发行与流通基础设施，核心技术包括SAT20协议与聪网，聪网结合了闪电通道与比特币平行网络，支持Ordinals、Runes、OrdX、BRC20 等多种协议资产，实现秒级确认与超低手续费。让用户享受资产的无缝兼容与即时交易体验。',
       downloadWhitepaper: '下载白皮书',
       tryTestnet: '体验测试网'
     },
@@ -601,6 +601,7 @@ export default {
   roadmap: {
     title: '技术路线图',
     subtitle: 'SAT20技术路线图',
+    description: 'SAT20是我们构建BTC生态的起点，推动BTC资产发行、流通与扩展。我们致力于打造BTC价值网络，让一聪一世界成为现实！',
     status: {
       completed: '已完成',
       inProgress: '进行中',

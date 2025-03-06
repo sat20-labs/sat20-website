@@ -31,11 +31,12 @@
 
       <!-- Trading Section -->
       <section class="section trading-section">
-        <h2 class="section-title">{{ t('user.sections.trading.title') }}</h2>
+        
 
         <div class="trading-card development">
           <div class="card-header">
             <component :is="getIconComponent('swap')" class="card-icon" />
+            <h2 class="section-title">{{ t('user.sections.trading.title') }}</h2>
           </div>
           <div class="card-content">
             <h3>{{ t('user.sections.trading.description') }}</h3>
@@ -55,12 +56,12 @@
       </section>
 
       <!-- Testing Section -->
-      <section class="section testing-section">
-        <h2 class="section-title">{{ t('user.sections.testing.title') }}</h2>
+      <section class="section testing-section">        
 
         <div class="testing-card">
           <div class="card-header">
             <component :is="getIconComponent('testcoin')" class="card-icon" />
+            <h2 class="section-title">{{ t('user.sections.testing.title') }}</h2>
           </div>
           <div class="card-content">
             <h3>{{ t('user.sections.testing.description') }}</h3>
@@ -355,8 +356,9 @@ const mintingTutorials = computed(() => {
 
 .card-header {
   display: flex;
-  align-items: center;
+  align-items: left;
   margin-bottom: 1rem;
+  justify-content: flex-start;
 
   .card-icon {
     width: 2.5rem;
@@ -364,13 +366,16 @@ const mintingTutorials = computed(() => {
     margin-right: 1rem;
     color: var(--primary);
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  h3 {
-    font-size: 1.25rem;
+  .section-title {
+    margin: 0;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--text-primary);
-    margin: 0;
   }
 }
 
@@ -479,8 +484,25 @@ const mintingTutorials = computed(() => {
     gap: 1rem;
   }
 
-  .card-icon {
-    margin: 0 auto;
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    width: 100%;
+
+    .card-icon {
+      width: 2rem;
+      height: 2rem;
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      flex: 1;
+      text-align: left;
+    }
+   
   }
 }
 </style>
