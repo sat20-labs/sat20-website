@@ -32,7 +32,7 @@
           <div class="footer-section">
             <h3>{{ $t('footer.developers') }}</h3>
             <ul>
-              <li><router-link to="https://docs.sat20.org/">{{ $t('footer.whitepaper') }}</router-link></li>
+              <li><a href="https://docs.sat20.org/" target="_blank" rel="noopener noreferrer">{{ $t('footer.whitepaper') }}</a></li>
               <li><router-link to="/docs/api_reference">{{ $t('footer.api') }}</router-link></li>
               <li><a href="https://github.com/sat20-labs/" target="_blank" rel="noopener noreferrer">{{ $t('footer.github') }}</a></li>
             </ul>

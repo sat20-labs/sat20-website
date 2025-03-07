@@ -363,4 +363,58 @@ const getInnovationIcon = (title) => {
 .feature-list {
   padding: 0 16px 16px;
 }
+
+.tech-comparison {
+  width: 100%;
+  overflow-x: auto; /* 启用横向滚动 */
+  -webkit-overflow-scrolling: touch; /* iOS 流畅滚动 */
+}
+
+.tech-comparison table {
+  min-width: 800px; /* 设置最小宽度，确保在移动端不会压缩 */
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap; /* 防止文本换行 */
+}
+
+/* 添加滚动提示阴影 */
+@media (max-width: 768px) {
+  .tech-comparison {
+    position: relative;
+    margin: 0 -1rem; /* 负边距让表格延伸到容器外 */
+    padding: 0 1rem; /* 内边距补偿负边距 */
+    
+    /* 添加渐变提示 */
+    background: 
+      linear-gradient(to right, var(--bg-primary) 0%, transparent 2%),
+      linear-gradient(to left, var(--bg-primary) 0%, transparent 2%);
+    background-position: left center, right center;
+    background-repeat: no-repeat;
+    background-size: 20px 100%;
+    background-attachment: local;
+  }
+
+  .comparison-section.container {
+    overflow: hidden; /* 防止水平滚动条 */
+  }
+}
+
+/* 确保表格内容样式正确 */
+.tech-comparison th,
+.tech-comparison td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tech-comparison th {
+  background: var(--bg-secondary);
+  font-weight: 600;
+}
+
+.improvement-cell {
+  color: var(--primary);
+  font-weight: 500;
+}
+
 </style>

@@ -282,6 +282,7 @@ export default {
         contract: 'Contract Capability',
         speed: 'Transaction Speed',
         cost: 'Cross-chain Cost',
+        gasfee: 'Gas Type',
         dev: 'Development Barrier'
       },
       traditional: {
@@ -289,6 +290,7 @@ export default {
         contract: 'Non-Turing Complete',
         speed: '10-minute Confirmation',
         cost: 'Bridge Fee 0.5%+',
+        gasfee: 'Non-BTC',
         dev: 'Custom Sidechain Required'
       },
       innovation: {
@@ -296,13 +298,15 @@ export default {
         contract: 'OP_CAT Enhanced Turing Complete',
         speed: 'Lightning Channel Second-level',
         cost: 'Zero Fee Atomic Swap',
+        gasfee: 'BTC',
         dev: 'Native Mainnet Compatible'
       },
       improvement: {
         asset: '100M Times More Granular than BTC',
         contract: 'Support Complex Financial Contracts',
         speed: '600x Acceleration',
-        cost: 'Zero Cost',
+        cost: 'Ultra-low cost',
+        gasfee: 'Share BTC consensus',
         dev: '90% Development Cost Reduction'
       }
     },

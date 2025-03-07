@@ -278,6 +278,7 @@ export default {
         contract: '合约能力',
         speed: '交易速度',
         cost: '跨链成本',
+        gasfee: 'gas类型',
         dev: '开发门槛'
       },
       traditional: {
@@ -285,6 +286,7 @@ export default {
         contract: '非图灵完备',
         speed: '10分钟确认',
         cost: '手续费0.5%+',
+        gasfee: '非BTC',
         dev: '需定制侧链'
       },
       innovation: {
@@ -292,6 +294,7 @@ export default {
         contract: 'OP_CAT增强型图灵完备',
         speed: '秒级闪电通道',
         cost: '原子交换，低手续费',
+        gasfee: 'BTC',
         dev: '主网原生兼容'
       },
       improvement: {
@@ -299,6 +302,7 @@ export default {
         contract: '支持复杂智能合约',
         speed: '600倍加速',
         cost: '超低成本',
+        gasfee: '共享BTC共识',
         dev: '省90%开发成本'
       }
     },
