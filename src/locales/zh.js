@@ -1049,51 +1049,10 @@ export default {
     toc: "目录导航",
     lastUpdated: "最后更新",
     categories: {
-      whitepaper: '白皮书',
       getting_started: '快速开始',
       api_reference: 'API 文档',
-      contributing: '贡献指南'
-    },
-    whitepaper: {
-      title: 'SAT20白皮书',
-      content: `
-# SAT20白皮书
-<a id="whitepaper-overview"></a>
-## 简介
-
-SAT20是一种基于比特币的原生资产发行和流通协议，旨在为比特币生态提供一个安全、可扩展和高效的资产管理解决方案。
-
-<a id="whitepaper-core-features"></a>
-## 核心特性
-
-*   聪本位资产：SAT20支持聪级别的资产发行和管理，实现了比特币原生资产的高效流通。
-*   原生二层网络：SAT20基于闪电网络和BTC平行网络构建，实现了高性能和低延迟的交易处理。
-*   全资产兼容：SAT20支持多种资产协议，包括Ordinals、OrdX、Runes和BRC20等。
-*   智能合约支持：SAT20支持模板化智能合约和图灵完备脚本，实现了高灵活性的资产管理。
-
-<a id="whitepaper-architecture"></a>
-## 技术架构
-
-SAT20的技术架构包括以下几个层次：
-
-*   基础层：比特币网络作为底层基础设施。
-*   协议层：SAT20核心协议和智能合约。
-*   应用层：去中心化应用生态系统。
-
-<a id="whitepaper-applications"></a>
-## 应用场景
-
-SAT20的应用场景包括：
-
-*   DeFi应用：去中心化金融服务，包括借贷、交易和质押等。
-*   NFT市场：数字艺术品和收藏品的发行和交易平台。
-*   区块链游戏：基于区块链的游戏资产和虚拟世界。
-
-<a id="whitepaper-conclusion"></a>
-## 总结
-
-SAT20是一种基于比特币的原生资产发行和流通协议，具有安全、可扩展和高效的特点。它支持聪级别的资产发行和管理，实现了比特币原生资产的高效流通。SAT20的技术架构包括基础层、协议层和应用层，支持多种资产协议和智能合约。其应用场景包括DeFi应用、NFT市场和区块链游戏等。
-`
+      contributing: '贡献指南',
+      whitepaper: '白皮书'
     },
     getting_started: {
       title: '快速开始指南',

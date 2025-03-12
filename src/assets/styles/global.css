@@ -9,7 +9,7 @@
   --bg-secondary: #1A1A1F;
   --purple-gradient: linear-gradient(135deg, #d90e79, #2A6FFF);
   --text-primary: #FFFFFF;
-  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-secondary: rgb(255, 255, 255);
   --border-color: rgba(255, 255, 255, 0.1);
   --card-bg: rgba(42, 111, 255, 0.05);
   --card-border: rgba(42, 111, 255, 0.1);

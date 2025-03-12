@@ -163,12 +163,12 @@ const navItems = [
   { key: 'roadmap', to: '/roadmap' }
 ];
 
-const docItems = [
-  { key: 'whitepaper', to: '/docs/whitepaper' },
+const docItems = computed(() => [
   { key: 'getting_started', to: '/docs/getting_started' },
   { key: 'api_reference', to: '/docs/api_reference' },
-  { key: 'contributing', to: '/docs/contributing' }
-];
+  { key: 'contributing', to: '/docs/contributing' },
+  { key: 'whitepaper', to: locale.value === 'en' ? 'https://docs.sat20.org/english' : 'https://docs.sat20.org', external: true }
+]);
 
 const explorerUrl = computed(() => {
   return locale.value === 'zh' ? 'https://app.sat20.org/#/explorer' : 'https://app.sat20.org/#/explorer?language=en';

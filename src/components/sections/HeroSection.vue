@@ -59,7 +59,17 @@ const goToTestnet = () => {
   padding: 0 20px;  
   position: relative;
   background: var(--bg-primary);
+  z-index: 1;
+  background: url('@/assets/images/hero/sc-bg2.png');
+  background-size: auto;
+  background-position: bottom center;
+  background-repeat: no-repeat;
   overflow: hidden;
+  @media (max-width: 768px) {
+    background-size: 175%;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -73,10 +83,10 @@ const goToTestnet = () => {
   width: 100%;
   text-align: center;
   z-index: 1;
-  background: url('@/assets/images/hero/sc-bg1.png');
+  /* background: url('@/assets/images/hero/sc-bg1.png');
   background-size: cover;
   background-position: top center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   padding: 4rem;
   margin-top: 1rem; /* 移动端适当增加顶部间距 */
   border-radius: 24px;
@@ -123,7 +133,7 @@ const goToTestnet = () => {
   font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 3rem;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .cta-buttons {

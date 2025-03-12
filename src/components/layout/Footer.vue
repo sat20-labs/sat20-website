@@ -32,7 +32,7 @@
           <div class="footer-section">
             <h3>{{ $t('footer.developers') }}</h3>
             <ul>
-              <li><a href="https://docs.sat20.org/" target="_blank" rel="noopener noreferrer">{{ $t('footer.whitepaper') }}</a></li>
+              <li><a :href="locale === 'en' ? 'https://docs.sat20.org/english' : 'https://docs.sat20.org'" target="_blank" rel="noopener noreferrer">{{ $t('footer.whitepaper') }}</a></li>
               <li><router-link to="/docs/api_reference">{{ $t('footer.api') }}</router-link></li>
               <li><a href="https://github.com/sat20-labs/" target="_blank" rel="noopener noreferrer">{{ $t('footer.github') }}</a></li>
             </ul>
@@ -67,7 +67,7 @@ import { useI18n } from 'vue-i18n';
 import IconTwitter from '@/components/icons/social/IconTwitter.vue';
 import IconTelegram from '@/components/icons/social/IconTelegram.vue';
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 </script>
 
 <style lang="scss" scoped>

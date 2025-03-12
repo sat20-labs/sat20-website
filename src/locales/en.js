@@ -1115,53 +1115,13 @@ export default {
   docs: {
     toc: "Table of Contents",
     lastUpdated: "Last Updated",
-    categories: {
-      whitepaper: 'Whitepaper',
+    categories: {      
       getting_started: 'Getting Started',
       api_reference: 'API Reference',
-      contributing: 'Contributing Guide'
+      contributing: 'Contributing Guide',
+      whitepaper: 'Whitepaper'
     },
-    whitepaper: {
-      title: 'SAT20 Whitepaper',
-      content: `
-# SAT20 Whitepaper
-<a id="whitepaper-intro"></a>
-## Introduction
-
-SAT20 is a Bitcoin-native asset issuance and circulation protocol designed to provide a secure, scalable, and efficient asset management solution for the Bitcoin ecosystem.
-
-<a id="whitepaper-features"></a>
-## Core Features
-
-*   Satoshi-based Assets: SAT20 supports satoshi-level asset issuance and management, enabling efficient circulation of Bitcoin native assets.
-*   Native Layer 2 Network: SAT20 is built on Lightning Network and BTC parallel network, achieving high-performance and low-latency transaction processing.
-*   Full Asset Compatibility: SAT20 supports various asset protocols, including Ordinals, OrdX, Runes, and BRC20.
-*   Smart Contract Support: SAT20 supports templated smart contracts and Turing-complete scripts, enabling flexible asset management.
-
-<a id="whitepaper-architecture"></a>
-## Technical Architecture
-
-SAT20's technical architecture includes the following layers:
-
-*   Base Layer: Bitcoin network as the underlying infrastructure.
-*   Protocol Layer: SAT20 core protocol and smart contracts.
-*   Application Layer: Decentralized application ecosystem.
-
-<a id="whitepaper-scenarios"></a>
-## Application Scenarios
-
-SAT20's application scenarios include:
-
-*   DeFi Applications: Decentralized financial services, including lending, trading, and staking.
-*   NFT Market: Digital art and collectibles issuance and trading platform.
-*   Blockchain Games: Blockchain-based game assets and virtual worlds.
-
-<a id="whitepaper-summary"></a>
-## Summary
-
-SAT20 is a Bitcoin-native asset issuance and circulation protocol that is secure, scalable, and efficient. It supports satoshi-level asset issuance and management, enabling efficient circulation of Bitcoin native assets. SAT20's technical architecture includes base layer, protocol layer, and application layer, supporting various asset protocols and smart contracts. Its application scenarios include DeFi applications, NFT markets, and blockchain games.
-`
-    },
+    
     getting_started: {
       title: 'Getting Started Guide',
       content: `
