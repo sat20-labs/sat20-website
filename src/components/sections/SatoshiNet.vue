@@ -85,6 +85,17 @@ const iconSize = 36
   padding: 6rem 0;
   background: var(--bg-primary);
   color: var(--text-primary);
+  z-index: 1;
+  background: url('@/assets/images/hero/section-satsnet-bg.png');
+  background-size: auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  @media (max-width: 768px) {
+    background-size: 155%;
+    background-position: top center;
+    background-repeat: no-repeat;
+  }
 
   .container {
     max-width: 1200px;

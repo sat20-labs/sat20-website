@@ -4,7 +4,7 @@
     <CoreFeatures />
     <SatoshiNet />
     <Ecosystem />
-    <DynamicStats />
+    <!-- <DynamicStats /> -->
     <Developers />
     <!-- <Roadmap /> -->
     <Partners />

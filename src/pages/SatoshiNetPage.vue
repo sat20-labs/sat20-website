@@ -15,8 +15,16 @@
         </div>
 
         <!-- 架构图 -->
-        <div class="architecture-image">
-          <img src="/images/satoshinet.png" alt="Satoshinet Architecture" class="centered-image">
+        <div class="architecture-container">
+          <div class="architecture-image">
+            <img src="/images/satoshinet/satsnet_eco.png" alt="Satoshinet Architecture" class="centered-arch-image">
+          </div>
+          <div class="architecture-image">
+            <img src="/images/satoshinet/arrow.png" alt="Satoshinet Architecture" class="arrow-image centered-arch-image">
+          </div>
+          <div class="architecture-image">
+            <img src="/images/satoshinet/satsnet_arch.png" alt="Satoshinet Architecture" class="centered-arch-image">
+          </div>
         </div>
       </section>
 
@@ -275,6 +283,8 @@ const { t, tm } = useI18n()
     }
   }
 
+
+
   .centered-image {
     display: block;
     // margin: 0 auto;
@@ -320,6 +330,62 @@ const { t, tm } = useI18n()
     }
   }
 
+ /* 容器布局 */
+.architecture-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* 图片之间的间距 */
+    width: 100%;
 }
 
+/* 左右两侧图片：平均分配剩余宽度 */
+.architecture-image:first-child,
+.architecture-image:last-child {
+    flex: 1; /* 让两侧图片自动平分剩余空间 */
+}
+
+/* 中间箭头 */
+.arrow-image {
+    width: auto; /* 让箭头保持原始尺寸 */
+    height: auto;
+    max-height: 100px; /* 可根据需求调整 */
+}
+
+/* 图片居中 */
+.centered-arch-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* 添加动画过渡效果 */
+}
+
+/* PC 端：鼠标悬停时放大 */
+@media (min-width: 1025px) { 
+    .centered-arch-image:hover {
+        transform: scale(1.2); /* 放大 30% */
+    }
+}
+/* 适配移动端 */
+@media (max-width: 1024px) {
+    .architecture-container {
+        flex-direction: column; /* 变为纵向排列 */
+        align-items: center; /* 确保所有图片在移动端居中 */
+    }
+
+    .arrow-image {
+        transform: rotate(90deg); /* 旋转箭头 90 度 */
+        max-width: 60px; /* 可调整箭头大小，避免过大 */
+        height: auto;
+        display: block;
+        margin: 10px auto; /* 居中对齐 */
+    }
+
+    /* 确保所有图片适应屏幕 */
+    .architecture-image {
+        width: 100%;
+    }
+}
+
+}
 </style>

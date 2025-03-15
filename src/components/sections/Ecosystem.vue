@@ -79,6 +79,17 @@ const icons = [IconDecentralized, IconPerformance, IconCost];
   padding: 6rem 0;
   background: var(--bg-primary);
   color: var(--text-primary);
+  z-index: 1;
+    background: url('@/assets/images/ecosystem/section-eco-bg.png');
+    background-size: auto;
+    background-position: top center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    @media (max-width: 768px) {
+      background-size: 155%;
+      background-position: top center;
+      background-repeat: no-repeat;
+    }
 
   .container {
     max-width: 1200px;
@@ -91,7 +102,7 @@ const icons = [IconDecentralized, IconPerformance, IconCost];
     font-size: 2.5rem;
     margin-bottom: 3rem;
     background: linear-gradient(135deg, var(--primary), var(--neon));
-    background-clip: text;
+    background-clip: text;    
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: var(--primary); /* 兜底颜色，适用于不支持 text-fill 的浏览器 */
