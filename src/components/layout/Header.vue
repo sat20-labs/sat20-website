@@ -171,7 +171,7 @@ const docItems = computed(() => [
 ]);
 
 const explorerUrl = computed(() => {
-  return locale.value === 'zh' ? 'https://app.sat20.org/#/explorer' : 'https://app.sat20.org/#/explorer?language=en';
+  return locale.value === 'zh' ? 'https://mainnet.sat20.org/browser/app/#/explorer' : 'https://mainnet.sat20.org/browser/app/#/explorer?language=en';
 });
 
 const roles = [

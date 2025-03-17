@@ -43,7 +43,7 @@
             <ul>
               <li><router-link to="/eco">{{ $t('nav.eco') }}</router-link></li>
               <li><a href="https://ordx.market" target="_blank" rel="noopener noreferrer">{{ $t('footer.market') }}</a></li>
-              <li><a href="https://app.sat20.org/#/explorer" target="_blank" rel="noopener noreferrer">{{ $t('footer.explorer') }}</a></li>
+              <li><a href="https://mainnet.sat20.org/browser/app/#/explorer" target="_blank" rel="noopener noreferrer">{{ $t('footer.explorer') }}</a></li>
             </ul>
           </div>
         </div>
