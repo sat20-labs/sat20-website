@@ -23,5 +23,5 @@ jobs:
           
       - name: Create remote directory and deploy
         run: |
-          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} 'mkdir -p /var/www/sat20-website'
-          rsync -avz --delete ./dist/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/www/sat20-website/ --exclude .git --exclude .github
+          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} 'mkdir -p /var/www/sat20.org'
+          rsync -avz --delete ./dist/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/www/sat20.org/ --exclude .git --exclude .github
