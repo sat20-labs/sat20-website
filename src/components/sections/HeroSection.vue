@@ -18,6 +18,7 @@
         <!-- <BaseButton secondary @click="goToTestnet">
           {{ t('home.hero.tryTestnet') }}
         </BaseButton> -->
+        
         <BaseButton secondary @click="goToWallet">
            {{ t('home.hero.downloadWallet') }}
         </BaseButton>
