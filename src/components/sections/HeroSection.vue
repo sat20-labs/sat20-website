@@ -15,8 +15,11 @@
         <BaseButton primary @click="downloadWhitepaper">
           {{ t('home.hero.downloadWhitepaper') }}
         </BaseButton>
-        <BaseButton secondary @click="goToTestnet">
+        <!-- <BaseButton secondary @click="goToTestnet">
           {{ t('home.hero.tryTestnet') }}
+        </BaseButton> -->
+        <BaseButton secondary @click="goToWallet">
+           {{ t('home.hero.downloadWallet') }}
         </BaseButton>
       </div>
     </div>
@@ -45,8 +48,13 @@ const downloadWhitepaper = () => {
   document.body.removeChild(link);
 };
 
+const walletUrl = 'https://github.com/sat20-labs/sat20wallet/raw/refs/heads/main/client/public/sat20wallet-0.0.75-chrome.zip';
+
 const goToTestnet = () => {
   window.open('https://demo.ordx.market', '_blank', 'noopener,noreferrer');
+};
+const goToWallet = () => {
+  window.open(walletUrl, '_blank', 'noopener,noreferrer');
 };
 </script>
 

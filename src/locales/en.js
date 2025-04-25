@@ -91,7 +91,8 @@ export default {
       ],
       description: 'SAT20Labs focuses on BTC ecosystem asset issuance and circulation infrastructure, with core technologies including the SAT20 protocol and SatoshiNet. SatoshiNet integrates Lightning channels and the Bitcoin parallel network, supporting Ordinals, Runes, OrdX, BRC20, and other protocol assets, enabling second-level confirmation and ultra-low fees. Users can enjoy seamless asset compatibility and instant trading experiences.',
       downloadWhitepaper: 'Download Whitepaper',
-      tryTestnet: 'Try Testnet'
+      tryTestnet: 'Try Testnet',
+      downloadWallet: 'Download Wallet',
     },
     features: {//Core Features Component
       title: 'Core Features',

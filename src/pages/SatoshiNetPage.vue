@@ -357,13 +357,12 @@ const { t, tm } = useI18n()
     display: block;
     width: 100%;
     height: auto;
-    transition: transform 0.3s ease-in-out; /* 添加动画过渡效果 */
 }
 
 /* PC 端：鼠标悬停时放大 */
 @media (min-width: 1025px) { 
     .centered-arch-image:hover {
-        transform: scale(1.2); /* 放大 30% */
+        transform: scale(1.1); /* 放大 30% */
     }
 }
 /* 适配移动端 */

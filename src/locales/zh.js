@@ -92,7 +92,8 @@ export default {
       ],
       description: 'SAT20Labs专注于BTC生态资产发行与流通基础设施，核心技术包括SAT20协议与聪网，聪网结合了闪电通道与比特币平行网络，支持Ordinals、Runes、OrdX、BRC20 等多种协议资产，实现秒级确认与超低手续费。让用户享受资产的无缝兼容与即时交易体验。',
       downloadWhitepaper: '下载白皮书',
-      tryTestnet: '体验测试网'
+      tryTestnet: '体验测试网',
+      downloadWallet: '下载钱包',
     },
     features: {//核心功能组件
       title: '核心特性',
