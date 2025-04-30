@@ -49,7 +49,7 @@ const downloadWhitepaper = () => {
   document.body.removeChild(link);
 };
 
-const walletUrl = 'https://github.com/sat20-labs/sat20wallet/raw/refs/heads/main/client/public/sat20wallet-0.0.75-chrome.zip';
+const walletUrl = 'https://github.com/sat20-labs/sat20wallet/raw/refs/heads/main/client/release/sat20wallet-chrome.zip';
 
 const goToTestnet = () => {
   window.open('https://demo.ordx.market', '_blank', 'noopener,noreferrer');
