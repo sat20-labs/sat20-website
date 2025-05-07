@@ -88,7 +88,31 @@
                 <span class="icon" :class="{ 'is-active': showDocsMenu }">▼</span>
               </button>
               <div v-show="showDocsMenu" class="submenu">
-                <router-link
+                 
+                  <div>
+                    <template v-for="doc in docItems" :key="doc.key">
+                      <a
+                        v-if="doc.external"
+                        :href="doc.to"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="submenu-item"
+                        @click="closeMenu"
+                      >
+                        {{ t(`docs.categories.${doc.key}`) }}
+                      </a>
+                      <router-link
+                        v-else
+                        :to="doc.to"
+                        class="submenu-item"
+                        @click="closeMenu"
+                      >
+                        {{ t(`docs.categories.${doc.key}`) }}
+                      </router-link>
+                    </template>
+                  </div>
+           
+                <!-- <router-link
                   v-for="doc in docItems"
                   :key="doc.key"
                   :to="doc.to"
@@ -96,7 +120,7 @@
                   @click="closeMenu"
                 >
                   {{ t(`docs.categories.${doc.key}`) }}
-                </router-link>
+                </router-link> -->
               </div>
             </div>
 
