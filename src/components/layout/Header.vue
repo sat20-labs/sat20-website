@@ -5,7 +5,7 @@
         <!-- Logo -->
         <router-link to="/" class="logo">
           <img src="@/assets/images/sat20-logo.png" alt="SAT20Labs" />
-          <span class="logo-text">SAT20Labs</span>
+          <span class="text-white text-lg sm:text-xl font-bold mb-1">SAT20Labs</span>
         </router-link>
 
         <!-- Desktop Navigation -->
@@ -70,6 +70,10 @@
           <div class="dropdown-content">
             <!-- Mobile Navigation Items -->
             <div class="dropdown-section">
+              <router-link to="/" class="logo">
+                <img src="@/assets/images/sat20-logo.png" alt="SAT20Labs" />
+                <span class="text-white text-lg sm:text-xl font-bold mb-1">SAT20Labs</span>
+              </router-link>
               <router-link 
                 v-for="item in navItems" 
                 :key="item.key" 
@@ -77,7 +81,7 @@
                 class="menu-item"
                 @click="closeMenu"
               >
-                {{ t(`nav.${item.key}`) }}
+                 {{ t(`nav.${item.key}`) }} 
               </router-link>
             </div>
 
@@ -613,7 +617,7 @@ const directives = {
     right: 0;
     bottom: 0;
     background: var(--bg-primary);
-    opacity: 0.85;
+    opacity: 0.95;
     z-index: 101;
     padding-top: 64px;
   }

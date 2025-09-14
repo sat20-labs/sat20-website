@@ -54,24 +54,24 @@ const partners = computed(() => ({
     logo: '/images/partners/morego.png',
     url: 'http://official.morego.io/'
   },
-  unisat: {
-    name: 'Unisat',
-    description: t('home.partners.unisat'),
-    logo: '/images/partners/unisat.png',
-    url: 'https://unisat.io'
-  },
-  okx: {
-    name: 'OKX',
-    description: t('home.partners.okx'),
-    logo: '/images/partners/okx.png',
-    url: 'https://www.okx.com'
-  },
-  magiceden: {
-    name: 'Magic Eden',
-    description: t('home.partners.magiceden'),
-    logo: '/images/partners/magiceden.png',
-    url: 'https://magiceden.io'
-  }
+  // unisat: {
+  //   name: 'Unisat',
+  //   description: t('home.partners.unisat'),
+  //   logo: '/images/partners/unisat.png',
+  //   url: 'https://unisat.io'
+  // },
+  // okx: {
+  //   name: 'OKX',
+  //   description: t('home.partners.okx'),
+  //   logo: '/images/partners/okx.png',
+  //   url: 'https://www.okx.com'
+  // },
+  // magiceden: {
+  //   name: 'Magic Eden',
+  //   description: t('home.partners.magiceden'),
+  //   logo: '/images/partners/magiceden.png',
+  //   url: 'https://magiceden.io'
+  // }
 }));
 </script>
 
