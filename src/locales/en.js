@@ -93,6 +93,7 @@ export default {
       downloadWhitepaper: 'Download Whitepaper',
       tryTestnet: 'Try Testnet',
       downloadWallet: 'Download Wallet',
+      installPwaWallet: 'Install PWA Wallet',
     },
     features: {//Core Features Component
       title: 'Core Features',

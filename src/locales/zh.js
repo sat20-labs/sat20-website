@@ -94,6 +94,7 @@ export default {
       downloadWhitepaper: '下载白皮书',
       tryTestnet: '体验测试网',
       downloadWallet: '下载钱包',
+      installPwaWallet: '安装 PWA 钱包',
     },
     features: {//核心功能组件
       title: '核心特性',

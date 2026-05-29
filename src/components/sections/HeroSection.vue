@@ -25,13 +25,9 @@
           </span>
         </BaseButton>
 
-        <!-- Chrome Extension Wallet Button -->
-        <BaseButton secondary class="wallet-btn" @click="goToWalletChrome">
-          <img src="/images/hero/chrome.svg" alt="Chrome" class="btn-icon" />
-          <span class="lines">
-            <span class="main">{{ t('home.hero.downloadWallet') }}</span>
-            <span class="sub">Chrome extension</span>
-          </span>
+        <BaseButton secondary class="wallet-btn" @click="installPwaWallet">
+          <img src="/favicon.png" alt="SAT20 Wallet" class="btn-icon" />
+          <span class="main">{{ t('home.hero.installPwaWallet') }}</span>
         </BaseButton>
 
       </div>
@@ -61,16 +57,17 @@ const downloadWhitepaper = () => {
   document.body.removeChild(link);
 };
 
-const chromeUrl = 'https://github.com/sat20-labs/sat20wallet/releases/download/0.0.1/sat20wallet-chrome.zip';
 const googlePlayUrl = 'https://chromewebstore.google.com/detail/sat20-wallet/dfdlimjfgcjlgghagidokgkdgcdggpjm?hl=zh-CN&utm_source=ext_sidebar';
+const pwaWalletUrl = '/pwa/?install=1';
 
 
 
 const goToWalletGooglePlayUrl = () => {
   window.open(googlePlayUrl, '_blank', 'noopener,noreferrer');
 };
-const goToWalletChrome = () => {
-  window.open(chromeUrl, '_blank', 'noopener,noreferrer');
+
+const installPwaWallet = () => {
+  window.location.assign(pwaWalletUrl);
 };
 </script>
 
