@@ -1,15 +1,13 @@
 name: Deploy Static Website
 on:
-  push:
-    branches: [ master ]
   workflow_dispatch:
 
 jobs:
   deploy:
-    runs-on: [self-hosted, sat20-website-runner]
+    runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.5.4
@@ -17,11 +15,20 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           
       - name: Add known hosts
+        env:
+          SERVER_IP: ${{ secrets.SERVER_IP }}
+          SERVER_PORT: ${{ secrets.SERVER_PORT }}
         run: |
+          SERVER_PORT="${SERVER_PORT:-22}"
           mkdir -p ~/.ssh
-          ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
+          ssh-keyscan -p "$SERVER_PORT" -H "$SERVER_IP" >> ~/.ssh/known_hosts
           
       - name: Create remote directory and deploy
+        env:
+          SERVER_IP: ${{ secrets.SERVER_IP }}
+          SERVER_PORT: ${{ secrets.SERVER_PORT }}
+          SERVER_USER: ${{ secrets.SERVER_USER }}
         run: |
-          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} 'mkdir -p /var/www/sat20.org'
-          rsync -avz --delete ./dist/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/www/sat20.org/ --exclude .git --exclude .github
+          SERVER_PORT="${SERVER_PORT:-22}"
+          ssh -p "$SERVER_PORT" "$SERVER_USER@$SERVER_IP" 'mkdir -p /var/www/sat20.org'
+          rsync -avz --delete -e "ssh -p $SERVER_PORT" ./dist/ "$SERVER_USER@$SERVER_IP:/var/www/sat20.org/" --exclude .git --exclude .github

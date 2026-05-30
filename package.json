@@ -15,6 +15,7 @@
         "predev": "node --check vite.config.js",
         "sync:pwa": "node scripts/sync-pwa-dist.cjs",
         "build:with-pwa": "npm run build && npm run sync:pwa",
+        "deploy:manual": "bash scripts/deploy-manual.sh",
         "css-coverage": "node --no-warnings ./scripts/css-coverage.cjs --component",
         "extract:whitepaper": "node scripts/extract-whitepaper.js",
         "gen:whitepaper:en": "node scripts/gen-whitepaper-en.js",
