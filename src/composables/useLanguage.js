@@ -3,7 +3,16 @@ import { useI18n } from 'vue-i18n';
 
 export function useLanguage() {
   const { locale } = useI18n();
-  const currentLang = ref(localStorage.getItem('language') || 'zh');
+  const detectLocale = () => {
+    const saved = localStorage.getItem('language');
+    if (saved === 'zh' || saved === 'en') {
+      return saved;
+    }
+    const systemLang = (navigator.language || '').toLowerCase();
+    return systemLang.startsWith('zh') ? 'zh' : 'en';
+  };
+
+  const currentLang = ref(detectLocale());
 
   const switchLanguage = (lang) => {
     currentLang.value = lang;

@@ -1,5 +1,5 @@
 <template>
-  <section class="ecosystem" id="eco">
+  <section class="ecosystem" id="community">
     <div class="container">
       <h2 class="section-title gradient-text">{{ t('home.ecosystem.title') }}</h2>      
       

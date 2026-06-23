@@ -1,5 +1,5 @@
 <template>
-  <section class="satonet-section">
+  <section class="satonet-section" id="stack">
     <div class="container">
       <!-- 技术架构 -->
       <div class="architecture">

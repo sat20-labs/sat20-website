@@ -20,19 +20,20 @@ export default {
 
   // ==================== 导航菜单 ====================
   nav: {
-    home: '首 页',
-    tech: '技 术',
-    satnet: '聪 网',
-    eco: '生 态',
-    roadmap: '路 线',
+    home: '首页',
+    network: '网络',
+    stack: '体系',
+    community: '参与者',
+    builders: '开发者',
+    roadmap: '路线图',
     docs: '文档'
   },
 
   // ==================== 角色导航 ====================
   roles: {
+    wallet: '钱包',
     explorer: '浏览器',
-    developer: '开发者',
-    user: '用户'
+    github: 'GitHub'
   },
 
   // ==================== 菜单分类 ====================
@@ -47,17 +48,19 @@ export default {
 
   // ==================== 底部 ====================
   footer: {
-    info: '欢迎来到SAT20Labs，共建去中心化的未来',
-    product: '产品',
-    developers: '开发者',
+    info: 'SAT20 围绕统一索引、STP 通道、聪网执行层、自托管钱包与面向 AI 的接口，构建开放的比特币原生基础设施。',
+    product: '入口',
+    developers: '协议',
     services: '服务',
     home: '首页',
     tech: '技术',
     satnet: '聪网',
     community: '社区',
-    whitepaper: '白皮书',
+    whitepaper: '文档总览',
     docs: '文档',
     api: 'API',
+    wallet: '钱包',
+    stp: 'STP 白皮书',
     github: 'GitHub',
     market: '市场',
     explorer: '浏览器',
@@ -72,174 +75,175 @@ export default {
 
   // ==================== 首页 ====================
   home: {
-    hero: {//hero组件
-      mainTitle: '一聪一世界',
-      subTitle: 'BTC原生资产发行与流通',
-      features: [
-        {
-          text: '无需分割，',
-          accent: '100%非托管！'
-        },
-        {
-          text: '我们的',
-          accent: '"部分订单簿"',
-          suffix: '允许用户自由挂单任意数量。'
-        },
-        {
-          text: '不再有复杂的分割，只需',
-          accent: '随时交易。'
-        }
-      ],
-      description: 'SAT20Labs专注于BTC生态资产发行与流通基础设施，核心技术包括SAT20协议与聪网，聪网结合了闪电通道与比特币平行网络，支持Ordinals、Runes、OrdX、BRC20 等多种协议资产，实现秒级确认与超低手续费。让用户享受资产的无缝兼容与即时交易体验。',
-      downloadWhitepaper: '下载白皮书',
+    hero: {
+      mainTitle: '开放的比特币原生执行网络',
+      subTitle: '让比特币原生资产在 Bitcoin 与 SatoshiNet 之间流动，同时资产控制权始终留在用户手里。',
+      features: [],
+      description: 'SatoshiNet 将 STP 通道、统一索引、执行基础设施与自托管钱包接口组合成一套开放网络。社区、运营者、开发者与 AI Agent 可以自己验证退出路径、检查状态，并在不依赖封闭平台托管的前提下使用这套网络。',
+      downloadWhitepaper: '阅读文档',
       tryTestnet: '体验测试网',
-      downloadWallet: '下载钱包',
+      downloadWallet: '安装扩展钱包',
+      downloadWalletSub: 'Chrome 应用商店',
       installPwaWallet: '安装 PWA 钱包',
     },
-    features: {//核心功能组件
-      title: '核心特性',
+    features: {
+      title: '这套网络为什么重要',
       items: [
         {
-          title: '聪本位资产',
-          description: '资产绑定聪，不可销毁、自由流动'
+          title: '比特币原生控制权',
+          description: '客户端自己持有钱包密钥、通道状态、承诺交易历史与退出路径。'
         },
         {
-          title: '原生二层网络',
-          description: '基于闪电通道+BTC平行网络SatoshiNet'
+          title: '统一资产入口',
+          description: '通过同一套索引语义观察 Ordinals、ORDX、BRC-20、Runes 与相关 UTXO 状态。'
         },
         {
-          title: '全资产兼容',
-          description: '支持Ordinals、OrdX、Runes、BRC20等协议'
+          title: '开放的 Core Node 接入',
+          description: '钱包与社区通过 STP 连接 Core Node，而不是依赖一个专有桥接账户。'
         },
         {
-          title: '智能合约支持',
-          description: '模板化合约及图灵完备脚本（OP_CAT）'
+          title: '可执行的网络层',
+          description: '资产进入网络后，可以继续由聪网节点、合约与 GAS 驱动的执行层协同行动。'
         },
         {
-          title: '超低费用',
-          description: '10聪/交易，秒级确认'
+          title: '面向 AI 的操作接口',
+          description: '钱包 API 与 skills 可以把余额、承诺交易、通道恢复与资产流转暴露给用户控制的 Agent。'
         }
       ]
     },
-    satoshinet: {//聪网组件
-      title: "聪网",
-      subtitle: "新一代区块链基础设施",
-      description: "SAT20的底层网络基础设施",
+    satoshinet: {
+      title: "社区可拥有的网络体系",
+      subtitle: "四层结构把比特币原生资产变成一套开放执行网络。",
+      description: "这套网络从设计上就应该被社区运行、验证与扩展，而不是被隐藏在单一服务之后。",
       architecture: {
         title: "技术架构",
         description: "聪网采用创新的多层架构设计",
-        feature1: "原生比特币网络集成",
-        feature2: "闪电网络二层扩展",
-        feature3: "安全多资产支持",
-        feature4: "去中心化基础设施",
+        feature1: "L1 Indexer：统一表达比特币原生资产与链上来源",
+        feature2: "STP 通道：负责进入、退出、lock、unlock 与 splicing",
+        feature3: "Core Node 与合约：负责聪网内部执行与结算",
+        feature4: "钱包与 Agent 接口：让人和 AI 在同一套安全模型下操作",
         layers: {
           title: "网络层次",
           items: [
             {
-              name: "共识层",
-              description: "基于比特币网络，继承其安全性"
+              name: "资产层",
+              description: "索引 UTXO、资产余额、协议元数据，以及面向 Bitcoin 的来源关系。"
             },
             {
-              name: "网络层",
-              description: "P2P网络通信和数据同步"
+              name: "通道层",
+              description: "通过 STP 让资产可验证地进入和退出网络，并保留可恢复的通道状态。"
             },
             {
-              name: "协议层",
-              description: "资产发行和交易规则"
+              name: "执行层",
+              description: "在资产进入聪网后，由 Core Node、合约与网络规则继续执行。"
             },
             {
-              name: "应用层",
-              description: "DApp开发接口和工具"
+              name: "接口层",
+              description: "通过钱包、浏览器、文档和 skills 暴露给人类用户与 AI Agent。"
             }
           ]
         }
       },
       compatibility: {
-        title: "兼容协议",
-        protocols: ["Ordinals", "BRC20", "Runes", "OrdX"]
+        title: "支持的比特币原生协议",
+        protocols: ["Ordinals", "ORDX", "BRC20", "Runes"]
       },
       assetTypes: {
-        title: "支持的资产类型",
+        title: "网络对外暴露的核心对象",
         types: {
           ft: {
-            title: 'Fungible Token',
-            description: '同质化通证，可互换资产',
+            title: '同质化资产',
+            description: '包括 Runes、BRC-20、ORDX FT 以及其他以余额为中心的资产视图。',
             imgurl: '/images/assetstype/ft.png'
           },
           nft: {
-            title: 'Non-Fungible Token',
-            description: '非同质化通证，独特资产',
+            title: 'Ordinal 资产',
+            description: '以 UTXO 所有权为核心的 Ordinal 与铭文类资产。',
             imgurl: '/images/assetstype/nft.png'
           },
           sft: {
-            title: 'Semi-Fungible Token',
-            description: '半同质化通证，批量资产',
+            title: '通道状态',
+            description: '包括 open、splice、expand、lock、unlock 与可恢复的通道位置。',
             imgurl: '/images/assetstype/sft.png'
           },
           did: {
-            title: 'Decentralized Identity',
-            description: '去中心化身份标识',
+            title: '执行状态',
+            description: '资产进入聪网后形成的 L2 余额、合约状态与节点索引结果。',
             imgurl: '/images/assetstype/did.png'
           }
         }
       }
     },
-    ecosystem: {//生态系统组件
-      title: '生态系统',
+    ecosystem: {
+      title: '谁可以加入这套网络',
       applications: {
-        title: '应用场景',
+        title: '社区栈',
         items: [
           {
-            title: 'DeFi应用',
-            description: '去中心化金融服务，包括借贷、交易、质押等'
+            title: '比特币社区',
+            description: '把已有资产、用户与运营信任，带进一套可验证的执行环境。'
           },
           {
-            title: 'NFT市场',
-            description: '数字艺术品、收藏品的发行和交易平台'
+            title: '钱包与交易平台',
+            description: '通过统一索引与钱包模型支持比特币原生资产，而不是维护多套孤立适配器。'
           },
           {
-            title: 'Dapps与GameFi',
-            description: '基于区块链的应用、游戏和元宇宙'
+            title: '开发者与节点运营者',
+            description: '在同一套网络语义之上运行节点、索引器、合约与应用。'
           }
         ]
       },
-      partners: {//合作伙伴组件
-        title: '合作伙伴',
+      partners: {
+        title: '参与方式',
         items: [
           {
-            title: '应用开发者',
-            description: '提供开发者资助计划和黑客松活动'
+            title: '运行核心基础设施',
+            description: '部署 Core Node 与 L1/L2 Indexer，服务自己的用户与应用。'
           },
           {
-            title: '基础设施',
-            description: '索引器和节点服务提供商'
+            title: '构建合约与 Agent 流程',
+            description: '围绕钱包、协议和执行层接口，构建真正可操作的网络动作。'
           },
           {
-            title: '战略合作伙伴',
-            description: '生态应用集成和钱包集成'
+            title: '支持网络增长',
+            description: '贡献钱包、流动性、研究、教育、集成与运维工具。'
           }
         ]
-      },
-    },
-    developers: {//开发者中心组件
-      title: '开发者中心',
-      subtitle: '构建下一代区块链应用',
-      description: '使用SAT20协议开发创新应用和服务',
-      buttons: {
-        startDev: '开始开发',
-        viewDocs: '查看文档'
       }
     },
-    partners: {//合作伙伴组件
-      title: '合作伙伴',
-      description: '与行业领先的企业和组织携手共建比特币生态',
+    developers: {
+      title: '开发者与 AI Agent',
+      subtitle: '让开发者和 Agent 使用同一套可见、可验证的控制面。',
+      description: 'SAT20 Wallet、公开文档和可安装 skills 的目标，是让 Agent 可以检查余额、管理通道、验证承诺交易，并在用户密钥控制下移动资产，而不是依赖隐藏托管。',
+      buttons: {
+        startDev: '阅读文档',
+        viewDocs: '打开 GitHub'
+      },
+      codeFileName: 'agent-wallet.ts',
+      codeSnippet: `const wallet = await sat20.wallet.connect({
+  mode: 'pwa',
+  network: 'mainnet'
+});
+
+const summary = await wallet.summary();
+const channel = await wallet.channelStatus();
+const commitments = await wallet.exportCommitments();
+
+console.log({
+  l1: summary.l1,
+  l2: summary.l2,
+  channel: channel.status,
+  commitments: commitments.latestHeight
+});`
+    },
+    partners: {
+      title: '开放入口',
+      description: '通过公开文档、自托管钱包界面与实时浏览器进入这套网络。',
       items: [],
-      sat20market: '领先的比特币原生资产交易平台',
-      btcname: '去中心化比特币域名服务',
-      morego: '创新的SocialFi,GameFi应用',
-      unisat: '流行的比特币钱包和铭文平台',
-      okx: '全球领先的数字资产交易所',
-      magiceden: '领先的NFT市场和生态系统'
+      docs: '为开发者、运营者与社区成员提供协议、架构与接入参考。',
+      wallet: '安装 PWA 钱包，在同一个客户端界面管理 Bitcoin 与聪网资产。',
+      explorer: '检查 L1/L2 交易、资产状态与公开网络数据。',
+      visit: '打开'
     }
   },
 
@@ -605,9 +609,9 @@ export default {
 
   // ==================== 路线图页面 ====================
   roadmap: {
-    title: '技术路线图',
-    subtitle: 'SAT20技术路线图',
-    description: 'SAT20是我们构建BTC生态的起点，推动BTC资产发行、流通与扩展。我们致力于打造BTC价值网络，让一聪一世界成为现实！',
+    title: '路线图',
+    subtitle: '从比特币原生资产接入，到开放执行网络基础设施',
+    description: 'SAT20 正在形成一套完整网络栈：统一索引、STP 通道、可执行的 Core Node、自托管钱包界面，以及面向 Agent 的操作接口。',
     status: {
       completed: '已完成',
       inProgress: '进行中',
@@ -621,42 +625,42 @@ export default {
     phases: {
       phase1: {
         date: '2024 Q2',
-        title: 'ORDX协议开发完成',
+        title: '资产语义与基础设施底座',
         items: [
-          'ORDX协议规范定稿',
-          '完成核心功能开发',
-          '测试网部署验证',
-          'ORDX协议上线主网'
+          '逐步明确 ORDX 与比特币原生资产语义',
+          '建立 L1 索引与钱包基础能力',
+          '稳定资产可见性与来源追踪模型',
+          '形成主网运行所需的底层假设'
         ]
       },
       phase2: {
         date: '2024 Q4',
-        title: '逐步开源',
+        title: '开放文档与工具体系',
         items: [
-          '索引器模块开源',
-          '钱包模块开源',
-          '开发者文档发布',
-          '社区贡献指南'
+          '核心仓库逐步开源',
+          '重构文档结构与对外术语',
+          '让钱包与节点工作流更可检查',
+          '为外部开发者准备稳定的参与路径'
         ]
       },
       phase3: {
         date: '2025 Q1',
-        title: 'STP流通协议上线',
+        title: 'STP 与 Core Node 接入',
         items: [
-          'STP协议正式发布',
-          '动态通道容量调整功能',
-          '流动性池协议集成',
-          '多链互操作支持'
+          '对外明确 STP 通道生命周期与恢复能力',
+          '稳定 open、close、splice、lock、unlock 等流程',
+          '形成第三方客户端接入 Core Node 的方式',
+          '让自托管安全证据可以被 Agent 理解与验证'
         ]
       },
       phase4: {
         date: '2025 Q2',
-        title: 'SatoshiNet主网启动',
+        title: '执行层、合约与 GAS',
         items: [
-          'SatoshiNet主网上线',
-          'SatSwap/DEX启动',
-          '生态应用部署',
-          '社区治理开启'
+          '围绕 Core Node 完善聪网执行层',
+          '把合约路径与 GAS 语义逐步公开化',
+          '让钱包、浏览器与 skills 汇聚到统一网络视图',
+          '支持更多社区端到端拥有自己的整套基础设施'
         ]
       },
       future: {

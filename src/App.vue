@@ -1,7 +1,5 @@
 <template>
   <div id="app" :data-theme="theme">
-    <ParticlesBg v-if="$route.name === 'home'" />
-    <Header />
     <main>
       <router-view v-slot="{ Component }">
         <transition name="page-fade" mode="out-in">
@@ -9,7 +7,6 @@
         </transition>
       </router-view>
     </main>
-    <Footer />
   </div>
 </template>
 
@@ -17,9 +14,6 @@
 import { watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useTheme } from '@/composables/useTheme';
-import Header from '@/components/layout/Header.vue';
-import Footer from '@/components/layout/Footer.vue';
-import ParticlesBg from '@/components/common/ParticlesBg.vue';
 
 const { theme } = useTheme();
 const { locale } = useI18n();

@@ -24,8 +24,8 @@
             <h3>{{ $t('footer.product') }}</h3>
             <ul>
               <li><router-link to="/">{{ $t('nav.home') }}</router-link></li>
-              <li><router-link to="/tech">{{ $t('nav.tech') }}</router-link></li>
-              <li><router-link to="/satnet">{{ $t('nav.satnet') }}</router-link></li>
+              <li><a :href="locale === 'en' ? 'https://docs.sat20.org/english' : 'https://docs.sat20.org'" target="_blank" rel="noopener noreferrer">{{ $t('footer.docs') }}</a></li>
+              <li><a href="/pwa/?install=1">{{ $t('footer.wallet') }}</a></li>
             </ul>
           </div>
 
@@ -33,7 +33,7 @@
             <h3>{{ $t('footer.developers') }}</h3>
             <ul>
               <li><a :href="locale === 'en' ? 'https://docs.sat20.org/english' : 'https://docs.sat20.org'" target="_blank" rel="noopener noreferrer">{{ $t('footer.whitepaper') }}</a></li>
-              <li><router-link to="/docs/api_reference">{{ $t('footer.api') }}</router-link></li>
+              <li><a :href="locale === 'en' ? 'https://docs.sat20.org/english/protocol/stp/' : 'https://docs.sat20.org/protocol/stp/'" target="_blank" rel="noopener noreferrer">{{ $t('footer.stp') }}</a></li>
               <li><a href="https://github.com/sat20-labs/" target="_blank" rel="noopener noreferrer">{{ $t('footer.github') }}</a></li>
             </ul>
           </div>
@@ -41,8 +41,8 @@
           <div class="footer-section">
             <h3>{{ $t('footer.community') }}</h3>
             <ul>
-              <li><router-link to="/eco">{{ $t('nav.eco') }}</router-link></li>
-              <li><a href="https://ordx.market" target="_blank" rel="noopener noreferrer">{{ $t('footer.market') }}</a></li>
+              <li><a href="https://x.com/SAT20Labs" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
+              <li><a href="https://t.me/ordxnals" target="_blank" rel="noopener noreferrer">Telegram</a></li>
               <li><a href="https://mainnet.sat20.org/browser/app/#/explorer" target="_blank" rel="noopener noreferrer">{{ $t('footer.explorer') }}</a></li>
             </ul>
           </div>

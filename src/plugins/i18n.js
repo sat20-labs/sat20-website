@@ -7,13 +7,20 @@ if (import.meta.env.DEV) {
   console.log('Loading language packs:', { en, zh });
 }
 
-// 获取当前语言
-const currentLang = localStorage.getItem('language') || 'en';
+const detectLocale = () => {
+  const saved = localStorage.getItem('language');
+  if (saved === 'zh' || saved === 'en') {
+    return saved;
+  }
+
+  const systemLang = (navigator.language || '').toLowerCase();
+  return systemLang.startsWith('zh') ? 'zh' : 'en';
+};
 
 // 创建i18n实例
 const i18n = createI18n({
   legacy: false,
-  locale: currentLang,
+  locale: detectLocale(),
   globalInjection: true,
   messages: {
     en,

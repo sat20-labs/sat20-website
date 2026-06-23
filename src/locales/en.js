@@ -21,18 +21,19 @@ export default {
   // ==================== Navigation ====================
   nav: {
     home: 'Home',
-    tech: 'Tech',
-    satnet: 'SatsNet',
-    eco: 'Eco',
+    network: 'Network',
+    stack: 'Stack',
+    community: 'Community',
+    builders: 'Builders',
     roadmap: 'Roadmap',
     docs: 'Docs'
   },
 
   // ==================== Roles ====================
   roles: {
+    wallet: 'Wallet',
     explorer: 'Explorer',
-    developer: 'Developer',
-    user: 'User'
+    github: 'GitHub'
   },
 
   // ==================== Menu Categories ====================
@@ -47,17 +48,19 @@ export default {
 
   // ==================== Footer ====================
   footer: {
-    info: 'Welcome to SAT20Labs, building a decentralized future together',
-    product: 'Product',
-    developers: 'Developers',
+    info: 'SAT20 builds open Bitcoin-native infrastructure across indexing, STP channels, SatoshiNet execution, wallet surfaces, and AI-ready tooling.',
+    product: 'Access',
+    developers: 'Protocol',
     services: 'Services',
     home: 'Home',
     tech: 'Technology',
     satnet: 'SatoshiNet',
     community: 'Community',
-    whitepaper: 'Whitepaper',
+    whitepaper: 'Docs',
     docs: 'Documentation',
     api: 'API',
+    wallet: 'Wallet',
+    stp: 'STP Whitepaper',
     github: 'GitHub',
     market: 'Market',
     explorer: 'Explorer',
@@ -71,179 +74,180 @@ export default {
 
   // ==================== Homepage ====================
   home: {
-    hero: {//Hero Component
-      mainTitle: 'One Satoshi, One World',
-      subTitle: 'BTC Native Asset Issuance and Circulation',
-      features: [
-        {
-          text: 'No splitting, ',
-          accent: '100% Non-custodial!'
-        },
-        {
-          text: 'Our ',
-          accent: '"Partial Order Book"',
-          suffix: ' allows users to place orders of any amount freely.'
-        },
-        {
-          text: 'No more complex splitting, just ',
-          accent: 'trade anytime.'
-        }
-      ],
-      description: 'SAT20Labs focuses on BTC ecosystem asset issuance and circulation infrastructure, with core technologies including the SAT20 protocol and SatoshiNet. SatoshiNet integrates Lightning channels and the Bitcoin parallel network, supporting Ordinals, Runes, OrdX, BRC20, and other protocol assets, enabling second-level confirmation and ultra-low fees. Users can enjoy seamless asset compatibility and instant trading experiences.',
-      downloadWhitepaper: 'Download Whitepaper',
+    hero: {
+      mainTitle: 'Open Bitcoin-Native Execution Network',
+      subTitle: 'Move Bitcoin-native assets between Bitcoin and SatoshiNet without giving up control.',
+      features: [],
+      description: 'SatoshiNet combines STP channels, unified indexing, execution infrastructure, and self-custodial wallet surfaces into an open network stack. Communities, operators, builders, and AI agents can verify exits, inspect state, and keep asset control visible instead of trusting a closed platform.',
+      downloadWhitepaper: 'Read Documentation',
       tryTestnet: 'Try Testnet',
-      downloadWallet: 'Download Wallet',
+      downloadWallet: 'Install Extension',
+      downloadWalletSub: 'Chrome Web Store',
       installPwaWallet: 'Install PWA Wallet',
     },
-    features: {//Core Features Component
-      title: 'Core Features',
+    features: {
+      title: 'Why This Stack Matters',
       items: [
         {
-          title: 'Satoshi-based Assets',
-          description: 'Assets bound to satoshis, non-destructible and freely flowing'
+          title: 'Bitcoin-Native Control',
+          description: 'Clients keep wallet keys, channel state, commitment history, and exit paths in their own hands.'
         },
         {
-          title: 'Native Layer 2 Network',
-          description: 'Based on Lightning channels + BTC parallel network SatoshiNet'
+          title: 'Unified Asset Entry',
+          description: 'One indexer view can surface Ordinals, ORDX, BRC-20, Runes, and related UTXO state with shared semantics.'
         },
         {
-          title: 'Full Asset Compatibility',
-          description: 'Support for Ordinals, OrdX, Runes, BRC20 and other protocols'
+          title: 'Open Core-Node Access',
+          description: 'Wallets and communities connect to core nodes over STP instead of depending on a proprietary bridge account.'
         },
         {
-          title: 'Smart Contract Support',
-          description: 'Templated contracts and Turing-complete scripts (OP_CAT)'
+          title: 'Execution-Ready Network',
+          description: 'Once assets enter the network, SatoshiNet nodes, contracts, and GAS-powered execution can coordinate further actions.'
         },
         {
-          title: 'Ultra-low Fees',
-          description: '10 sats/transaction, second-level confirmation'
+          title: 'AI-Ready Operations',
+          description: 'Wallet APIs and skills can expose balances, commitments, channel recovery, and asset movement to user-controlled agents.'
         }
       ]
     },
-    satoshinet: {//SatoshiNet Component
-      title: "SatoshiNet",
-      subtitle: "Next Generation Blockchain Infrastructure",
-      description: "The underlying network infrastructure of SAT20",
+    satoshinet: {
+      title: "Community Stack",
+      subtitle: "Four layers turn Bitcoin-native assets into an open execution network.",
+      description: "The stack is designed to be operated, verified, and extended by communities instead of hidden behind one service.",
       architecture: {
         title: "Technical Architecture",
         description: "SatoshiNet adopts an innovative multi-layer architecture design",
-        feature1: "Native Bitcoin Network Integration",
-        feature2: "Lightning Network Layer 2 Extension",
-        feature3: "Secure Multi-Asset Support",
-        feature4: "Decentralized Infrastructure",
+        feature1: "L1 Indexer: a unified asset view for Bitcoin-native protocols",
+        feature2: "STP Channels: verifiable ingress, egress, lock, unlock, and splicing",
+        feature3: "Core Nodes and Contracts: execution and settlement inside SatoshiNet",
+        feature4: "Wallet and Agent Surfaces: human and AI control on the same safety model",
         layers: {
           title: "Network Layers",
           items: [
             {
-              name: "Consensus Layer",
-              description: "Based on Bitcoin network, inheriting its security"
+              name: "Asset Layer",
+              description: "Indexes UTXOs, asset balances, protocol metadata, and Bitcoin-facing provenance."
             },
             {
-              name: "Network Layer",
-              description: "P2P network communication and data synchronization"
+              name: "Channel Layer",
+              description: "Moves assets into and out of the network through STP with recoverable channel state."
             },
             {
-              name: "Protocol Layer",
-              description: "Asset issuance and transaction rules"
+              name: "Execution Layer",
+              description: "Runs core nodes, contracts, and network rules once assets are in SatoshiNet."
             },
             {
-              name: "Application Layer",
-              description: "DApp development interfaces and tools"
+              name: "Interface Layer",
+              description: "Exposes wallet, explorer, docs, and skills for direct human or agent use."
             }
           ]
         }
       },
       compatibility: {
-        title: "Supported Protocols",
+        title: "Supported Bitcoin-Native Protocols",
         protocols: [
           "Ordinals",
+          "ORDX",
           "BRC20",
-          "Runes",
-          "OrdX"
+          "Runes"
         ]
       },
       assetTypes: {
-        title: "Supported Asset Types",
+        title: "What The Network Exposes",
         types: {
           ft: {
-            title: 'Fungible Token',
-            description: 'Interchangeable assets',
+            title: 'Fungible Assets',
+            description: 'Runes, BRC-20, ORDX fungible views, and other balance-oriented assets.',
             imgurl: '/images/assetstype/ft.png'
           },
           nft: {
-            title: 'Non-Fungible Token',
-            description: 'Unique digital assets',
+            title: 'Ordinal Assets',
+            description: 'Ordinal and inscription-style assets tracked by UTXO ownership.',
             imgurl: '/images/assetstype/nft.png'
           },
           sft: {
-            title: 'Semi-Fungible Token',
-            description: 'Batch assets',
+            title: 'Channel Positions',
+            description: 'Open, splice, expand, lock, unlock, and recoverable channel state.',
             imgurl: '/images/assetstype/sft.png'
           },
           did: {
-            title: 'Decentralized Identity',
-            description: 'Decentralized identity system',
+            title: 'Execution State',
+            description: 'L2 balances, contracts, and node-indexed network state once assets enter SatoshiNet.',
             imgurl: '/images/assetstype/did.png'
           }
         }
       }
     },
-    ecosystem: {//Ecosystem Component
-      title: 'Ecosystem',
+    ecosystem: {
+      title: 'Who Can Join',
       applications: {
-        title: 'Applications',
+        title: 'Community Stack',
         items: [
           {
-            title: 'DeFi Applications',
-            description: 'Decentralized financial services including lending, trading, and staking'
+            title: 'Bitcoin Communities',
+            description: 'Bring existing assets, users, and operational trust into an execution environment they can inspect.'
           },
           {
-            title: 'NFT Marketplace',
-            description: 'Platform for issuing and trading digital art and collectibles'
+            title: 'Wallets and Exchanges',
+            description: 'Integrate one indexing and wallet model for Bitcoin-native assets instead of several isolated adapters.'
           },
           {
-            title: 'Dapps & GameFi',
-            description: 'Blockchain-based applications, games, and metaverse'
+            title: 'Builders and Operators',
+            description: 'Run nodes, indexers, contracts, and applications on top of shared network semantics.'
           }
         ]
       },
-      partners: {//Partners Component
-        title: 'Partners',
+      partners: {
+        title: 'Participation Paths',
         items: [
           {
-            title: 'Application Developers',
-            description: 'Developer grants program and hackathons'
+            title: 'Operate Core Infrastructure',
+            description: 'Run core nodes and L1/L2 indexers to serve your own users and applications.'
           },
           {
-            title: 'Infrastructure',
-            description: 'Indexer and node service providers'
+            title: 'Build Contract And Agent Flows',
+            description: 'Target the wallet, protocol, and execution surfaces that expose real network actions.'
           },
           {
-            title: 'Strategic Partners',
-            description: 'Ecosystem app integration and wallet integration'
+            title: 'Support Network Growth',
+            description: 'Contribute wallets, liquidity, research, education, integrations, and operational tooling.'
           }
         ]
       }
     },
-    developers: {//Developer Center Component
-      title: 'Developer Center',
-      subtitle: 'Build Next-gen Blockchain Applications',
-      description: 'Use SAT20 protocol to develop innovative applications',
+    developers: {
+      title: 'Builders And AI Agents',
+      subtitle: 'Give developers and agents the same visible control surface.',
+      description: 'SAT20 Wallet, public docs, and installable skills are being shaped so an agent can inspect balances, manage channels, verify commitments, and move assets with user-controlled keys instead of hidden custody.',
       buttons: {
-        startDev: 'Start Development',
-        viewDocs: 'View Documentation'
-      }
+        startDev: 'Read Documentation',
+        viewDocs: 'Open GitHub'
+      },
+      codeFileName: 'agent-wallet.ts',
+      codeSnippet: `const wallet = await sat20.wallet.connect({
+  mode: 'pwa',
+  network: 'mainnet'
+});
+
+const summary = await wallet.summary();
+const channel = await wallet.channelStatus();
+const commitments = await wallet.exportCommitments();
+
+console.log({
+  l1: summary.l1,
+  l2: summary.l2,
+  channel: channel.status,
+  commitments: commitments.latestHeight
+});`
     },
-    partners: {//Partners Component
-      title: 'Partners',
-      description: 'Building the Bitcoin ecosystem together with industry-leading enterprises and organizations',
+    partners: {
+      title: 'Open Entry Points',
+      description: 'Use the network through public documentation, self-custodial wallet surfaces, and live explorers.',
       items: [],
-      sat20market: 'Leading Bitcoin native asset trading platform',
-      btcname: 'Decentralized Bitcoin domain name service',
-      morego: 'Innovative SocialFi and GameFi applications',
-      unisat: 'Popular Bitcoin wallet and inscription platform',
-      okx: 'Global leading digital asset exchange',
-      magiceden: 'Leading NFT marketplace and ecosystem'
+      docs: 'Protocol, architecture, and integration references for builders, operators, and communities.',
+      wallet: 'Install the PWA wallet and operate Bitcoin and SatoshiNet assets from one client surface.',
+      explorer: 'Inspect L1 and L2 activity, indexed asset state, and public network data.',
+      visit: 'Open'
     }
   },
 
@@ -609,9 +613,9 @@ export default {
 
   // ==================== Roadmap Page ====================
   roadmap: {
-    title: 'Technology Roadmap',
-    subtitle: 'SAT20 Technology Roadmap',
-    description: 'SAT20 is the starting point for building the BTC ecosystem, driving BTC asset issuance, circulation, and expansion. We are committed to creating a BTC value network, making One Satoshi, One World a reality!',
+    title: 'Roadmap',
+    subtitle: 'From Bitcoin-native asset access to open execution infrastructure',
+    description: 'SAT20 is being shaped as a network stack: unified indexing, STP channels, execution-capable core nodes, wallet surfaces, and agent-ready interfaces.',
     status: {
       completed: 'Completed',
       inProgress: 'In Progress',
@@ -625,42 +629,42 @@ export default {
     phases: {
       phase1: {
         date: '2024 Q2',
-        title: 'ORDX Protocol Development Completed',
+        title: 'Asset Semantics And Base Infrastructure',
         items: [
-          'ORDX Protocol Standard Draft',
-          'Core Function Development',
-          'Test Net Deployment Verification',
-          'ORDX Protocol Online Main Net'
+          'ORDX and Bitcoin-native asset semantics refined',
+          'L1 indexing and wallet foundations established',
+          'Asset visibility and provenance model stabilized',
+          'Mainnet-facing operating assumptions clarified'
         ]
       },
       phase2: {
         date: '2024 Q4',
-        title: 'Step-by-Step Open Source',
+        title: 'Open Documentation And Tooling',
         items: [
-          'Index Module Open Source',
-          'Wallet Module Open Source',
-          'Developer Documentation Release',
-          'Community Contribution Guide'
+          'Core repositories progressively opened',
+          'Documentation and terminology reorganized',
+          'Wallet and operator workflows made inspectable',
+          'Contributor paths prepared for external builders'
         ]
       },
       phase3: {
         date: '2025 Q1',
-        title: 'STP Protocol Launch',
+        title: 'STP And Core-Node Access',
         items: [
-          'STP Protocol Launch',
-          'Dynamic Channel Capacity Adjustment',
-          'Flow Pool Protocol Integration',
-          'Multi-chain Interoperability'
+          'STP channel lifecycle and recovery paths exposed',
+          'Open, close, splice, lock, and unlock flows stabilized',
+          'Core-node interaction model clarified for third-party clients',
+          'Self-custody safety evidence becomes agent-readable'
         ]
       },
       phase4: {
         date: '2025 Q2',
-        title: 'SatoshiNet MainNet Launch',
+        title: 'Execution Layer, Contracts, And GAS',
         items: [
-          'SatoshiNet Main Net Launch',
-          'SatSwap/DEX Launch',
-          'Ecosystem Deployment',
-          'Community Governance Start'
+          'SatoshiNet execution layer matures around core nodes',
+          'Contract paths and GAS semantics become public-facing',
+          'Wallets, explorers, and skills converge on one network view',
+          'More communities can operate their own stack end to end'
         ]
       },
       future: {

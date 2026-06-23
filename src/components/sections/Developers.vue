@@ -1,5 +1,5 @@
 <template>
-  <section class="developer-section">
+  <section class="developer-section" id="builders">
     <div class="container">
       <div class="content">
         <h2 class="title gradient-text">{{ title }}</h2>
@@ -25,25 +25,10 @@
               <span></span>
               <span></span>
             </div>
-            <span class="filename">example.js</span>
+            <span class="filename">{{ codeFileName }}</span>
           </div>
           <pre class="code-content">
-<code>import { ORDX } from '@sat20/ordx';
-
-// Initialize ORDX client
-const ordx = new ORDX({
-  network: 'testnet',
-  apiKey: process.env.API_KEY
-});
-
-// Create a new order
-const order = await ordx.createOrder({
-  tokenId: 'sat20_1234',
-  amount: 1000,
-  price: 0.01
-});
-
-console.log('Order created:', order.id);</code>
+<code>{{ codeSnippet }}</code>
           </pre>
         </div>
       </div>
@@ -53,12 +38,10 @@ console.log('Order created:', order.id);</code>
 
 <script setup>
 import { computed } from 'vue';
-import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import BaseButton from '@/components/base/BaseButton.vue';
 
-const router = useRouter();
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 // 使用computed属性来处理翻译
 const title = computed(() => t('home.developers.title'));
@@ -66,13 +49,16 @@ const subtitle = computed(() => t('home.developers.subtitle'));
 const description = computed(() => t('home.developers.description'));
 const startDevText = computed(() => t('home.developers.buttons.startDev'));
 const viewDocsText = computed(() => t('home.developers.buttons.viewDocs'));
+const codeFileName = computed(() => t('home.developers.codeFileName'));
+const codeSnippet = computed(() => t('home.developers.codeSnippet'));
 
 const goToDevelopers = () => {
-  router.push('/developers');
+  const docsUrl = locale.value === 'zh' ? 'https://docs.sat20.org' : 'https://docs.sat20.org/english';
+  window.open(docsUrl, '_blank', 'noopener,noreferrer');
 };
 
 const goToDocs = () => {
-  router.push('/docs/api_reference');
+  window.open('https://github.com/sat20-labs', '_blank', 'noopener,noreferrer');
 };
 </script>
 

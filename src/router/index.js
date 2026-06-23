@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import HomePage from '@/pages/HomePage.vue';
 
 const routes = [
@@ -7,72 +7,14 @@ const routes = [
     name: 'home',
     component: HomePage,
     meta: {
-      title: 'SAT20 - BTC原生资产发行与流动协议'
+      title: 'SAT20 - Open Bitcoin-Native Execution Network'
     }
   },
   { 
-    path: '/tech', 
-    name: 'tech',
-    component: () => import('@/pages/TechnologyPage.vue'),
+    path: '/:pathMatch(.*)*',
+    redirect: '/',
     meta: {
-      title: '技术 - SAT20'
-    }
-  },
-  { 
-    path: '/satnet', 
-    name: 'satnet',
-    component: () => import('@/pages/SatoshiNetPage.vue'),
-    meta: {
-      title: '聪网 - SAT20'
-    }
-  },
-  { 
-    path: '/eco', 
-    name: 'eco',
-    component: () => import('@/pages/TokenomicsPage.vue'),
-    meta: {
-      title: '生态 - SAT20'
-    }
-  },
-  { 
-    path: '/roadmap', 
-    name: 'roadmap',
-    component: () => import('@/pages/RoadmapPage.vue'),
-    meta: {
-      title: '路线图 - SAT20'
-    }
-  },
-  { 
-    path: '/developers', 
-    name: 'developers',  
-    component: () => import('@/pages/DevelopersPage.vue'),
-    meta: {
-      title: '开发者 - SAT20'
-    }
-  },
-  { 
-    path: '/investor', 
-    name: 'investor',
-    component: () => import('@/pages/InvestorPage.vue'),
-    meta: {
-      title: '投资者 - SAT20'
-    }
-  },
-  { 
-    path: '/user', 
-    name: 'user',
-    component: () => import('@/pages/UserPage.vue'),
-    meta: {
-      title: '用户指南 - SAT20'
-    }
-  },
-  { 
-    path: '/docs/:category', 
-    name: 'documentation',
-    component: () => import('@/pages/Documentation.vue'),
-    props: true,
-    meta: {
-      title: '文档 - SAT20'
+      title: 'SAT20 - Open Bitcoin-Native Execution Network'
     }
   }
 ];

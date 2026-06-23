@@ -1,5 +1,5 @@
 <template>
-  <section class="core-features" id="tech">
+  <section class="core-features" id="network">
     <div class="container">
       <h2 class="section-title gradient-text">{{ title }}</h2>
       <div class="features-grid">

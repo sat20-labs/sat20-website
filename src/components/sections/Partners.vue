@@ -1,5 +1,5 @@
 <template>
-  <section class="partners-section">
+  <section class="partners-section" id="access">
     <h2 class="section-title">{{ title }}</h2>
     <p class="section-description">{{ description }}</p>
     <div class="partners-grid">
@@ -17,7 +17,7 @@
             <p>{{ partner.description }}</p>
           </div>
           <a :href="partner.url" target="_blank" class="partner-link">
-            <span class="link-text">访问</span>
+            <span class="link-text">{{ t('home.partners.visit') }}</span>
             <span class="link-icon">→</span>
           </a>
       </div>
@@ -29,49 +29,31 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 const title = computed(() => t('home.partners.title'));
 const description = computed(() => t('home.partners.description'));
 
 const partners = computed(() => ({
-  sat20market: {
-    name: 'SAT20Market',
-    description: t('home.partners.sat20market'),
-    logo: '/images/partners/sat20market.png',
-    url: 'https://ordx.market',
+  docs: {
+    name: 'SAT20 Docs',
+    description: t('home.partners.docs'),
+    logo: '/favicon.png',
+    url: locale.value === 'zh' ? 'https://docs.sat20.org' : 'https://docs.sat20.org/english',
     highlight: true
   },
-  btcname: {
-    name: 'BTCName',
-    description: t('home.partners.btcname'),
-    logo: '/images/partners/btcname.png',
-    url: 'https://x.com/btcname_did'
+  wallet: {
+    name: 'SAT20 Wallet',
+    description: t('home.partners.wallet'),
+    logo: '/favicon.png',
+    url: '/pwa/?install=1'
   },
-  morego: {
-    name: 'Morego',
-    description: t('home.partners.morego'),
-    logo: '/images/partners/morego.png',
-    url: 'http://official.morego.io/'
-  },
-  // unisat: {
-  //   name: 'Unisat',
-  //   description: t('home.partners.unisat'),
-  //   logo: '/images/partners/unisat.png',
-  //   url: 'https://unisat.io'
-  // },
-  // okx: {
-  //   name: 'OKX',
-  //   description: t('home.partners.okx'),
-  //   logo: '/images/partners/okx.png',
-  //   url: 'https://www.okx.com'
-  // },
-  // magiceden: {
-  //   name: 'Magic Eden',
-  //   description: t('home.partners.magiceden'),
-  //   logo: '/images/partners/magiceden.png',
-  //   url: 'https://magiceden.io'
-  // }
+  explorer: {
+    name: 'Explorer',
+    description: t('home.partners.explorer'),
+    logo: '/favicon.png',
+    url: 'https://mainnet.sat20.org/browser/app/#/explorer'
+  }
 }));
 </script>
 

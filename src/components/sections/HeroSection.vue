@@ -1,5 +1,5 @@
 <template>
-  <section class="hero-section">
+  <section class="hero-section" id="hero">
     <div class="hero-content">
       <h1 class="main-title">
         {{ t('home.hero.mainTitle') }}
@@ -21,7 +21,7 @@
           <img src="/images/hero/google-play.svg" alt="Google Play" class="btn-icon" />
           <span class="lines">
             <span class="main">{{ t('home.hero.downloadWallet') }}</span>
-            <span class="sub">Google Play</span>
+            <span class="sub">{{ t('home.hero.downloadWalletSub') }}</span>
           </span>
         </BaseButton>
 
@@ -42,19 +42,8 @@ import BaseButton from '@/components/base/BaseButton.vue';
 const { t, locale } = useI18n();
 
 const downloadWhitepaper = () => {
-  // 根据当前语言选择对应的白皮书
-  const fileName = locale.value === 'zh' ? 'sat20_whitepaper_zh.pdf' : 'sat20_whitepaper_en.pdf';
-  const fileUrl = `/documents/whitepaper/${fileName}`;
-
-  // 创建一个隐藏的 a 标签来触发下载
-  const link = document.createElement('a');
-  link.href = fileUrl;
-  link.setAttribute('download', fileName);
-  link.setAttribute('target', '_blank');
-
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  const docsUrl = locale.value === 'zh' ? 'https://docs.sat20.org' : 'https://docs.sat20.org/english';
+  window.open(docsUrl, '_blank', 'noopener,noreferrer');
 };
 
 const googlePlayUrl = 'https://chromewebstore.google.com/detail/sat20-wallet/dfdlimjfgcjlgghagidokgkdgcdggpjm?hl=zh-CN&utm_source=ext_sidebar';

@@ -11,10 +11,16 @@
         <!-- Desktop Navigation -->
         <div class="desktop-nav">
           <div class="main-nav">
-            <router-link v-for="item in navItems" :key="item.key" :to="item.to" class="main-nav-link"
-              :class="{ 'active': isMainNavActive && route.path === item.to }">
+            <button
+              v-for="item in navItems"
+              :key="item.key"
+              type="button"
+              class="main-nav-link nav-button"
+              :class="{ 'active': route.path === '/' }"
+              @click="navigateToSection(item.section)"
+            >
               {{ t(`nav.${item.key}`) }}
-            </router-link>
+            </button>
           </div>
 
           <div class="role-switch">
@@ -74,15 +80,15 @@
                 <img src="@/assets/images/sat20-logo.png" alt="SAT20Labs" />
                 <span class="text-white text-lg sm:text-xl font-bold mb-1">SAT20Labs</span>
               </router-link>
-              <router-link 
-                v-for="item in navItems" 
-                :key="item.key" 
-                :to="item.to" 
+              <button
+                v-for="item in navItems"
+                :key="item.key"
+                type="button"
                 class="menu-item"
-                @click="closeMenu"
+                @click="navigateToSection(item.section)"
               >
                  {{ t(`nav.${item.key}`) }} 
-              </router-link>
+              </button>
             </div>
 
             <!-- Mobile Docs Menu -->
@@ -163,12 +169,10 @@
 <script setup>
 import { ref, computed, nextTick, onMounted, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useTheme } from '@/composables/useTheme';
 import { useRoute, useRouter } from 'vue-router';
 import i18n from '@/plugins/i18n';
 
 const { t, locale } = useI18n();
-const { theme, toggleTheme } = useTheme();
 const route = useRoute();
 const router = useRouter();
 
@@ -176,7 +180,6 @@ const isMenuOpen = ref(false);
 const currentRole = ref(null);
 const isDocsMenuOpen = ref(false);
 const showDocsMenu = ref(false);
-const activeDocItem = ref(null);
 
 const languages = [
   { key: 'zh', label: '中' },
@@ -184,17 +187,17 @@ const languages = [
 ];
 
 const navItems = [
-  { key: 'home', to: '/' },
-  { key: 'tech', to: '/tech' },
-  { key: 'satnet', to: '/satnet' },
-  { key: 'eco', to: '/eco' },
-  { key: 'roadmap', to: '/roadmap' }
+  { key: 'network', section: 'network' },
+  { key: 'stack', section: 'stack' },
+  { key: 'community', section: 'community' },
+  { key: 'builders', section: 'builders' },
+  { key: 'roadmap', section: 'roadmap' }
 ];
 
 const docItems = computed(() => [
-  { key: 'getting_started', to: '/docs/getting_started' },
-  { key: 'api_reference', to: '/docs/api_reference' },
-  { key: 'contributing', to: '/docs/contributing' },
+  { key: 'getting_started', to: locale.value === 'en' ? 'https://docs.sat20.org/english/' : 'https://docs.sat20.org/', external: true },
+  { key: 'api_reference', to: locale.value === 'en' ? 'https://docs.sat20.org/english/developers/api-and-sources/' : 'https://docs.sat20.org/developers/api-and-sources/', external: true },
+  { key: 'contributing', to: 'https://github.com/sat20-labs', external: true },
   { key: 'whitepaper', to: locale.value === 'en' ? 'https://docs.sat20.org/english' : 'https://docs.sat20.org', external: true }
 ]);
 
@@ -204,16 +207,44 @@ const explorerUrl = computed(() => {
 
 const roles = [
   {
+    key: 'wallet',
+    to: '/pwa/?install=1'
+  },
+  {
     key: 'explorer',
     to: explorerUrl
   },
-  { key: 'developer', to: '/developers' },
-  { key: 'user', to: '/user' }
+  { key: 'github', to: 'https://github.com/sat20-labs' }
 ];
 
 const isMainNavActive = computed(() => {
-  return navItems.some(item => route.path === item.to);
+  return route.path === '/';
 });
+
+const scrollToSection = (sectionId) => {
+  const element = document.getElementById(sectionId);
+  if (!element) {
+    return;
+  }
+
+  const headerOffset = 88;
+  const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+  window.scrollTo({
+    top: Math.max(elementPosition - headerOffset, 0),
+    behavior: 'smooth'
+  });
+};
+
+const navigateToSection = async (sectionId) => {
+  if (route.path !== '/') {
+    await router.push('/');
+    await nextTick();
+    setTimeout(() => scrollToSection(sectionId), 60);
+  } else {
+    scrollToSection(sectionId);
+  }
+  closeMenu();
+};
 
 const switchRole = (role) => {
   currentRole.value = role;
@@ -236,9 +267,7 @@ const closeMenu = () => {
 };
 
 const toggleMenu = () => {
-  //console.log('Toggle menu clicked, current:', isMenuOpen.value);
   isMenuOpen.value = !isMenuOpen.value;
-  //console.log('After toggle:', isMenuOpen.value);
 };
 
 const switchLang = async (lang) => {
@@ -258,51 +287,6 @@ const toggleDocsMenu = () => {
 
 const closeDocsMenu = () => {
   isDocsMenuOpen.value = false;
-};
-
-const handleDocClick = (item) => {
-  activeDocItem.value = item;
-  showDocsMenu.value = false;
-
-  // 处理导航
-  if (item.to) {
-    const [path, hash] = item.to.split('#');
-    router.push(path).then(() => {
-      if (hash) {
-        scrollToAnchor(hash);
-      }
-    });
-  }
-
-  closeMenu();
-};
-
-const handleSubmenuClick = (subitem) => {
-  showDocsMenu.value = false
-
-  // 解析URL和锚点
-  const [path, hash] = subitem.url.split('#')
-
-  // 如果已经在文档页面，直接滚动到锚点
-  if (router.currentRoute.value.path === path) {
-    scrollToAnchor(hash)
-  } else {
-    // 否则先导航到文档页面，然后滚动到锚点
-    router.push(path).then(() => {
-      setTimeout(() => scrollToAnchor(hash), 100)
-    })
-  }
-};
-
-const scrollToAnchor = (hash) => {
-  if (!hash) return
-  const element = document.getElementById(hash)
-  if (element) {
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    })
-  }
 };
 
 // 点击外部关闭菜单
@@ -339,10 +323,6 @@ const vClickOutside = {
   },
 };
 
-// 注册指令
-const directives = {
-  'click-outside': vClickOutside
-};
 </script>
 
 <style scoped>
@@ -412,6 +392,12 @@ const directives = {
   font-weight: 600;
   text-decoration: none;
   padding: 0.5rem 0;
+}
+
+.nav-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
 .main-nav-link::after {

@@ -1,7 +1,8 @@
 <template>
   <section class="roadmap-section" id="roadmap">
     <div class="container">
-      <!-- <h2 class="section-title gradient-text">{{ t('roadmap.title') }}</h2> -->
+      <h2 class="section-title gradient-text">{{ t('roadmap.title') }}</h2>
+      <p class="section-subtitle">{{ t('roadmap.subtitle') }}</p>
 
       <div class="timeline">
         <!-- 2024年 -->
@@ -110,7 +111,14 @@ const phases2025 = [
   font-size: 2.5rem;
   color: var(--text-primary);
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  max-width: 760px;
+  margin: 0 auto 3rem;
 }
 
 .timeline {
