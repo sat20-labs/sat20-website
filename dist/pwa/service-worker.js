@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sat20-wallet-pwa-v0.1.33-20260530T145112Z'
+const CACHE_NAME = 'sat20-wallet-pwa-v0.1.34-20260623T160035Z'
 const CACHE_PREFIX = 'sat20-wallet-pwa-'
 const APP_BASE = new URL(self.registration.scope).pathname.replace(/\/$/, '')
 const withBase = (path) => `${APP_BASE}${path}`
